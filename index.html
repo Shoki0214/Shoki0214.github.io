@@ -1,0 +1,718 @@
+
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CV — 庄 奇 (Qi Zhuang)</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "Segoe UI", system-ui, "Hiragino Sans", "Noto Sans JP", sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #1f2328;
+    background: #ffffff;
+    padding: 32px 16px 48px;
+  }
+  .page { max-width: 760px; margin: 0 auto; }
+
+  /* Header */
+  .header { border-bottom: 2px solid #3b82d4; padding-bottom: 20px; margin-bottom: 28px; }
+  .header-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; flex-wrap: wrap; }
+  .name-ja { font-size: 28px; font-weight: 700; color: #1f2328; letter-spacing: 0.05em; }
+  .name-en { font-size: 15px; color: #57606a; margin-top: 2px; }
+  .name-kana { font-size: 12px; color: #57606a; }
+  .contact-block { text-align: right; font-size: 13px; color: #57606a; line-height: 1.8; }
+  .contact-block a { color: #3b82d4; text-decoration: none; }
+  .tagline { margin-top: 14px; font-size: 13.5px; color: #3b3f45; background: #f7f8fa; border-left: 3px solid #3b82d4; padding: 10px 14px; border-radius: 0 4px 4px 0; }
+
+  /* Section */
+  .section { margin-bottom: 32px; }
+  .section-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #3b82d4; border-bottom: 1px solid #e5e7eb; padding-bottom: 4px; margin-bottom: 16px; }
+
+  /* PR */
+  .pr-text { color: #3b3f45; font-size: 13.5px; }
+  .pr-points { margin-top: 10px; padding-left: 0; list-style: none; }
+  .pr-points li { padding: 6px 0 6px 20px; position: relative; border-bottom: 1px solid #f0f0f0; font-size: 13.5px; }
+  .pr-points li::before { content: "▸"; position: absolute; left: 0; color: #3b82d4; font-size: 12px; top: 8px; }
+  .pr-points li strong { color: #1f2328; }
+
+  /* Job block */
+  .job { margin-bottom: 32px; }
+  .job-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; }
+  .job-company { font-size: 16px; font-weight: 700; color: #1f2328; }
+  .job-company a { color: #1f2328; text-decoration: none; }
+  .job-company a:hover { text-decoration: underline; }
+  .job-period { font-size: 12px; color: #57606a; white-space: nowrap; }
+  .job-role { font-size: 13.5px; font-weight: 600; color: #3b3f45; margin-top: 2px; }
+  .job-meta { font-size: 12px; color: #57606a; margin-bottom: 8px; }
+  .job-desc { font-size: 13px; color: #3b3f45; margin-bottom: 8px; }
+
+  .sub-role { background: #f7f8fa; border: 1px solid #e5e7eb; border-radius: 4px; padding: 10px 14px; margin-bottom: 10px; }
+  .sub-role-title { font-size: 13px; font-weight: 700; color: #3b3f45; margin-bottom: 2px; }
+  .sub-role-period { font-size: 11px; color: #57606a; margin-bottom: 6px; }
+  .sub-role-desc { font-size: 12.5px; color: #3b3f45; }
+
+  /* Outcomes */
+  .outcome-block { margin-top: 10px; }
+  .outcome-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #57606a; margin-bottom: 6px; margin-top: 14px; }
+  .outcome-highlight { background: #f0f6ff; border: 1px solid #c3d9f5; border-radius: 4px; padding: 8px 12px; font-size: 13px; color: #1e3a5f; margin-bottom: 8px; }
+
+  /* Project table */
+  .pj-section-label { font-size: 12.5px; font-weight: 700; color: #3b82d4; margin-top: 14px; margin-bottom: 4px; padding-bottom: 3px; border-bottom: 1px solid #dde6f5; }
+  .pj-card { border: 1px solid #e5e7eb; border-radius: 4px; margin-bottom: 8px; overflow: hidden; }
+  .pj-card-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; background: #f7f8fa; padding: 7px 12px; }
+  .pj-card-client { font-size: 13px; font-weight: 700; color: #1f2328; }
+  .pj-card-period { font-size: 11px; color: #57606a; white-space: nowrap; }
+  .pj-card-body { padding: 8px 12px; font-size: 12.5px; color: #3b3f45; }
+  .pj-card-body .pj-name { font-weight: 600; margin-bottom: 4px; color: #1f2328; }
+  .pj-card-body .pj-row { display: grid; grid-template-columns: 80px 1fr; gap: 2px 8px; margin-bottom: 3px; }
+  .pj-card-body .pj-lbl { color: #57606a; font-size: 11.5px; font-weight: 600; padding-top: 1px; }
+  .pj-card-body .pj-val { color: #3b3f45; }
+  .pj-card-body .pj-impact { margin-top: 5px; background: #f0f6ff; border-left: 3px solid #3b82d4; padding: 4px 8px; font-size: 12px; color: #1e3a5f; border-radius: 0 3px 3px 0; }
+  .stack-badges { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
+  .stack-badge { background: #f7f8fa; border: 1px solid #e5e7eb; border-radius: 10px; padding: 1px 8px; font-size: 11px; color: #3b3f45; }
+
+  /* Contrib list */
+  .contrib-list { list-style: none; padding: 0; }
+  .contrib-list li { padding: 4px 0 4px 16px; position: relative; font-size: 12.5px; color: #3b3f45; border-bottom: 1px solid #f7f8fa; }
+  .contrib-list li::before { content: "•"; position: absolute; left: 0; color: #7c5cd8; }
+
+  /* Badges */
+  .badge-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+  .badge { background: #f7f8fa; border: 1px solid #e5e7eb; border-radius: 12px; padding: 2px 10px; font-size: 11.5px; color: #3b3f45; }
+  .badge-blue { background: #ebf2fb; border-color: #c3d9f5; color: #1e4b8a; }
+  .badge-purple { background: #f3f0fb; border-color: #d4c8f5; color: #4a2e8a; }
+
+  /* Skills */
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 560px) { .skills-grid { grid-template-columns: 1fr; } .pj-card-body .pj-row { grid-template-columns: 1fr; } }
+  .skill-group-title { font-size: 12px; font-weight: 700; color: #57606a; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em; }
+
+  /* Education */
+  .edu-block { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px; }
+  .edu-school { font-size: 15px; font-weight: 700; color: #1f2328; }
+  .edu-period { font-size: 12px; color: #57606a; }
+  .edu-degree { font-size: 13px; color: #3b3f45; margin-top: 2px; margin-bottom: 6px; }
+  .edu-desc { font-size: 12.5px; color: #3b3f45; }
+
+  /* Certs */
+  .cert-list { list-style: none; padding: 0; }
+  .cert-list li { padding: 5px 0; border-bottom: 1px solid #f0f0f0; font-size: 13px; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; }
+  .cert-list li:last-child { border-bottom: none; }
+  .cert-name { color: #1f2328; }
+  .cert-link { font-size: 11.5px; color: #3b82d4; text-decoration: none; }
+  .cert-link:hover { text-decoration: underline; }
+
+  /* Footer */
+  .footer { margin-top: 48px; padding-top: 12px; border-top: 1px solid #e5e7eb; text-align: center; font-size: 11px; color: #57606a; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  
+  <header class="header">
+    <div class="header-top">
+      <div>
+        <div class="name-ja">庄 奇</div>
+        <div class="name-en">Qi Zhuang</div>
+        <div class="name-kana">しょう き</div>
+      </div>
+      <div class="contact-block">
+        <div>📞 070-3825-9918</div>
+        <div><a href="mailto:syoki.zhuangqi@gmail.com">syoki.zhuangqi@gmail.com</a></div>
+        <div>📍 東京都葛飾区</div>
+        <div>1992年生まれ・中国（江蘇省無錫市）出身</div>
+      </div>
+    </div>
+    <div class="tagline">
+      データの収集・整理・分析・可視化の近代化を通じて、企業を支援することに特化したデータの専門家。企業が持つデータの価値を引き出すことで、インサイトを生み出し、データ/AIドリブンなビジネスの基盤を築くことができます。
+    </div>
+  </header>
+
+  
+  <section class="section">
+    <div class="section-title">自己 PR</div>
+    <p class="pr-text">
+      データエンジニアリング・データ統合の領域で約10年の実務経験を持つ、実践型のデータ専門家。キャリアを通じて、ETL・CDC・MDM・Streaming・DWH・BIといったデータパイプラインの全工程を自ら設計・実装してきました。現在はIBM Technology Expert LabsのIT Specialistとして、三菱UFJ・Honda・JR東海・トヨタシステムズなど国内大手企業を対象に、オンプレからクラウドへのデータ移行やリアルタイムデータ連携PoCをリードしています。
+    </p>
+    <ul class="pr-points">
+      <li><strong>実装力：</strong>文字コード混在問題への独自拡張モジュール開発やSnowflakeへのTPS低下問題解消など、前例のない課題を構造的に分析し、自ら解決策を実証。</li>
+      <li><strong>一気通貫の対応力：</strong>プリセールスからデリバリーまで全工程を担当。リード案件の年間売上1M USD以上、2年連続で社内最高評価（Exceptional）を獲得。</li>
+      <li><strong>三言語対応力：</strong>日本語・中国語・英語で、国内顧客との折衝からグローバル製品チームへの技術フィードバックまで幅広く対応。</li>
+    </ul>
+  </section>
+
+  
+  <section class="section">
+    <div class="section-title">職歴</div>
+
+    
+    <div class="job">
+      <div class="job-header">
+        <div class="job-company"><a href="https://www.ibm.com/jp-ja/products/expertlabs" target="_blank">IBM — Technology Expert Labs (Data &amp; AI)</a></div>
+        <div class="job-period">2022年6月 – 現在</div>
+      </div>
+      <div class="job-role">IT Specialist（B7 → B8 昇進: 2025年4月）</div>
+      <div class="job-meta">日本・東京都｜Data Fabric 技術専門家｜プリセールス &amp; デリバリー｜主な対応業界：銀行・保険</div>
+      <div class="job-desc">Data Fabric関連製品（ETL / CDC / MDM / Streaming）の技術専門家として、プリセールス支援から本番導入・スキルトランスファーまで一貫して担当。</div>
+
+      <div class="outcome-block">
+        <div class="outcome-label">ビジネス成果</div>
+        <div class="outcome-highlight">
+          リードしたプロジェクトの年間トータル Revenue <strong>1M USD以上</strong>｜GP%（利益率）を確保｜社内最高評価 <strong>Exceptional を2年連続</strong>取得
+        </div>
+
+        <div class="outcome-label">主要プロジェクト成果</div>
+        <div class="pj-section-label">■ InfoSphere Master Data Management (MDM)</div>
+
+        <div class="pj-card">
+          <div class="pj-card-header">
+            <span class="pj-card-client">東京海上日動システムズ（TMNF）</span>
+            <span class="pj-card-period">2025年8月 – 現在</span>
+          </div>
+          <div class="pj-card-body">
+            <div class="pj-name">TMNF 顧客インデックス EOS対応バージョンアップ案件</div>
+            <div class="pj-row"><span class="pj-lbl">役割</span><span class="pj-val">Team Leader（IBMer 3名 + SSO 3名）</span></div>
+            <div class="pj-row"><span class="pj-lbl">担当</span><span class="pj-val">提案支援（基礎検討・要員計画・見積もり）、フィージビリティ検証（Fix机上確認・環境構築・アプリ/データ移行検証・AMIリストア検証）、Ansible Playbookによる構築・データ移行自動化検証（IBM Bob活用）、本対応（各環境構築・アプリ/データ移行・機能/切り戻し検証・トラブル対応・WBS管理）</span></div>
+            <div class="pj-impact">Ansible/AMIを活用した構築・移行プロセスの自動化・省力化を提案・実証</div>
+            <div class="stack-badges">
+              <span class="stack-badge">InfoSphere MDM</span><span class="stack-badge">InfoSphere IIS</span><span class="stack-badge">AWS (AMI)</span><span class="stack-badge">Ansible</span><span class="stack-badge">RHEL</span><span class="stack-badge">Java</span><span class="stack-badge">SQL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pj-card">
+          <div class="pj-card-header">
+            <span class="pj-card-client">三菱UFJインフォメーションテクノロジー（MUFG）</span>
+            <span class="pj-card-period">2022年6月 – 現在</span>
+          </div>
+          <div class="pj-card-body">
+            <div class="pj-name">MUFG 顧客別DB 保守・機能拡張・EOS対応案件</div>
+            <div class="pj-row"><span class="pj-lbl">役割</span><span class="pj-val">Team Member → Team Leader（IBMer 2名 + SSO 4名）</span></div>
+            <div class="pj-row"><span class="pj-lbl">担当</span><span class="pj-val">保守（拡張機能更改・UT/IT・リリース支援）、マスリテール向け機能追加・性能調査改善（nmon/db2advis/インデックス）、運用サポート（シェル・ジョブネット更改）、EOS対応提案支援、プロジェクト管理（契約/SSO発注/スキトラ/WBS・課題管理）</span></div>
+            <div class="pj-impact">マスリテール向けサービスのサービスイン成功。高負荷環境でのボトルネック解消・性能改善を実現</div>
+            <div class="stack-badges">
+              <span class="stack-badge">InfoSphere MDM</span><span class="stack-badge">IBM Db2</span><span class="stack-badge">Java</span><span class="stack-badge">SQL</span><span class="stack-badge">シェルスクリプト</span><span class="stack-badge">nmon</span><span class="stack-badge">db2advis</span>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="pj-section-label">■ InfoSphere Data Replication (CDC)</div>
+
+        <div class="pj-card">
+          <div class="pj-card-header">
+            <span class="pj-card-client">太陽生命</span>
+            <span class="pj-card-period">2026年7月 – 現在</span>
+          </div>
+          <div class="pj-card-body">
+            <div class="pj-name">Db2 LUW → Aurora PostgreSQL データ連携PoC</div>
+            <div class="pj-row"><span class="pj-lbl">役割</span><span class="pj-val">SME（4名チーム）</span></div>
+            <div class="pj-row"><span class="pj-lbl">担当</span><span class="pj-val">提案支援（基礎検討・要員計画・見積もり）、PoC環境構築・機能確認</span></div>
+            <div class="pj-impact">オンプレDb2からクラウドPostgreSQLへの移行PoCを円滑に推進（進行中）</div>
+            <div class="stack-badges">
+              <span class="stack-badge">InfoSphere CDC</span><span class="stack-badge">IBM Db2 LUW</span><span class="stack-badge">AWS Aurora PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pj-card">
+          <div class="pj-card-header">
+            <span class="pj-card-client">トヨタシステムズ（トヨタファイナンス）</span>
+            <span class="pj-card-period">2026年3月 – 現在</span>
+          </div>
+          <div class="pj-card-body">
+            <div class="pj-name">トヨタファイナンス データ連携基盤</div>
+            <div class="pj-row"><span class="pj-lbl">役割</span><span class="pj-val">SME（4名チーム）</span></div>
+            <div class="pj-row"><span class="pj-lbl">担当</span><span class="pj-val">メインフレーム（Db2 z/OS, IMS）→ Oracle/Aurora PostgreSQL へのCDC導入支援・PoC実施・QAサポート。文字コード混在問題に対し変換処理を行う独自拡張モジュールを開発。製品チームへエンコードオーバーライド機能改善を推進。</span></div>
+            <div class="pj-impact">文字コード混在環境におけるレプリケーション不具合を独自拡張開発で解決し、データ連携基盤の安定導入を実現</div>
+            <div class="stack-badges">
+              <span class="stack-badge">InfoSphere CDC</span><span class="stack-badge">IBM Db2 for z/OS</span><span class="stack-badge">IMS</span><span class="stack-badge">Oracle</span><span class="stack-badge">AWS Aurora PostgreSQL</span><span class="stack-badge">Java/C 拡張モジュール</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pj-card">
+          <div class="pj-card-header">
+            <span class="pj-card-client">JR東海</span>
+            <span class="pj-card-period">2026年1月 – 2026年3月（3ヶ月）</span>
+          </div>
+          <div class="pj-card-body">
+            <div class="pj-name">メインフレーム → IBM Event Streams データ連携PoC</div>
+            <div class="pj-row"><span class="pj-lbl">役割</span><span class="pj-val">Team Leader / SME（3名チーム）</span></div>
+            <div class="pj-row"><span class="pj-lbl">担当</span><span class="pj-val">提案支援（基礎検討・要員計画・見積もり）、PoC環境構築・機能確認。チーム初のIBM Event Streams連携案件として製品開発チームと連携しながら技術検証を実施。</span></div>
+            <div class="pj-impact">Kafka基盤（IBM Event Streams）へのデータ連携パイプラインの実現性を立証</div>
+            <div class="stack-badges">
+              <span class="stack-badge">InfoSphere CDC</span><span class="stack-badge">IBM Db2 for z/OS</span><span class="stack-badge">IMS</span><span class="stack-badge">IBM Event Streams</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pj-card">
+          <div class="pj-card-header">
+            <span class="pj-card-client">アクセンチュア（エンドユーザー：ソニー損保）</span>
+            <span class="pj-card-period">2025年1月 – 2025年6月（6ヶ月）</span>
+          </div>
+          <div class="pj-card-body">
+            <div class="pj-name">IBM i → PostgreSQL データ連携PoC</div>
+            <div class="pj-row"><span class="pj-lbl">役割</span><span class="pj-val">SME（3名チーム）</span></div>
+            <div class="pj-row"><span class="pj-lbl">担当</span><span class="pj-val">他社SIer主導案件におけるCDC専門家としての導入支援・QAサポート、提案支援（基礎検討・要員計画・見積もり）、PoC検証</span></div>
+            <div class="pj-impact">他社SIer主導の大規模更改においてCDC導入の技術的実現性を担保</div>
+            <div class="stack-badges">
+              <span class="stack-badge">InfoSphere CDC</span><span class="stack-badge">IBM i (AS400)</span><span class="stack-badge">Oracle</span><span class="stack-badge">AWS Aurora PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pj-card">
+          <div class="pj-card-header">
+            <span class="pj-card-client">日本コープ共済生活協同組合連合会（Coop共済）</span>
+            <span class="pj-card-period">2024年3月 – 2024年6月（4ヶ月）</span>
+          </div>
+          <div class="pj-card-body">
+            <div class="pj-name">メインフレーム → Kafka / Oracle データパイプラインPoC</div>
+            <div class="pj-row"><span class="pj-lbl">役割</span><span class="pj-val">SME（8名チーム）</span></div>
+            <div class="pj-row"><span class="pj-lbl">担当</span><span class="pj-val">提案支援、PoC環境構築・機能確認。チーム初のKafka連携案件として製品開発チームと連携し技術検証。コードページに存在しない独自文字への対応として製品チームにフィードバックし日本市場向けEnhancementを推進。</span></div>
+            <div class="pj-impact">メインフレームからKafkaへのストリーミングデータ連携を実証、日本市場向け製品エンハンスメントを獲得</div>
+            <div class="stack-badges">
+              <span class="stack-badge">InfoSphere CDC</span><span class="stack-badge">IBM Db2 for z/OS</span><span class="stack-badge">Apache Kafka</span><span class="stack-badge">Oracle</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pj-card">
+          <div class="pj-card-header">
+            <span class="pj-card-client">本田技研工業（Honda）</span>
+            <span class="pj-card-period">2024年1月 – 2024年6月（6ヶ月）</span>
+          </div>
+          <div class="pj-card-body">
+            <div class="pj-name">クラウド移行・リアルタイムデータ連携PoC（デジ戦）</div>
+            <div class="pj-row"><span class="pj-lbl">役割</span><span class="pj-val">Team Leader / SME（IBMer 2名 + SSO 1名）</span></div>
+            <div class="pj-row"><span class="pj-lbl">担当</span><span class="pj-val">提案支援（基礎検討・要員計画・見積もり）、IBM i → Oracle/Snowflake へのリアルタイム連携フィージビリティ検証・環境構築・機能/性能要件検証。Snowflake向けApply処理のTPS低下問題の調査・ボトルネック対策。</span></div>
+            <div class="pj-impact">Snowflake向けレプリケーションの性能課題を解消し、オンプレ→クラウド移行の実現性を立証</div>
+            <div class="stack-badges">
+              <span class="stack-badge">InfoSphere CDC</span><span class="stack-badge">IBM i (AS400)</span><span class="stack-badge">Oracle</span><span class="stack-badge">Snowflake</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pj-card">
+          <div class="pj-card-header">
+            <span class="pj-card-client">IBM社内（QIT: 継続的品質改善活動）</span>
+            <span class="pj-card-period">継続実施</span>
+          </div>
+          <div class="pj-card-body">
+            <div class="pj-row"><span class="pj-lbl">役割</span><span class="pj-val">SME</span></div>
+            <div class="pj-row"><span class="pj-lbl">担当</span><span class="pj-val">社内技術検証、製品開発チームへのフィードバック、機能改善（Enhancement）促進、社内ナレッジシェア</span></div>
+            <div class="pj-impact">日本顧客向け製品品質向上および社内技術ナレッジの体系化</div>
+            <div class="stack-badges"><span class="stack-badge">InfoSphere CDC</span></div>
+          </div>
+        </div>
+
+        
+        <div class="pj-section-label">■ InfoSphere Information Server / Optim（ETL・データマスキング）</div>
+
+        <div class="pj-card">
+          <div class="pj-card-header">
+            <span class="pj-card-client">東京海上日動システムズ（TMNF）</span>
+            <span class="pj-card-period">2025年2月 – 2025年4月（3ヶ月）</span>
+          </div>
+          <div class="pj-card-body">
+            <div class="pj-name">TMNF データマスキング PoC（InfoSphere Optim）</div>
+            <div class="pj-row"><span class="pj-lbl">役割</span><span class="pj-val">SME / 技術担当（4名チーム）</span></div>
+            <div class="pj-row"><span class="pj-lbl">担当</span><span class="pj-val">環境構築、Data Privacy / Test Data Management周りのデータマスキング機能検証、ユーザー向けスキルトランスファー実施</span></div>
+            <div class="pj-impact">安全なテストデータ生成基盤の導入実現性を検証し、顧客へスキルトランスファーを完遂</div>
+            <div class="stack-badges">
+              <span class="stack-badge">InfoSphere Optim</span><span class="stack-badge">InfoSphere IIS</span><span class="stack-badge">RDB</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pj-card">
+          <div class="pj-card-header">
+            <span class="pj-card-client">IBM社内（QIT: 継続的品質改善活動）</span>
+            <span class="pj-card-period">継続実施</span>
+          </div>
+          <div class="pj-card-body">
+            <div class="pj-row"><span class="pj-lbl">役割</span><span class="pj-val">SME</span></div>
+            <div class="pj-row"><span class="pj-lbl">担当</span><span class="pj-val">社内技術検証、製品開発チームへのフィードバック、ETL機能改善（Enhancement）促進、社内ナレッジシェア</span></div>
+            <div class="pj-impact">製品品質向上および社内ナレッジ体系化</div>
+            <div class="stack-badges"><span class="stack-badge">InfoSphere DataStage</span></div>
+          </div>
+        </div>
+
+        
+        <div class="pj-section-label">■ その他製品・独自ツール（GMN / Python マイグレーション）</div>
+
+        <div class="pj-card">
+          <div class="pj-card-header">
+            <span class="pj-card-client">みずほ銀行</span>
+            <span class="pj-card-period">2026年3月 – 2026年4月</span>
+          </div>
+          <div class="pj-card-body">
+            <div class="pj-name">Mizuho M-Think DB移行自動化ツール開発</div>
+            <div class="pj-row"><span class="pj-lbl">役割</span><span class="pj-val">Developer（2名チーム）</span></div>
+            <div class="pj-row"><span class="pj-lbl">担当</span><span class="pj-val">Oracle → Db2 移行ツール開発（IBM BobによるPython開発）。ProC・makefile・PL/SQL・JDBC・シェルスクリプトをDb2用に自動変換するAST/コード構文解析・変換ツールを実装。</span></div>
+            <div class="pj-impact">異種DB移行に伴うソースコード変換作業を自動化ツールにより大幅に効率化</div>
+            <div class="stack-badges">
+              <span class="stack-badge">Python</span><span class="stack-badge">IBM Db2</span><span class="stack-badge">Oracle (PL/SQL, ProC)</span><span class="stack-badge">シェルスクリプト</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pj-card">
+          <div class="pj-card-header">
+            <span class="pj-card-client">みずほ銀行</span>
+            <span class="pj-card-period">2025年11月 – 2025年12月</span>
+          </div>
+          <div class="pj-card-body">
+            <div class="pj-name">Mizuho GMN 更改</div>
+            <div class="pj-row"><span class="pj-lbl">役割</span><span class="pj-val">Developer / Team Member（5名チーム）</span></div>
+            <div class="pj-row"><span class="pj-lbl">担当</span><span class="pj-val">InfoSphere Global Name ManagementバージョンアップにおけるUTケース作成・実施・顧客報告</span></div>
+            <div class="pj-impact">GMNバージョンアップに伴う品質検証および報告を完遂</div>
+            <div class="stack-badges">
+              <span class="stack-badge">InfoSphere GMN</span><span class="stack-badge">Java</span><span class="stack-badge">SQL</span>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="outcome-label">プロダクト・組織貢献</div>
+        <ul class="contrib-list">
+          <li>継続的品質改善チーム（QIT）のSMEとして、社内技術検証・製品開発チームへのフィードバックを継続実施</li>
+          <li>日本市場固有の課題（文字コード・独自文字対応など）を製品チームへエスカレーションし、グローバル製品への日本向けエンハンスメントを複数獲得</li>
+          <li>社内ナレッジの体系化・共有を通じ、チーム全体の技術力向上に貢献</li>
+        </ul>
+      </div>
+    </div>
+
+    
+    <div class="job">
+      <div class="job-header">
+        <div class="job-company"><a href="https://www.fanruan.com/en" target="_blank">FanRuan Software（帆軟ソフトウェア）</a></div>
+      </div>
+      <div class="job-desc" style="margin-top:6px;margin-bottom:10px">
+        同社の日本市場展開に伴い、社内唯一の日本語対応技術者として日本代理店と共同設立した会社に転籍。主な対応業界：製造業・不動産。
+      </div>
+
+      <div class="sub-role">
+        <div class="sub-role-title">Tech Lead</div>
+        <div class="sub-role-period">2016年7月 – 2022年5月（5年11ヶ月）｜日本・東京都</div>
+        <div class="sub-role-desc">
+          技術部門のリードとして、FineReport / FineBI の日本市場展開を海外市場ゼロから牽引。製品ローカライズ、提案、導入、アフターサービス、スキルトランスファー、ナレッジ共有など、製品オペレーション・技術支援全般をリード。要件定義からリリース・保守まで全フェーズを経験。AWSを活用したクラウドインフラ提案・構築を伴う案件も多数。
+        </div>
+      </div>
+
+      <div class="sub-role">
+        <div class="sub-role-title">Delivery Engineer</div>
+        <div class="sub-role-period">2015年5月 – 2016年6月（1年2ヶ月）｜中国</div>
+        <div class="sub-role-desc">
+          中国国内のお客様を対象に、帳票・BI製品を活用したデータ可視化サービスのデリバリー業務を担当。
+        </div>
+      </div>
+
+      <div class="outcome-block">
+        <div class="outcome-label">ビジネス成果</div>
+        <div class="outcome-highlight">
+          FineReport/FineBI 日本市場のゼロイチ立ち上げを技術面でリード｜導入社数 <strong>48社</strong>（直接担当：31社）｜フォロー企業数 <strong>600社超</strong>
+        </div>
+        <div style="font-size:12px;color:#57606a;margin-top:4px;margin-bottom:10px">主要顧客：NTTデータMHIシステムズ、NSK（日本精工）、損保ジャパン、三菱倉庫、トラスコ中山、ZOZOテクノロジーズ、プレナス、京セラ</div>
+
+        <div class="outcome-label">主要プロジェクト成果</div>
+        <div class="pj-section-label">■ FineReport / FineBI 主要プロジェクト</div>
+
+        <div class="pj-card">
+          <div class="pj-card-header">
+            <span class="pj-card-client">株式会社ZOZOテクノロジーズ</span>
+            <span class="pj-card-period">2020年3月 – 2022年5月</span>
+          </div>
+          <div class="pj-card-body">
+            <div class="pj-name">ユーザー・行動テーマ分析基盤構築</div>
+            <div class="pj-row"><span class="pj-lbl">役割</span><span class="pj-val">プリセールス・デリバリー（2名）</span></div>
+            <div class="pj-row"><span class="pj-lbl">担当</span><span class="pj-val">製品紹介・BA・競合分析（対Power BI）・PoC機能検証・見積もり、分析指標設計（User/Do/What/Device/Location等）、ClickHouse連携データ統合、データマスキング/クリーニング、分析画面構築（RFM分析・デシル分析・セグメンテーション・NPS分析・行動トレンド等）</span></div>
+            <div class="pj-impact">競合（Power BI）とのコンペに勝利。大規模アクセスログに対する高速セルフサービスBI環境を構築し、マーケティング施策の高度化に貢献</div>
+            <div class="stack-badges">
+              <span class="stack-badge">FineReport</span><span class="stack-badge">FineBI</span><span class="stack-badge">ClickHouse</span><span class="stack-badge">FineCube</span><span class="stack-badge">SQL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pj-card">
+          <div class="pj-card-header">
+            <span class="pj-card-client">GROUND株式会社（トラスコ中山・三菱倉庫）</span>
+            <span class="pj-card-period">2019年3月 – 2022年5月</span>
+          </div>
+          <div class="pj-card-body">
+            <div class="pj-name">Dynamic Allocation / エリア共有化システム</div>
+            <div class="pj-row"><span class="pj-lbl">役割</span><span class="pj-val">プリセールス・デリバリー（2名）</span></div>
+            <div class="pj-row"><span class="pj-lbl">担当</span><span class="pj-val">製品紹介・BA・競合分析（対Power BI）・PoC・見積もり、物流需要分析、AWS基盤構築（Linux + Tomcat + PostgreSQL）、DB設計、ダッシュボード画面・バッチ開発</span></div>
+            <div class="pj-impact">競合（Power BI）とのコンペに勝利。物流倉庫内の在庫配置最適化・複数拠点間のエリア共有化システムをサービスイン</div>
+            <div class="stack-badges">
+              <span class="stack-badge">FineReport</span><span class="stack-badge">AWS (EC2/Linux)</span><span class="stack-badge">Apache Tomcat</span><span class="stack-badge">PostgreSQL</span><span class="stack-badge">SQL</span><span class="stack-badge">シェルスクリプト</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pj-card">
+          <div class="pj-card-header">
+            <span class="pj-card-client">日本精工株式会社（NSK）</span>
+            <span class="pj-card-period">2017年10月 – 2022年5月</span>
+          </div>
+          <div class="pj-card-body">
+            <div class="pj-name">加工精度・効率テーマ分析および人員・設備小日程管理</div>
+            <div class="pj-row"><span class="pj-lbl">役割</span><span class="pj-val">プリセールス・デリバリー（2名）</span></div>
+            <div class="pj-row"><span class="pj-lbl">担当</span><span class="pj-val">製品紹介・BA・競合分析（対Power BI）・PoC・見積もり、PLC/M2M/MESからのデータ統合、DWH構築、分析画面開発、ETL開発、タスクスケジューラ開発</span></div>
+            <div class="pj-impact">競合（Power BI）とのコンペに勝利。製造ラインの加工精度・作業効率の可視化を実現。拠点展開で後続案件多数。</div>
+            <div class="stack-badges">
+              <span class="stack-badge">FineReport</span><span class="stack-badge">FineBI</span><span class="stack-badge">Talend</span><span class="stack-badge">FineTube</span><span class="stack-badge">Cassandra</span><span class="stack-badge">Hadoop</span><span class="stack-badge">MySQL</span><span class="stack-badge">MES/PLC</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pj-card">
+          <div class="pj-card-header">
+            <span class="pj-card-client">NTTデータMHIシステムズ / 三菱重工業</span>
+            <span class="pj-card-period">2016年10月 – 2022年5月</span>
+          </div>
+          <div class="pj-card-body">
+            <div class="pj-name">稼働情報監視システム・設備故障予兆診断（予知保全）</div>
+            <div class="pj-row"><span class="pj-lbl">役割</span><span class="pj-val">デリバリー（リード）（1名）</span></div>
+            <div class="pj-row"><span class="pj-lbl">担当</span><span class="pj-val">工場設備・センサーからの稼働データ監視画面・トレンド分析画面の開発、各種データソースからのETLパイプライン構築（Talend）</span></div>
+            <div class="pj-impact">設備の稼働率向上・故障予兆検知によるダウンタイム削減基盤を本番サービスイン</div>
+            <div class="stack-badges">
+              <span class="stack-badge">FineReport</span><span class="stack-badge">Talend</span><span class="stack-badge">Cassandra</span><span class="stack-badge">Hadoop Hive</span><span class="stack-badge">MySQL</span><span class="stack-badge">センサー/PLC</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pj-card">
+          <div class="pj-card-header">
+            <span class="pj-card-client">株式会社プレナス（ほっともっと・やよい軒）</span>
+            <span class="pj-card-period">2020年6月 – 2020年8月（3ヶ月）</span>
+          </div>
+          <div class="pj-card-body">
+            <div class="pj-name">チェーンストア売上テーマ分析システム</div>
+            <div class="pj-row"><span class="pj-lbl">役割</span><span class="pj-val">プリセールス・デリバリー（1名）</span></div>
+            <div class="pj-row"><span class="pj-lbl">担当</span><span class="pj-val">製品紹介・BA・PoC・見積もりから本番導入まで一貫担当。需要分析・基本設計・AWS環境構築（Linux + Tomcat + MySQL）・DB設計・データ取込/出力・分析画面開発・アプリデプロイ</span></div>
+            <div class="pj-impact">3ヶ月の短期間でクラウドインフラ構築から分析ダッシュボードまでを本番リリース</div>
+            <div class="stack-badges">
+              <span class="stack-badge">FineReport</span><span class="stack-badge">AWS (EC2/Linux)</span><span class="stack-badge">Apache Tomcat</span><span class="stack-badge">MySQL</span><span class="stack-badge">SQL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pj-card">
+          <div class="pj-card-header">
+            <span class="pj-card-client">GREEN TOWN CHINA（緑城中国）</span>
+            <span class="pj-card-period">2016年3月 – 2016年10月（8ヶ月）</span>
+          </div>
+          <div class="pj-card-body">
+            <div class="pj-name">グループBI意思決定支援システム構築（全社DWH・BI基盤）</div>
+            <div class="pj-row"><span class="pj-lbl">役割</span><span class="pj-val">デリバリーマネージャー（PM）（4〜6名）</span></div>
+            <div class="pj-row"><span class="pj-lbl">担当</span><span class="pj-val">原価・資金・財務・CRM・人事など社内複数基盤を集約する全社DWH・BI基盤構築。MDM設計・GreenPlum DWHモデリング・Kettle ETL開発・画面開発・SSO統合・Dockerデプロイ・独自暗号化カスタマイズ。PM業務全般（WBS・進捗・リスク・コスト管理、複数SIer調整、要件定義、受入テスト、リリース管理）</span></div>
+            <div class="pj-impact">不動産グループ全体の経営意思決定を支える大規模DWH・BI基盤をオンスケジュールで本番稼働</div>
+            <div class="stack-badges">
+              <span class="stack-badge">FineReport</span><span class="stack-badge">FineBI</span><span class="stack-badge">GreenPlum (MPP DWH)</span><span class="stack-badge">Alibaba Cloud</span><span class="stack-badge">Pentaho Kettle</span><span class="stack-badge">Docker</span><span class="stack-badge">Java</span><span class="stack-badge">PostgreSQL/SQL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pj-card">
+          <div class="pj-card-header">
+            <span class="pj-card-client">上海航天汽車機電（上海HT-SAAE）</span>
+            <span class="pj-card-period">2015年10月 – 2016年3月（6ヶ月）</span>
+          </div>
+          <div class="pj-card-body">
+            <div class="pj-name">BI帳票総合プラットフォーム構築</div>
+            <div class="pj-row"><span class="pj-lbl">役割</span><span class="pj-val">デリバリーマネージャー（PM）（3名）</span></div>
+            <div class="pj-row"><span class="pj-lbl">担当</span><span class="pj-val">基幹システム連携、帳票・レポーティング基盤の設計・開発統括（SAP連携・ERP統合）</span></div>
+            <div class="pj-impact">全社的な帳票出力・管理業務の統合プラットフォームを構築</div>
+            <div class="stack-badges">
+              <span class="stack-badge">FineReport</span><span class="stack-badge">SAP連携</span><span class="stack-badge">Oracle</span><span class="stack-badge">Waha! Transformer (ETL)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pj-card">
+          <div class="pj-card-header">
+            <span class="pj-card-client">伝化化学品（Transfar Chemicals）</span>
+            <span class="pj-card-period">2015年6月 – 2015年7月（2ヶ月）</span>
+          </div>
+          <div class="pj-card-body">
+            <div class="pj-name">セールステーマ分析システム</div>
+            <div class="pj-row"><span class="pj-lbl">役割</span><span class="pj-val">デリバリー（1名）</span></div>
+            <div class="pj-row"><span class="pj-lbl">担当</span><span class="pj-val">販売実績・顧客動向データの集計・分析ダッシュボード構築、データ可視化</span></div>
+            <div class="pj-impact">営業・販売実績データのリアルタイム可視化を実現</div>
+            <div class="stack-badges">
+              <span class="stack-badge">FineReport</span><span class="stack-badge">MySQL</span><span class="stack-badge">SQL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="outcome-label">プロダクト・組織貢献</div>
+        <ul class="contrib-list">
+          <li>製品ローカライズの主導：専門用語辞書の管理、翻訳・品質チェック、ローカライズ機能の要件定義・実装推進</li>
+          <li>ソリューション化：過去案件のナレッジを体系化し、製造業・リテール・物流・不動産・インターネット業界向け汎用ソリューションとして整理・展開</li>
+          <li>社内インフラ整備：Confluenceによるナレッジ管理、顧客QAサポート基盤、代理店支援ポータルを構築</li>
+          <li>マーケティング活動：技術ブログ・SNS発信、展示会参加、技術トレーニングセミナーの開催</li>
+        </ul>
+      </div>
+    </div>
+
+    
+    <div class="job">
+      <div class="job-header">
+        <div class="job-company">ABeam Consulting</div>
+        <div class="job-period">2014年7月 – 2015年4月（10ヶ月）</div>
+      </div>
+      <div class="job-role">Software Engineer</div>
+      <div class="job-meta">中国・上海市｜オンサイト</div>
+      <div class="job-desc">詳細設計・開発・単体テストを担当（Java / PL/SQL）。日本企業向け案件。</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">学歴</div>
+    <div class="edu-block">
+      <div class="edu-school">大連理工大学</div>
+      <div class="edu-period">2010年9月 – 2014年6月</div>
+    </div>
+    <div class="edu-degree">Computer Software Engineering　工学士</div>
+    <div class="edu-desc">
+      数学、データ構造とアルゴリズム、C/C++・Javaなどのプログラミング言語、データベース（RDB設計・SQL）、ソフトウェアエンジニアリングを専攻。在学中に日本語を習得し、日本語能力試験（JLPT）N1を取得。
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">スキルセット</div>
+    <div class="skills-grid">
+      <div>
+        <div class="skill-group-title">得意製品・プラットフォーム</div>
+        <div class="badge-row">
+          <span class="badge badge-blue">InfoSphere Information Server (ETL)</span>
+          <span class="badge badge-blue">InfoSphere Data Replication (CDC)</span>
+          <span class="badge badge-blue">InfoSphere MDM</span>
+          <span class="badge badge-blue">IBM Db2</span>
+          <span class="badge badge-blue">FineReport</span>
+          <span class="badge badge-blue">FineBI</span>
+        </div>
+      </div>
+      <div>
+        <div class="skill-group-title">プログラミング言語</div>
+        <div class="badge-row">
+          <span class="badge">Java</span>
+          <span class="badge">Python</span>
+          <span class="badge">SQL / PL/SQL</span>
+          <span class="badge">JavaScript</span>
+          <span class="badge">VBA</span>
+        </div>
+      </div>
+      <div>
+        <div class="skill-group-title">データ基盤・クラウド</div>
+        <div class="badge-row">
+          <span class="badge">Snowflake</span>
+          <span class="badge">Kafka / Confluent</span>
+          <span class="badge">IBM Event Streams</span>
+          <span class="badge">Streamsets</span>
+          <span class="badge">AWS</span>
+          <span class="badge">Alibaba Cloud</span>
+          <span class="badge">Aurora PostgreSQL</span>
+          <span class="badge">Oracle</span>
+          <span class="badge">MySQL</span>
+          <span class="badge">Greenplum</span>
+        </div>
+      </div>
+      <div>
+        <div class="skill-group-title">ETL・その他</div>
+        <div class="badge-row">
+          <span class="badge">Talend</span>
+          <span class="badge">Pentaho Kettle</span>
+          <span class="badge">Waha! Transformer</span>
+          <span class="badge">RHEL</span>
+          <span class="badge">Tomcat</span>
+          <span class="badge">WebSphere AS</span>
+          <span class="badge">Ansible</span>
+          <span class="badge">Docker</span>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:14px">
+      <div class="skill-group-title">技術領域</div>
+      <div class="badge-row">
+        <span class="badge badge-purple">ETL / データ統合</span>
+        <span class="badge badge-purple">CDC（変更データキャプチャ）</span>
+        <span class="badge badge-purple">MDM（マスターデータ管理）</span>
+        <span class="badge badge-purple">Data Streaming</span>
+        <span class="badge badge-purple">DWH 設計</span>
+        <span class="badge badge-purple">BI / データ可視化</span>
+        <span class="badge badge-purple">PoC 設計・リード</span>
+        <span class="badge badge-purple">プリセールス</span>
+        <span class="badge badge-purple">Technical Solution Design</span>
+        <span class="badge badge-purple">Project Management</span>
+        <span class="badge badge-purple">IaC / 自動化</span>
+        <span class="badge badge-purple">DBマイグレーション</span>
+      </div>
+    </div>
+    <div style="margin-top:14px">
+      <div class="skill-group-title">言語</div>
+      <div class="badge-row">
+        <span class="badge badge-blue">日本語 — JLPT N1</span>
+        <span class="badge badge-blue">中国語 — ネイティブ</span>
+        <span class="badge badge-blue">英語 — CEFR B1+</span>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="section-title">資格・認定</div>
+    <ul class="cert-list">
+      <li>
+        <span class="cert-name">IBM 各種認定バッジ（Credly）</span>
+        <a class="cert-link" href="https://www.credly.com/users/username.a6dbb94b/badges/credly" target="_blank">認証を表示 →</a>
+      </li>
+      <li>
+        <span class="cert-name">watsonx.data Practitioner Advanced</span>
+        <a class="cert-link" href="https://www.credly.com/badges/144a88c8-94cd-4933-87d1-cbc953b1516b" target="_blank">認証を表示 →</a>
+      </li>
+      <li>
+        <span class="cert-name">watsonx.data integration Real-time Streaming Technical Sales Intermediate</span>
+        <a class="cert-link" href="https://www.credly.com/badges/12642f58-75a1-43bf-80dc-9b657b5d0d0c" target="_blank">認証を表示 →</a>
+      </li>
+      <li>
+        <span class="cert-name">AWS Certified Solutions Architect</span>
+        <a class="cert-link" href="https://www.credly.com/badges/64fb98fb-63d7-4170-943f-1bf475a72b65" target="_blank">認証を表示 →</a>
+      </li>
+      <li>
+        <span class="cert-name">AWS Certified Cloud Practitioner</span>
+        <a class="cert-link" href="https://www.credly.com/badges/12642f58-75a1-43bf-80dc-9b657b5d0d0c" target="_blank">認証を表示 →</a>
+      </li>
+      <li>
+        <span class="cert-name">日本語能力試験（JLPT）N1</span>
+        <span></span>
+      </li>
+      <li>
+        <span class="cert-name">英語 CEFR B1+</span>
+        <a class="cert-link" href="https://hermes.ordinate.com/scorereport/report?z=73349269" target="_blank">認証を表示 →</a>
+      </li>
+    </ul>
+  </section>
+
+  
+  <section class="section">
+    <div class="section-title">その他</div>
+    <div style="display:grid;grid-template-columns:120px 1fr;gap:6px 12px;font-size:13px;color:#3b3f45">
+      <div style="color:#57606a;font-weight:600">来日経緯</div>
+      <div>前職（FanRuan Software）の日本市場展開に伴い、社内唯一の日本語対応技術者として日本代理店と共同設立した会社に転籍。</div>
+      <div style="color:#57606a;font-weight:600">趣味</div>
+      <div>バスケットボール、バイクツーリング</div>
+      <div style="color:#57606a;font-weight:600">愛読書</div>
+      <div>SQL Cookbook、The Data Warehouse Toolkit</div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
