@@ -5,9 +5,9 @@
 	氏名かな：しょう き
 	氏名英字：Qi Zhuang
 	連絡先：
-		電話：070-3825-9918
-		メール：syoki.zhuangqi@gmail.com
-	住所：東京都葛飾区
+		電話：070-3825-****
+		メール：*****.zhuangqi@*********
+	住所：東京都***
 	出身：1992年中国(江蘇省無錫市)生まれ
 	来日のきっかけ：前職の日本市場展開に伴い、社内唯一の日本語対応技術者として日本代理店と共同設立した会社に転籍
 	職務経験：Software Developer、Delivery Engineer/PM、Sales Engineer、Technical Support
