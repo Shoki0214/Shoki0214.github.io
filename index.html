@@ -148,6 +148,31 @@
   /* Footer */
   .footer { margin-top: 48px; padding-top: 12px; border-top: 1px solid #e5e7eb; text-align: center; font-size: 11px; color: #57606a; }
 
+  /* Back to top button */
+  #back-to-top {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 40px;
+    height: 40px;
+    background: #3b82d4;
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    z-index: 999;
+    transition: background 0.2s ease, opacity 0.2s ease;
+  }
+  #back-to-top:hover { background: #2563b0; }
+  #back-to-top.visible { display: flex; }
+  @media print { #back-to-top { display: none !important; } }
+
   /* Print handling */
   @media print {
     .tab-container { display: none; }
@@ -190,11 +215,11 @@
       <section class="section">
     <div class="section-title">自己 PR</div>
     <p class="pr-text">
-      データエンジニアリング・データ統合の領域で約10年の実務経験を持つ、実践型のデータ専門家。キャリアを通じて、ETL・CDC・MDM・Streaming・DWH・BIといったデータパイプラインの全工程を自ら設計・実装してきました。現在はIBM Technology Expert LabsのIT Specialistとして、三菱UFJ・Honda・JR東海・トヨタシステムズなど国内大手企業を対象に、オンプレからクラウドへのデータ移行やリアルタイムデータ連携PoCをリードしています。
+      データエンジニアリング・データ可視化の領域で約10年の実務経験を持つ、実践型のデータ専門家。<br>キャリアを通じて、ETL・CDC・MDM・Streaming・DWH・BIといったデータパイプラインの全工程を自ら設計・実装してきました。現在はIBM Technology Expert LabsのIT Specialistとして、三菱UFJ・Honda・JR東海・トヨタシステムズなど国内大手企業を対象に、オンプレからクラウドへのデータ移行やデータ統合・連携基盤の提案とPoCをリードしています。
     </p>
     <ul class="pr-points">
       <li><strong>実装力：</strong>文字コード混在問題への独自拡張モジュール開発やSnowflakeへのTPS低下問題解消など、前例のない課題を構造的に分析し、自ら解決策を実証。</li>
-      <li><strong>一気通貫の対応力：</strong>プリセールスからデリバリーまで全工程を担当。リード案件の年間売上1M USD以上、2年連続で社内最高評価（Exceptional）を獲得。</li>
+      <li><strong>一気通貫の実行力：</strong>プリセールスからデリバリーまで全工程を担当。FanRuan時代には日本市場ゼロから立ち上げ、48社への導入を技術面でリード。IBMではリード案件の年間売上1M USD以上、2年連続で社内最高評価を獲得。（Exceptional）を獲得。</li>
       <li><strong>三言語対応力：</strong>日本語・中国語・英語で、国内顧客との折衝からグローバル製品チームへの技術フィードバックまで幅広く対応。</li>
     </ul>
   </section>
@@ -209,9 +234,14 @@
         <div class="job-company"><a href="https://www.ibm.com/jp-ja/products/expertlabs" target="_blank">IBM — Technology Expert Labs (Data &amp; AI)</a></div>
         <div class="job-period">2022年6月 – 現在</div>
       </div>
-      <div class="job-role">IT Specialist（B7 → B8 昇進: 2025年4月）</div>
-      <div class="job-meta">日本・東京都｜Data Fabric 技術専門家｜プリセールス &amp; デリバリー｜主な対応業界：銀行・保険</div>
-      <div class="job-desc">Data Fabric関連製品（ETL / CDC / MDM / Streaming）の技術専門家として、プリセールス支援から本番導入・スキルトランスファーまで一貫して担当。</div>
+
+      <div class="sub-role">
+        <div class="sub-role-title">IT Specialist（B7 → B8 昇進: 2025年4月）</div>
+        <div class="sub-role-period">日本・東京都｜Data Fabric 技術専門家｜プリセールス &amp; デリバリー｜主な対応業界：銀行・保険</div>
+        <div class="sub-role-desc">
+          Data Fabric関連製品（ETL / CDC / MDM / Streaming）の技術専門家として、プリセールス支援から本番導入・スキルトランスファーまで一貫して担当。
+        </div>
+      </div>
 
       <div class="outcome-block">
         <div class="outcome-label">ビジネス成果</div>
@@ -471,7 +501,7 @@
       <div class="outcome-block">
         <div class="outcome-label">ビジネス成果</div>
         <div class="outcome-highlight">
-          FineReport/FineBI 日本市場のゼロイチ立ち上げを技術面でリード｜導入社数 <strong>48社</strong>（直接担当：31社）｜フォロー企業数 <strong>600社超</strong>
+          FineReport/FineBI 日本市場のゼロイチ立ち上げを技術面でリード｜導入社数 <strong>48社</strong>（直接担当：31社）｜フォロー企業数 <strong>400社超</strong>
         </div>
         <div style="font-size:12px;color:#57606a;margin-top:4px;margin-bottom:10px">主要顧客：NTTデータMHIシステムズ、NSK（日本精工）、損保ジャパン、三菱倉庫、トラスコ中山、ZOZOテクノロジーズ、プレナス、京セラ</div>
 
@@ -583,7 +613,7 @@
             <div class="pj-name">BI帳票総合プラットフォーム構築</div>
             <div class="pj-row"><span class="pj-lbl">役割</span><span class="pj-val">デリバリーマネージャー（PM）（3名）</span></div>
             <div class="pj-row"><span class="pj-lbl">担当</span><span class="pj-val">基幹システム連携、帳票・レポーティング基盤の設計・開発統括（SAP連携・ERP統合）</span></div>
-            <div class="pj-impact">全社的な帳票出力・管理業務の統合プラットフォームを構築</div>
+            <div class="pj-impact">全社的な帳票出力（財務諸表）・意思決定支援システムを構築</div>
             <div class="stack-badges">
               <span class="stack-badge">FineReport</span><span class="stack-badge">SAP連携</span><span class="stack-badge">Oracle</span><span class="stack-badge">Waha! Transformer (ETL)</span>
             </div>
@@ -760,7 +790,7 @@
     <div class="section-title">その他</div>
     <div style="display:grid;grid-template-columns:120px 1fr;gap:6px 12px;font-size:13px;color:#3b3f45">
       <div style="color:#57606a;font-weight:600">来日経緯</div>
-      <div>前職（FanRuan Software）の日本市場展開に伴い、社内唯一の日本語対応技術者として日本代理店と共同設立した会社に転籍。</div>
+      <div>前職（FanRuan Software）の日本市場展開に伴い、社内唯一の日本語対応技術者として転籍</div>
       <div style="color:#57606a;font-weight:600">趣味</div>
       <div>バスケットボール、バイクツーリング</div>
       <div style="color:#57606a;font-weight:600">愛読書</div>
@@ -795,11 +825,11 @@
   <section class="section">
     <div class="section-title">Professional Summary</div>
     <p class="pr-text">
-      A hands-on data professional with approximately 10 years of practical experience in data engineering and data integration. Throughout my career I have personally designed and implemented the full spectrum of data pipelines — ETL, CDC, MDM, Streaming, DWH, and BI. Currently serving as an IT Specialist at IBM Technology Expert Labs, I lead on-premises-to-cloud data migrations and real-time data integration PoCs for major Japanese enterprises including MUFG, Honda, JR Tokai, and Toyota Systems.
+      A hands-on data professional with approximately 10 years of practical experience in data engineering and data visualization. Throughout my career I have personally designed and implemented the full spectrum of data pipelines — ETL, CDC, MDM, Streaming, DWH, and BI. Currently serving as an IT Specialist at IBM Technology Expert Labs, I lead on-premises-to-cloud data migrations and real-time data integration PoCs for major Japanese enterprises including MUFG, Honda, JR Tokai, and Toyota Systems.
     </p>
     <ul class="pr-points">
       <li><strong>Implementation Excellence:</strong> Proven ability to structurally analyze unprecedented challenges and deliver working solutions — from developing a custom extension module to handle mixed-encoding issues to resolving TPS degradation in Snowflake apply processing.</li>
-      <li><strong>End-to-End Ownership:</strong> Handles every phase from pre-sales through delivery. Annual revenue from led engagements exceeds 1M USD; received the company's highest performance rating (Exceptional) for two consecutive years.</li>
+      <li><strong>End-to-End Ownership:</strong> Managed end-to-end processes from pre-sales to delivery. Built the Japan market from scratch at FanRuan, technically leading deployments for 48 companies. At IBM, generated over $1M+ USD in annual revenue from led deals and earned the top internal performance rating for two consecutive years.</li>
       <li><strong>Trilingual Capability:</strong> Operates fluently in Japanese, Chinese, and English — from customer-facing negotiations to technical feedback with global product teams.</li>
     </ul>
   </section>
@@ -814,9 +844,14 @@
         <div class="job-company"><a href="https://www.ibm.com/jp-ja/products/expertlabs" target="_blank">IBM — Technology Expert Labs (Data &amp; AI)</a></div>
         <div class="job-period">Jun 2022 – Present</div>
       </div>
-      <div class="job-role">IT Specialist (B7 → B8 promotion: April 2025)</div>
-      <div class="job-meta">Tokyo, Japan | Data Fabric Technical Specialist | Pre-sales &amp; Delivery | Primary Industries: Banking, Insurance</div>
-      <div class="job-desc">Technical specialist for Data Fabric products (ETL / CDC / MDM / Streaming), handling everything from pre-sales support through production deployment and skills transfer.</div>
+
+      <div class="sub-role">
+        <div class="sub-role-title">IT Specialist (B7 → B8 promotion: April 2025)</div>
+        <div class="sub-role-period">Tokyo, Japan | Data Fabric Technical Specialist | Pre-sales &amp; Delivery | Primary Industries: Banking, Insurance</div>
+        <div class="sub-role-desc">
+          Technical specialist for Data Fabric products (ETL / CDC / MDM / Streaming), handling everything from pre-sales support through production deployment and skills transfer.
+        </div>
+      </div>
 
       <div class="outcome-block">
         <div class="outcome-label">Business Outcomes</div>
@@ -1076,7 +1111,7 @@
       <div class="outcome-block">
         <div class="outcome-label">Business Outcomes</div>
         <div class="outcome-highlight">
-          Technically led the zero-to-one launch of FineReport/FineBI in Japan | <strong>48 companies</strong> went live (directly handled: 31) | Supported <strong>600+ companies</strong>
+          Technically led the zero-to-one launch of FineReport/FineBI in Japan | <strong>48 companies</strong> went live (directly handled: 31) | Supported <strong>400+ companies</strong>
         </div>
         <div style="font-size:12px;color:#57606a;margin-top:4px;margin-bottom:10px">Key customers: NTT Data MHI Systems, NSK (Nippon Seiko), Sompo Japan, Mitsubishi Warehouse, Trusco Nakayama, ZOZO Technologies, Plenus, Kyocera</div>
 
@@ -1365,7 +1400,7 @@
     <div class="section-title">Additional Information</div>
     <div style="display:grid;grid-template-columns:160px 1fr;gap:6px 12px;font-size:13px;color:#3b3f45">
       <div style="color:#57606a;font-weight:600">Reason for Moving to Japan</div>
-      <div>Transferred to a joint venture co-founded with FanRuan's Japanese distributor as the sole Japanese-speaking technical resource in support of the company's Japan market expansion.</div>
+      <div>Transferred internally as the sole Japanese-speaking technical specialist within the company, in conjunction with the previous employer's (FanRuan Software) expansion into the Japanese market.</div>
       <div style="color:#57606a;font-weight:600">Hobbies</div>
       <div>Basketball, motorcycle touring</div>
       <div style="color:#57606a;font-weight:600">Favourite Books</div>
@@ -1377,7 +1412,20 @@
 
 </div>
 
+<button id="back-to-top" title="ページトップへ" aria-label="ページトップへ戻る">&#8679;</button>
+
 <script>
+  // Back to top
+  (function () {
+    const btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function () {
+      btn.classList.toggle('visible', window.scrollY > 300);
+    });
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+
   function switchLanguage(lang) {
     const isJa = lang === 'ja';
     
