@@ -1,0 +1,493 @@
+
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<title>Datadog Sales Engineer 初回HR面談 準備シート（1時間想定・全10問）</title>
+<style>
+  :root {
+    --bg-color: #ffffff;
+    --surface-color: #f7f8fa;
+    --border-color: #e5e7eb;
+    --text-primary: #1f2328;
+    --text-muted: #57606a;
+    --accent: #3b82d4;
+    --accent-subtle: #ebf5ff;
+    --highlight: #7c5cd8;
+    --highlight-subtle: #f3f0ff;
+    --tag-bg: #eef2f6;
+  }
+
+  body {
+    font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 24px 16px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .container {
+    max-width: 760px;
+    width: 100%;
+  }
+
+  header {
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+  }
+
+  h1 {
+    font-size: 22px;
+    margin: 0 0 8px 0;
+    color: var(--text-primary);
+  }
+
+  .meta {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .strategy-box {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--accent);
+    padding: 14px 18px;
+    border-radius: 4px;
+    margin-bottom: 28px;
+  }
+
+  .strategy-box h2 {
+    font-size: 15px;
+    margin: 0 0 8px 0;
+    color: var(--accent);
+  }
+
+  .strategy-box ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  .strategy-box li {
+    margin-bottom: 4px;
+  }
+
+  .section-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 32px 0 16px 0;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .qa-card {
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .qa-header {
+    background-color: var(--surface-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .qa-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0;
+    color: var(--text-primary);
+  }
+
+  .badge {
+    font-size: 12px;
+    font-weight: 500;
+    background-color: var(--tag-bg);
+    color: var(--text-muted);
+    padding: 2px 8px;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+
+  .badge.key {
+    background-color: var(--highlight-subtle);
+    color: var(--highlight);
+    border: 1px solid #d8b4fe;
+  }
+
+  .qa-body {
+    padding: 16px;
+  }
+
+  .points-box {
+    background-color: #fafbfc;
+    border: 1px dashed var(--border-color);
+    border-radius: 4px;
+    padding: 10px 14px;
+    margin-bottom: 14px;
+    font-size: 13.5px;
+  }
+
+  .points-box strong {
+    color: var(--accent);
+  }
+
+  .points-box ul {
+    margin: 6px 0 0 0;
+    padding-left: 18px;
+  }
+
+  .points-box li {
+    margin-bottom: 3px;
+  }
+
+  .script-box {
+    background-color: var(--surface-color);
+    border-left: 3px solid var(--highlight);
+    padding: 12px 14px;
+    border-radius: 0 4px 4px 0;
+    font-size: 14px;
+  }
+
+  .script-box .label {
+    font-weight: 600;
+    color: var(--highlight);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .script-text {
+    white-space: pre-line;
+    margin: 0;
+  }
+
+  .table-box {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+    font-size: 13.5px;
+  }
+
+  .table-box th, .table-box td {
+    border: 1px solid var(--border-color);
+    padding: 8px 12px;
+    text-align: left;
+  }
+
+  .table-box th {
+    background-color: var(--surface-color);
+    font-weight: 600;
+  }
+
+  .footer {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <h1>Datadog Sales Engineer 初回HR面談 準備シート（1時間想定・全10問）</h1>
+    <div class="meta">候補者: 庄 奇 (Qi Zhuang) | 対象ポジション: Sales Engineer (SE) | 想定時間: 60分</div>
+  </header>
+
+  <div class="strategy-box">
+    <h2>🎯 1時間面談を制する4大コア・メッセージ</h2>
+    <ul>
+      <li><strong>実績に基づくハングリー精神</strong>: FanRuan時代に「基本給＋売上4%還元」で急成長し、ベース給より還元率を求めた実績。</li>
+      <li><strong>デリバリーとSMEの泥臭い経験</strong>: IBMでの大規模障害対応・性能チューニング・最高評価（Exceptional）に裏打ちされた「絵に描いた餅ではない提案力」。</li>
+      <li><strong>Datadogの存在意義・本質の完全理解</strong>: 「愛犬家としての親近感」×「Watchdog / Scent Hound / Best Friend」のObservability本質論。</li>
+      <li><strong>グローバル＆クロスファンクショナルな協業力</strong>: 日本顧客の要件を本社開発へエスカレーションして機能改善を獲得してきた架け橋力。</li>
+    </ul>
+  </div>
+
+  
+  <div class="section-title">📌 PART 1: 自己紹介・転職理由・職種志望動機</div>
+
+  
+  <div class="qa-card">
+    <div class="qa-header">
+      <h3 class="qa-title">Q1. 自己紹介をお願いします</h3>
+      <span class="badge">1分半〜2分</span>
+    </div>
+    <div class="qa-body">
+      <div class="points-box">
+        <strong>💡 伝えるべきポイント:</strong>
+        <ul>
+          <li>10年間一貫して「データ統合・近代化」を牽引してきたキャリアの軸</li>
+          <li>FanRuanでの日本法人ゼロイチ立ち上げ・プリセ/Tech Lead実績（約50社導入・コンペ連勝）</li>
+          <li>IBMでの大手金融/製造に対するSME（技術専門家）実績・社内最高評価（Exceptional）と早期昇進</li>
+        </ul>
+      </div>
+      <div class="script-box">
+        <span class="label">🗣️ 回答スクリプト</span>
+        <p class="script-text">庄 奇（しょう き）と申します。本日はお時間をいただきありがとうございます。
+
+私はこれまで約10年間、一貫して『データ統合・データ活用の近代化』を軸にキャリアを築いてまいりました。
+
+・キャリア前半（FanRuan）：日本法人の立ち上げメンバー・Tech Leadとして、自社BI製品のプリセールスやPoCをリードし、競合コンペを勝ち抜いて約50社（直接担当31社）の導入に貢献しました。
+・現職（IBM Expert Labs）：大手金融や製造業（MUFG、Honda、トヨタ等）のミッションクリティカルな環境を対象に、CDC（リアルタイムデータレプリケーション）、ストリーミング（Kafka）、MDM領域のSMEとして提案・PoC・デリバリーを主導し、社内最高評価（Exceptional）やBand 8への早期昇進を経験しました。
+
+これまで培った『DB・ストリーミング・クラウドの技術力』と『PoCでお客様の課題を解決するプリセールス力』を活かし、Datadogの優れた統合プラットフォームを日本のエンタープライズ企業に広げたいと考え志望いたしました。</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="qa-card">
+    <div class="qa-header">
+      <h3 class="qa-title">Q2. なぜ転職を考えているのか？（現職の状況と成果主義への志向）</h3>
+      <span class="badge key">★最重要</span>
+    </div>
+    <div class="qa-body">
+      <div class="points-box">
+        <strong>💡 伝えるべきポイント:</strong>
+        <ul>
+          <li>IBMには感謝しており不満はない（他責にしないプロフェッショナリズム）</li>
+          <li>FanRuan時代の「基本給＋売上4%還元」で急成長した原体験と、「ベース給より還元率を求めた」ハングリー精神</li>
+          <li>固定給に安住せず、自ら数字の責任を背負い青天井で稼げる真の成果主義への挑戦</li>
+        </ul>
+      </div>
+      <div class="script-box">
+        <span class="label">🗣️ 回答スクリプト</span>
+        <p class="script-text">現職のIBMには大変感謝しており、最高評価や早期昇進をいただくなど恵まれた環境で成長させていただきました。人間関係や環境に対するネガティブな不満は一切ございません。
+
+その上で今回転職を決意した最大の理由は、『技術力を武器にした、真の成果主義（Performance-based）の環境に戻り、自らの成長とリターンを極限まで追求したいから』です。
+
+前職のFanRuan時代、私はTech LeadとしてプリセールスやPoCをリードしていましたが、当時の報酬体系は『基本給に加え、自らが勝ち取った売上の4%が直接還元される仕組み』でした。当時私は会社に対して『ベース給を上げるよりも、売上に対する還元率を上げてほしい』と本気で求めていたほどです。『自らの技術と提案で売上も年収も青天井で伸ばせる』というシビアでエキサイティングな環境こそが、私の成長速度を圧倒的に加速させ、競合コンペ連勝の原動力となりました。
+
+一方、現職の大規模組織のデリバリー職では固定給の制約があり、ビジネスインパクトと報酬の連動性に物足りなさを感じるようになりました。安定した固定給に安住するのではなく、『自ら案件獲得の責任を背負い、技術でビジネスを勝たせ、結果を出した分だけ正当に高いリターンを勝ち取れる環境』でこそ自分は最も輝けると確信しています。DatadogのSales Engineerとして会社に最大の売上をもたらしながら、トップパフォーマーとして高い成果と報酬を追求したいと考えています。</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="qa-card">
+    <div class="qa-header">
+      <h3 class="qa-title">Q3. 現在はデリバリー中心だが、なぜSales Engineerをやりたいのか？</h3>
+      <span class="badge">適性・強み</span>
+    </div>
+    <div class="qa-body">
+      <div class="points-box">
+        <strong>💡 伝えるべきポイント:</strong>
+        <ul>
+          <li>デリバリー（本番運用・性能課題・泥臭いトラブル）を知るからこそ、机上の空論ではない実現可能な提案・PoCができる</li>
+          <li>技術的工夫で顧客課題を解決し、案件をWonにするダイナミズムを再び追求したい</li>
+        </ul>
+      </div>
+      <div class="script-box">
+        <span class="label">🗣️ 回答スクリプト</span>
+        <p class="script-text">理由は2点ございます。
+
+1点目は、『デリバリーの現場を知り尽くしているからこそ、机上の空論ではない、真に実現可能で信頼される提案・PoCができる』からです。本番運用の複雑さ、性能ボトルネック、データ連携の泥臭い課題を熟知している自分だからこそ、お客様に最も深い技術的安心感を提供できるSEになれると確信しています。
+
+2点目は、『自らの技術的工夫で目の前の課題を解決し、案件を勝たせる（Wonにする）ダイナミズムを再び追求したい』からです。FanRuan時代にコンペを勝ち抜いた経験を通じ、営業とタッグを組んで事業成長を牽引するSEの仕事に大きなやりがいを感じてきました。Datadogという強力な製品を武器に、より多くのエンタープライズ顧客のDXを最前線で支援したいと考えています。</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="section-title">📌 PART 2: 志望動機・製品理解・強みの深掘り</div>
+
+  
+  <div class="qa-card">
+    <div class="qa-header">
+      <h3 class="qa-title">Q4. なぜDatadogなのか？（志望動機 &amp; 名前の適合性）</h3>
+      <span class="badge key">★独自性</span>
+    </div>
+    <div class="qa-body">
+      <div class="points-box">
+        <strong>💡 伝えるべきポイント:</strong>
+        <ul>
+          <li>愛犬家としての親近感から入ったが、社名が製品の本質（Watchdog / Scent Hound / Best Friend）を体現している点に深く感銘</li>
+          <li>Observabilityこそが現代の究極のデータ統合基盤であり、自身のDB/Kafka技術が最も活きる</li>
+        </ul>
+      </div>
+      <div class="script-box">
+        <span class="label">🗣️ 回答スクリプト</span>
+        <p class="script-text">大きく2点ございます。
+
+① 名前への親近感から始まった、製品の本質（役割）への強い共感
+転職活動でデータ領域を探す中で『Datadog』に出会いました。私自身、犬を飼っている愛犬家であるため親しみを感じて調べたのですが、調べるうちに『この社名こそが提供価値の本質を完璧に体現している』と深く感銘を受けました。
+・24時間システムを見守り異常を知らせる『番犬（Watchdog）』
+・マイクロサービスの海からミリ秒単位で障害原因の痕跡をトレースする『探知犬（Scent Hound）』
+・開発と運用のサイロを壊し、障害対応に疲弊するエンジニアに寄り添う『最良の相棒（Best Friend）』
+
+② 自身のデータ統合のバックグラウンドとの親和性
+メトリクス・ログ・トレースを単一基盤でリアルタイムに統合するObservabilityこそが究極のデータ基盤です。私の強みであるデータベース、ストリーミング、クラウド基盤の知見が最もダイレクトに活きるのがDatadogだと確信しています。</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="qa-card">
+    <div class="qa-header">
+      <h3 class="qa-title">Q5. これまでのキャリアで最も困難だった技術的・ビジネス的挑戦は何ですか？</h3>
+      <span class="badge">問題解決力・行動力</span>
+    </div>
+    <div class="qa-body">
+      <div class="points-box">
+        <strong>💡 伝えるべきポイント:</strong> STAR法（状況・課題・行動・結果）で、自ら手を動かして製品限界やボトルネックを打破した経験（Honda or トヨタシステムズ）
+      </div>
+      <div class="script-box">
+        <span class="label">🗣️ 回答スクリプト</span>
+        <p class="script-text">IBMにおける本田技研工業（Honda）様のクラウド移行・リアルタイムデータ連携PoCです。
+
+【状況・課題】
+IBM i（基幹）からSnowflakeへのリアルタイムデータレプリケーション検証において、適用処理のTPSが大幅に低下し、クラウド移行の実現性が危ぶまれる危機的状況でした。
+
+【行動】
+私はSME・チームリーダーとして、単に製品ログを見るだけでなく、ネットワーク帯域、DBバッファ、Snowflakeのロード仕様を徹底的に分解調査しました。ボトルネックがバッチ書き込みの並列度とコミット間隔にあることを特定し、パラメータ最適化とデータパイプライン設計の改善を自ら実装・検証しました。
+
+【結果】
+目標TPSを達成してPoCを完遂し、オンプレミスからクラウドへの移行可能性を実証して案件の受注・本番採用に導きました。机上の提案にとどまらず、泥臭く技術検証をやり切る姿勢が顧客の絶大な信頼につながりました。</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="qa-card">
+    <div class="qa-header">
+      <h3 class="qa-title">Q6. 営業（AE）や他部門（製品開発・サポート等）との協業で工夫していることは？</h3>
+      <span class="badge">コラボレーション</span>
+    </div>
+    <div class="qa-body">
+      <div class="points-box">
+        <strong>💡 伝えるべきポイント:</strong>
+        <ul>
+          <li>対営業: 「技術の通訳」としてビジネス価値（ROI・ダウンタイム削減）に変換して一緒に勝つ</li>
+          <li>対開発: 日本顧客の要件をグローバルへエスカレーションし機能改善を勝ち取った実績（QIT活動等）</li>
+        </ul>
+      </div>
+      <div class="script-box">
+        <span class="label">🗣️ 回答スクリプト</span>
+        <p class="script-text">2つの軸で工夫しています。
+
+1つ目は、営業（AE）との協業において『技術の通訳』になることです。お客様に対して機能スペックを語るのではなく、『このPoCが成功すれば障害復旧時間が何割短縮し、どれだけのコスト削減になるか』というビジネス価値（ROI）に翻訳し、営業と完全に同じゴール（Won）を見据えて動くことを徹底しています。
+
+2つ目は、製品開発チームとの架け橋です。IBMやFanRuanにおいて、日本市場特有の課題（文字コード問題や独自連携要件）が発生した際、単に不具合報告するのではなく、再現手順や顧客のビジネスインパクトを整理して本社開発へエスカレーションし、グローバル製品へのエンハンスメント（機能改善）を複数獲得してきました。現場と開発を繋ぐハブとして動くことができます。</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="section-title">📌 PART 3: スキル適応・キャリア・条件・逆質問</div>
+
+  
+  <div class="qa-card">
+    <div class="qa-header">
+      <h3 class="qa-title">Q7. Datadogの製品領域（Observability）のキャッチアップはどう進めますか？</h3>
+      <span class="badge">学習力・自己駆動</span>
+    </div>
+    <div class="qa-body">
+      <div class="points-box">
+        <strong>💡 伝えるべきポイント:</strong>
+        <ul>
+          <li>基礎（DB・OS・ネットワーク・Kafka・AWS）はすでに強固に持っている</li>
+          <li>自らハンズオン環境を構築して体で覚える学習スタイル（AWS資格や独自検証の継続）</li>
+        </ul>
+      </div>
+      <div class="script-box">
+        <span class="label">🗣️ 回答スクリプト</span>
+        <p class="script-text">Observabilityの土台となるインフラ、データベース（PostgreSQL/Oracle/Db2）、コンテナ、ストリーミング（Kafka）、AWSなどの基礎技術は、これまでの10年間で深く実践してきました。
+
+キャッチアップにおいては、ドキュメントを読むだけでなく『自ら手を動かして環境を作る』ことを重視しています。実際に自宅の検証環境やクラウド上にDatadog Agentを導入し、OpenTelemetryとの連携やAPM・ログ監視のダッシュボードをハンズオンで構築しながら、ユースケースごとの勘所を体得していきます。過去の製品立ち上げ時も同様に高速でキャッチアップしてきた実績があります。</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="qa-card">
+    <div class="qa-header">
+      <h3 class="qa-title">Q8. 英語での業務コミュニケーションに対するスタンスは？</h3>
+      <span class="badge">語学力・意欲</span>
+    </div>
+    <div class="qa-body">
+      <div class="points-box">
+        <strong>💡 伝えるべきポイント:</strong> 読み書き・チャット・技術理解は問題なく（CEFR B1+）、グローバル協業に向けて日常的に学習を継続中。臆せず挑戦する姿勢
+      </div>
+      <div class="script-box">
+        <span class="label">🗣️ 回答スクリプト</span>
+        <p class="script-text">現在の英語力は日常会話、技術ドキュメントの読解、Slackやメールでのテキストコミュニケーション（CEFR B1+）が中心です。IBMでも海外の製品開発チームへのチケット起票や仕様確認を日常的に行ってきました。
+
+今後は米国本社のエンジニアやグローバルチームとの高度な技術ディスカッションに向けて日常的に英語学習を継続しており、臆することなく積極的に英語でのコミュニケーション機会を増やし、早期にビジネスレベルへ引き上げてまいります。</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="qa-card">
+    <div class="qa-header">
+      <h3 class="qa-title">Q9. 今後のキャリアプラン &amp; 希望年収・条件</h3>
+      <span class="badge">キャリア &amp; 条件</span>
+    </div>
+    <div class="qa-body">
+      <div class="points-box">
+        <strong>💡 キャリアプラン:</strong> 短期はPoC勝率向上とエンタープライズ獲得にフルコミット → 中長期はシニアSE/リードとして組織のスケール・製品フィードバックに貢献
+      </div>
+      <table class="table-box">
+        <tr>
+          <th>現職年収（IBM）</th>
+          <td>約 <strong>1,150万円</strong>（基本給＋賞与）</td>
+        </tr>
+        <tr>
+          <th>希望年収（Datadog）</th>
+          <td><strong>OTE（目標達成想定年収）1,500万 〜 1,700万円</strong> ＋ RSU</td>
+        </tr>
+      </table>
+      <div class="script-box" style="margin-top:12px">
+        <span class="label">🗣️ 回答スクリプト</span>
+        <p class="script-text">【キャリアプラン】
+まずは1〜2年でDatadogプラットフォームを網羅し、強みであるDBやデータ連携の知見を活かしてPoC勝率向上と大型受注にフルコミットします。3〜5年後には、日本顧客の声を本社製品開発へ還元して機能改善をリードし、シニアSEとして組織のスケールや後進育成にも貢献したいと考えています。
+
+【希望年収】
+現職はBaseと賞与を合わせて約1,150万円です。希望年収につきましては、御社のSE給与テーブルに基づき、私の技術力とプリセールス実績をご評価いただいたオファーをいただければ幸いです。目安としてOTEベースで1,500万円〜1,700万円程度を希望しております。Base/Variable比率やRSUを含め柔軟にご相談させてください。</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="qa-card">
+    <div class="qa-header">
+      <h3 class="qa-title">Q10. 逆質問（面談の締めくくり用・3選）</h3>
+      <span class="badge">好印象を残す</span>
+    </div>
+    <div class="qa-body">
+      <div class="points-box">
+        <ul>
+          <li><strong>① カルチャー &amp; ペット:</strong>「Datadogにはペット保険のサポートやDog-friendlyな文化があると伺いました。私自身も犬を飼っているのですが、日本オフィスでもそうしたオープンで温かいカルチャーを実感される場面はありますか？」</li>
+          <li><strong>② SE組織の重点テーマ:</strong>「日本市場におけるDatadogの成長は非常に目覚ましいですが、現在日本のSEチームが特に注力している製品領域（例: DBM, Cloud Security, LLM Observability等）や、エンタープライズ開拓の重点テーマはございますか？」</li>
+          <li><strong>③ 選考プロセスへのアドバイス:</strong>「もし次のステップ（SEマネージャー面接や技術プレゼン選考等）に進ませていただける場合、どのような点に重点を置いて準備を進めるのが望ましいでしょうか？」</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Made with IBM Bob
+  </div>
+
+</div>
+</body>
+</html>
