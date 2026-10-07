@@ -1,0 +1,463 @@
+
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<title>Datadog Sales Engineer 初回HR面談 準備シート（自然な日本語版）</title>
+<style>
+  :root {
+    --bg-color: #ffffff;
+    --surface-color: #f7f8fa;
+    --border-color: #e5e7eb;
+    --text-primary: #1f2328;
+    --text-muted: #57606a;
+    --accent: #3b82d4;
+    --accent-subtle: #ebf5ff;
+    --highlight: #7c5cd8;
+    --highlight-subtle: #f3f0ff;
+    --tag-bg: #eef2f6;
+  }
+
+  body {
+    font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 24px 16px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .container {
+    max-width: 760px;
+    width: 100%;
+  }
+
+  header {
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+  }
+
+  h1 {
+    font-size: 22px;
+    margin: 0 0 8px 0;
+    color: var(--text-primary);
+  }
+
+  .meta {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .strategy-box {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--accent);
+    padding: 14px 18px;
+    border-radius: 4px;
+    margin-bottom: 28px;
+  }
+
+  .strategy-box h2 {
+    font-size: 15px;
+    margin: 0 0 8px 0;
+    color: var(--accent);
+  }
+
+  .strategy-box ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  .strategy-box li {
+    margin-bottom: 4px;
+  }
+
+  .section-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 32px 0 16px 0;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .qa-card {
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .qa-header {
+    background-color: var(--surface-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .qa-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0;
+    color: var(--text-primary);
+  }
+
+  .badge {
+    font-size: 12px;
+    font-weight: 500;
+    background-color: var(--tag-bg);
+    color: var(--text-muted);
+    padding: 2px 8px;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+
+  .badge.key {
+    background-color: var(--highlight-subtle);
+    color: var(--highlight);
+    border: 1px solid #d8b4fe;
+  }
+
+  .qa-body {
+    padding: 16px;
+  }
+
+  .points-box {
+    background-color: #fafbfc;
+    border: 1px dashed var(--border-color);
+    border-radius: 4px;
+    padding: 10px 14px;
+    margin-bottom: 14px;
+    font-size: 13.5px;
+  }
+
+  .points-box strong {
+    color: var(--accent);
+  }
+
+  .points-box ul {
+    margin: 6px 0 0 0;
+    padding-left: 18px;
+  }
+
+  .points-box li {
+    margin-bottom: 3px;
+  }
+
+  .script-box {
+    background-color: var(--surface-color);
+    border-left: 3px solid var(--highlight);
+    padding: 12px 14px;
+    border-radius: 0 4px 4px 0;
+    font-size: 14px;
+  }
+
+  .script-box .label {
+    font-weight: 600;
+    color: var(--highlight);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .script-text {
+    white-space: pre-line;
+    margin: 0;
+  }
+
+  .table-box {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+    font-size: 13.5px;
+  }
+
+  .table-box th, .table-box td {
+    border: 1px solid var(--border-color);
+    padding: 8px 12px;
+    text-align: left;
+  }
+
+  .table-box th {
+    background-color: var(--surface-color);
+    font-weight: 600;
+  }
+
+  .footer {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <h1>Datadog Sales Engineer 初回HR面談 準備シート（自然な日本語版）</h1>
+    <div class="meta">候補者: 庄 奇 (Qi Zhuang) | 対象ポジション: Sales Engineer (SE) | 想定時間: 60分</div>
+  </header>
+
+  <div class="strategy-box">
+    <h2>🎯 話し方のポイント（自然で話しやすいトーン）</h2>
+    <ul>
+      <li>難しい四字熟語や硬すぎる言葉を減らし、<strong>「普段の会話のようにスラスラ話せる自然な表現」</strong>にしています。</li>
+      <li>言いたいこと（成果主義への情熱・愛犬とDatadogの繋がり・技術力と実績）はしっかり伝わる構成です。</li>
+    </ul>
+  </div>
+
+  
+  <div class="section-title">📌 PART 1: 自己紹介・転職理由・SEをやりたい理由</div>
+
+  
+  <div class="qa-card">
+    <div class="qa-header">
+      <h3 class="qa-title">Q1. 自己紹介をお願いします</h3>
+      <span class="badge">1分半〜2分</span>
+    </div>
+    <div class="qa-body">
+      <div class="points-box">
+        <strong>💡 話す流れ:</strong> 10年間データ畑 → FanRuanでプリセ・日本立ち上げ → IBMで大規模PoCと最高評価
+      </div>
+      <div class="script-box">
+        <span class="label">🗣️ 会話スクリプト</span>
+        <p class="script-text">「庄 奇（しょう き）と申します。本日はお時間いただきありがとうございます。
+
+私はこれまで約10年間、一貫して『データの統合やデータ活用』の仕事をしてきました。
+
+・前職のFanRuanでは、日本法人の立ち上げメンバーとして、BIツールのプリセールスやPoCをリードしました。他社との競合コンペを勝ち抜いて、約50社のお客様への導入に貢献しました。
+・現職のIBMでは、MUFG様やHonda様、トヨタ様などの大手企業向けに、リアルタイムデータ連携（CDCやKafka）の技術専門家として、提案からPoC、本番導入までを担当しています。社内では最高評価をいただき、早期昇進もできました。
+
+これまで培った『データベースやクラウドの技術』と、『PoCでお客様の課題を解決してきた経験』を活かして、Datadogの素晴らしい製品を日本のお客様に広げたいと思い、応募いたしました。」</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="qa-card">
+    <div class="qa-header">
+      <h3 class="qa-title">Q2. なぜ転職を考えているのですか？</h3>
+      <span class="badge key">★最重要（本音と情熱）</span>
+    </div>
+    <div class="qa-body">
+      <div class="points-box">
+        <strong>💡 話す流れ:</strong> IBMには満足・感謝 → でも『結果を出した分だけ青天井で稼げる仕組み』で挑戦したい → FanRuan時代の成功体験
+      </div>
+      <div class="script-box">
+        <span class="label">🗣️ 会話スクリプト</span>
+        <p class="script-text">「現職のIBMにはとても感謝していて、人間関係などの不満はまったくありません。最高評価もいただき、順調に昇進もできました。
+
+ただ、今回転職を考えた一番の理由は、『自分の技術力を使って、成果を出せば出すほどしっかり稼げる成果主義の環境で勝負したいから』です。
+
+前職のFanRuan時代、私はプリセールスを担当していて、『基本給に加えて、自分が取った売上の4%がインセンティブとしてもらえる仕組み』で働いていました。
+当時は『基本給を上げるよりも、売上の還元率を上げてほしい』と会社にお願いしていたくらいで、自分の技術と提案で売上も年収も伸ばせる環境が一番モチベーションになり、大きく成長できました。
+
+現職のような大企業のデリバリーの仕事だと、どれだけ難しい案件を成功させても給料の上限が決まっています。
+安定した固定給に満足するのではなく、『自分で案件を取る責任を持って、結果を出した分だけ高い年収を目指せる仕事』にまた挑戦したいと思い、転職を決めました。」</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="qa-card">
+    <div class="qa-header">
+      <h3 class="qa-title">Q3. 今はデリバリーが中心ですが、なぜSales Engineerをやりたいのですか？</h3>
+      <span class="badge">強み・適性</span>
+    </div>
+    <div class="qa-body">
+      <div class="points-box">
+        <strong>💡 話す流れ:</strong> デリバリーの現場の大変さを知っているからこそ『本当に動く提案』ができる ＋ 案件を勝ち取るのが楽しい
+      </div>
+      <div class="script-box">
+        <span class="label">🗣️ 会話スクリプト</span>
+        <p class="script-text">「理由は2つあります。
+
+1つ目は、『本番運用の現場を知っているからこそ、本当に信頼される提案やPoCができる』からです。
+スライド上のきれいな説明だけでなく、実際の運用の大変さや性能のボトルネックを深く知っている自分だからこそ、お客様に『この人の言うことなら安心だ』と信頼してもらえるSEになれると思っています。
+
+2つ目は、単純に『技術でお客様の課題を解決して、コンペに勝って案件を受注できたときの達成感が一番好きだから』です。
+FanRuan時代に営業と一緒に走って案件を勝ち取った経験が本当に楽しかったので、Datadogという強い製品を使って、もう一度SEの最前線で活躍したいです。」</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="section-title">📌 PART 2: 志望動機・実績・チームワーク</div>
+
+  
+  <div class="qa-card">
+    <div class="qa-header">
+      <h3 class="qa-title">Q4. なぜDatadogなのですか？（志望動機 &amp; 名前の意味）</h3>
+      <span class="badge key">★親近感 × 深い理解</span>
+    </div>
+    <div class="qa-body">
+      <div class="points-box">
+        <strong>💡 話す流れ:</strong> 犬を飼っていて名前に親しみを持った → 調べたら名前が業務そのものだった（番犬・探知犬・相棒） → 自分のデータスキルと直結
+      </div>
+      <div class="script-box">
+        <span class="label">🗣️ 会話スクリプト</span>
+        <p class="script-text">「大きく2つの理由があります。
+
+1つ目は、名前への親しみから始まって、製品の役割に深く感動したことです。
+転職活動で『Data』で検索したときに『Datadog』という面白い名前を見つけました。私自身も犬を飼っているので親しみを感じて調べてみたのですが、調べるうちに『この名前は、実際にやっている仕事そのものだな』と驚きました。
+・システムを24時間見守って異常を知らせる『番犬（Watchdog）』
+・複雑なシステムの中から障害の原因をすぐ見つけ出す『探知犬（Scent Hound）』
+・そして、夜中のアラート対応に疲れたエンジニアを助ける『一番の相棒（Best Friend）』
+この名前に込められた意味と製品の思想が本当に素晴らしいと感じました。
+
+2つ目は、私のこれまでのスキルとぴったり合うことです。
+今のクラウドやマイクロサービスの時代では、ログやメトリクスをリアルタイムに集めて分析するObservabilityこそが、究極のデータ統合基盤です。私の強みであるデータベースやKafkaの技術が一番活きる場所だと確信しています。」</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="qa-card">
+    <div class="qa-header">
+      <h3 class="qa-title">Q5. これまでで一番大変だった技術的な挑戦は何ですか？</h3>
+      <span class="badge">課題解決（Honda PoC）</span>
+    </div>
+    <div class="qa-body">
+      <div class="points-box">
+        <strong>💡 話す流れ:</strong> Honda様のクラウド移行PoCで性能が出ないトラブル → ログだけでなくパラメータや仕様を徹底分析 → 解決して受注につなげた
+      </div>
+      <div class="script-box">
+        <span class="label">🗣️ 会話スクリプト</span>
+        <p class="script-text">「IBMでのHonda（本田技研工業）様のクラウド移行PoCです。
+
+基幹システムからSnowflakeにリアルタイムでデータを連携する検証だったのですが、テストの途中でデータ書き込みのスピードが極端に落ちてしまい、移行計画がストップしかける危機がありました。
+
+私はリーダーとして、単にエラーログを見るだけでなく、ネットワークやDBのメモリ、Snowflakeの書き込みの仕組みを細かく調べました。その結果、バッチの処理単位とコミットのタイミングに問題があることを突き止め、設定とデータパイプラインの設計を修正しました。
+
+その結果、目標のスピードを無事に達成でき、PoCを成功させて本番採用につなげることができました。諦めずに手を動かして原因を突き止めたことで、お客様からもとても厚い信頼をいただけました。」</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="qa-card">
+    <div class="qa-header">
+      <h3 class="qa-title">Q6. 営業や開発チームとはどのように協力していますか？</h3>
+      <span class="badge">協業・コミュニケーション</span>
+    </div>
+    <div class="qa-body">
+      <div class="points-box">
+        <strong>💡 話す流れ:</strong> 営業向け＝難しい技術を『コスト削減や復旧時間の短縮』というビジネスの話に変えて話す / 開発向け＝日本のお客様の困りごとを正しく伝えて機能改善してもらう
+      </div>
+      <div class="script-box">
+        <span class="label">🗣️ 会話スクリプト</span>
+        <p class="script-text">「営業との協力では、『難しい技術の話を、分かりやすいビジネスの価値に変えて伝えること』を大切にしています。
+お客様に対して細かい機能の説明をするのではなく、『これを導入すれば障害の復旧時間がどれくらい短くなって、どれだけコストが浮くか』を営業と一緒に話して、案件を勝ち取りにいきます。
+
+また、製品開発チームとの協力も得意です。
+IBMやFanRuanでも、日本特有の文字コードの問題などが発生したときに、ただ文句を言うのではなく、再現手順や『これがないと日本の大手顧客に売れない』という影響度を本社にしっかり伝えて、製品のアップデートを何度も勝ち取ってきました。」</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="section-title">📌 PART 3: 学習意欲・英語・希望条件・逆質問</div>
+
+  
+  <div class="qa-card">
+    <div class="qa-header">
+      <h3 class="qa-title">Q7. Datadogの製品知識はどうやってキャッチアップしますか？</h3>
+      <span class="badge">学ぶ姿勢</span>
+    </div>
+    <div class="qa-body">
+      <div class="points-box">
+        <strong>💡 話す流れ:</strong> DBやLinux、AWSの基礎はすでにバッチリ → ドキュメントだけでなく自分で実際に環境を作って動かして覚える
+      </div>
+      <div class="script-box">
+        <span class="label">🗣️ 会話スクリプト</span>
+        <p class="script-text">「監視の土台になるデータベース（PostgreSQLやOracle）やLinux、Kafka、AWSなどのインフラ基礎は、これまでの10年間でずっと使ってきたので自信があります。
+
+Datadogの製品については、マニュアルを読むだけでなく『実際に自分で環境を作って触ってみる』ことでキャッチアップします。
+自分の検証環境にDatadog Agentを入れて、アプリのログやダッシュボードを設定しながら、手を動かして体で覚えていくのが私のいつものスタイルです。前職でもそうやって新しい製品をすぐに立ち上げてきました。」</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="qa-card">
+    <div class="qa-header">
+      <h3 class="qa-title">Q8. 英語での仕事はどうですか？</h3>
+      <span class="badge">英語へのスタンス</span>
+    </div>
+    <div class="qa-body">
+      <div class="points-box">
+        <strong>💡 話す流れ:</strong> 読み書き・チャット・技術理解は問題なし（CEFR B1+） → 会話も恥ずかしがらずに積極的に使って伸ばしていく
+      </div>
+      <div class="script-box">
+        <span class="label">🗣️ 会話スクリプト</span>
+        <p class="script-text">「英語は、技術ドキュメントの読み書きや、Slack・メールでのやり取り（CEFR B1+）は普段からIBMでも海外の開発チームと行っています。
+
+今後はもっとスムーズに会話ができるように毎日勉強を続けています。恥ずかしがらずにどんどん英語で発言して、早くグローバルのメンバーとも深い技術の議論ができるようになりたいです。」</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="qa-card">
+    <div class="qa-header">
+      <h3 class="qa-title">Q9. キャリアプランと希望年収について教えてください</h3>
+      <span class="badge">キャリア &amp; 条件</span>
+    </div>
+    <div class="qa-body">
+      <table class="table-box">
+        <tr>
+          <th>現職年収（IBM）</th>
+          <td>約 <strong>1,150万円</strong>（基本給＋賞与）</td>
+        </tr>
+        <tr>
+          <th>希望年収（Datadog）</th>
+          <td><strong>OTE（目標達成時の想定年収）1,500万 〜 1,700万円</strong> ＋ RSU</td>
+        </tr>
+      </table>
+      <div class="script-box" style="margin-top:12px">
+        <span class="label">🗣️ 会話スクリプト</span>
+        <p class="script-text">「【キャリアプラン】
+まずは1〜2年でDatadogの製品をしっかりマスターして、得意なデータベースやデータ連携の知識を活かして、PoCの勝率を上げて大型案件をどんどん取っていきたいです。将来的には、シニアSEとしてチームを引っ張ったり、日本のお客様の声を本社に届けて製品改善をリードしたいです。
+
+【希望年収】
+現職は基本給と賞与を合わせて約1,150万円です。
+希望としては、御社の給与水準に合わせて、これまでの技術力やプリセールスの実績を評価していただければと思いますが、目安として『OTEベースで1,500万円〜1,700万円くらい』を希望しています。基本給とインセンティブの割合や株（RSU）も含めて、柔軟にご相談させてください。」</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="qa-card">
+    <div class="qa-header">
+      <h3 class="qa-title">Q10. 最後に何か質問はありますか？（逆質問）</h3>
+      <span class="badge">好印象で終わる</span>
+    </div>
+    <div class="qa-body">
+      <div class="points-box">
+        <ul>
+          <li><strong>① カルチャーについて:</strong>「Datadogにはペット保険のサポートがあったり、犬に優しい文化があると聞きました。私自身も犬を飼っているのですが、日本のオフィスでもそうした温かい雰囲気を感じることはありますか？」</li>
+          <li><strong>② 注力している製品について:</strong>「いま日本市場で、特に力を入れている製品（Database Monitoringやセキュリティなど）や、お客様からの引き合いが多い分野はどこですか？」</li>
+          <li><strong>③ 次の選考について:</strong>「もし次のマネージャー面接や技術選考に進める場合、どんな準備をしておくと良いかアドバイスをいただけますか？」</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Made with IBM Bob
+  </div>
+
+</div>
+</body>
+</html>
