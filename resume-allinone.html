@@ -1,0 +1,594 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Qi Zhuang Resume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: masthead, then sidebar (facts) + main column (narrative, experience, projects). Stacks to one column on phones. */
+:root{
+  --bg:#f4f6f8; --paper:#ffffff; --ink:#18212b; --muted:#5b6876; --line:#dde3ea;
+  --accent:#1f5f7d; --accent-soft:#e3eef4; --pos:#2f7a52;
+  --sans:"IBM Plex Sans JP","Hiragino Sans","Noto Sans JP","Yu Gothic",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#11161c; --paper:#182029; --ink:#e4e9ef; --muted:#97a4b2; --line:#2a3542;
+  --accent:#7dc3e0; --accent-soft:#1d3241; --pos:#7fcf9f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#11161c; --paper:#182029; --ink:#e4e9ef; --muted:#97a4b2; --line:#2a3542;
+  --accent:#7dc3e0; --accent-soft:#1d3241; --pos:#7fcf9f; color-scheme:dark}
+
+:root:not([data-lang="en"]) .en{display:none!important}
+:root[data-lang="en"] .ja{display:none!important}
+:root[data-view="summary"] .detail-only{display:none!important}
+
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14.5px;line-height:1.7;padding-inline:16px;padding-block:24px 56px}
+.sheet{max-width:1080px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:6px}
+a{color:var(--accent);text-underline-offset:2px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* toolbar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap;max-width:1080px;margin:0 auto 12px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;background:var(--paper);padding:3px}
+.seg button{font:500 12.5px/1 var(--sans);border:0;background:transparent;color:var(--muted);padding:7px 14px;border-radius:999px;cursor:pointer;letter-spacing:.02em}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+/* masthead */
+.mast{padding:36px 40px 28px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:20px;align-items:end}
+.mast h1{margin:0;font-size:34px;line-height:1.15;font-weight:700;letter-spacing:.01em;text-wrap:balance}
+.mast h1 small{display:block;font:400 14px/1.4 var(--mono);color:var(--muted);letter-spacing:.06em;margin-top:6px}
+.role{margin:10px 0 0;font-size:15px;color:var(--accent);font-weight:500}
+.contact{font:400 12.5px/1.8 var(--mono);color:var(--muted);text-align:right}
+.contact span{display:block}
+
+/* metrics */
+.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-bottom:1px solid var(--line)}
+.metric{padding:18px 22px;border-right:1px solid var(--line);min-width:0}
+.metric:last-child{border-right:0}
+.metric b{display:block;font:500 22px/1.2 var(--mono);color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.metric b i{font-style:normal;color:var(--accent)}
+.metric span{font-size:12px;color:var(--muted);line-height:1.5;display:block;margin-top:4px}
+
+/* body grid */
+.grid{display:grid;grid-template-columns:290px minmax(0,1fr)}
+aside{padding:28px 26px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:26px;min-width:0}
+main{padding:28px 40px 40px;display:flex;flex-direction:column;gap:34px;min-width:0}
+h2{margin:0 0 12px;font:500 11.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:10px}
+h2::after{content:"";flex:1;height:1px;background:var(--line)}
+h3{margin:0;font-size:16px;line-height:1.4;font-weight:700}
+p{margin:0}
+ul{margin:0;padding-left:1.1em}
+li{margin:2px 0}
+.muted{color:var(--muted)}
+.mono{font-family:var(--mono)}
+
+/* sidebar */
+.kv{display:flex;flex-direction:column;gap:8px;font-size:13px}
+.kv div{display:flex;flex-direction:column}
+.kv dt,.kv .k{font:500 11px/1.4 var(--mono);color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.tags{display:flex;flex-wrap:wrap;gap:5px}
+.tag{font:400 11.5px/1.3 var(--mono);padding:4px 7px;border:1px solid var(--line);border-radius:4px;color:var(--ink);background:var(--bg)}
+.tag.strong{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.skillgrp{display:flex;flex-direction:column;gap:6px}
+.skillgrp + .skillgrp{margin-top:12px}
+.skillgrp .k{font:500 12px/1.4 var(--sans);color:var(--ink)}
+.side-list{list-style:none;padding:0;font-size:13px;display:flex;flex-direction:column;gap:6px}
+.side-list li{margin:0}
+.lang-row{display:flex;justify-content:space-between;gap:8px;font-size:13px;border-bottom:1px dashed var(--line);padding:4px 0}
+.lang-row span:last-child{font-family:var(--mono);font-size:12px;color:var(--muted)}
+
+/* summary + strengths */
+.lede{font-size:15px;line-height:1.85;max-width:70ch}
+.lede p + p{margin-top:10px}
+.strengths{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 26px}
+.strengths div{min-width:0}
+.strengths b{display:block;font-size:13.5px;margin-bottom:2px}
+.strengths p{font-size:13px;color:var(--muted);line-height:1.65}
+
+/* experience */
+.job{display:grid;grid-template-columns:130px minmax(0,1fr);gap:18px;padding:18px 0;border-top:1px solid var(--line)}
+.job:first-of-type{border-top:0;padding-top:4px}
+.when{font:400 12px/1.6 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.when b{display:block;color:var(--ink);font-weight:500}
+.job .org{font-size:13px;color:var(--muted);margin:2px 0 10px}
+.job .note{font-size:13.5px;margin-bottom:10px;max-width:72ch}
+.hl{list-style:none;padding:0;display:flex;flex-direction:column;gap:9px}
+.hl li{margin:0;padding-left:14px;position:relative;font-size:13.5px}
+.hl li::before{content:"";position:absolute;left:0;top:.72em;width:6px;height:1px;background:var(--accent)}
+.hl strong{font-weight:700}
+.num{font-family:var(--mono);color:var(--pos);font-weight:500;white-space:nowrap}
+.sub{font:500 11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:14px 0 6px}
+
+/* projects */
+.pgroup + .pgroup{margin-top:26px}
+.pgroup > .gh{font-size:14px;font-weight:700;margin:0 0 10px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.pgroup > .gh span{font:400 11.5px/1 var(--mono);color:var(--muted)}
+.plist{display:flex;flex-direction:column;gap:12px}
+.proj{border:1px solid var(--line);border-radius:5px;padding:14px 16px;min-width:0}
+.proj header{display:flex;justify-content:space-between;gap:6px 16px;flex-wrap:wrap;align-items:baseline}
+.proj h4{margin:0;font-size:14.5px;line-height:1.45}
+.proj .meta{font:400 11.5px/1.5 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.proj .title{font-size:13px;color:var(--muted);margin:2px 0 8px}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:0 0 10px;font:400 11.5px/1.3 var(--mono)}
+.flow .n{padding:3px 7px;border-radius:3px;background:var(--accent-soft);color:var(--accent)}
+.flow .a{color:var(--muted)}
+.proj ul{font-size:13px;color:var(--ink)}
+.impact{margin-top:8px;font-size:13px;padding:8px 10px;background:var(--bg);border-radius:4px}
+.impact b{font:500 10.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--pos);margin-right:8px}
+.stack{margin-top:8px;font:400 11.5px/1.6 var(--mono);color:var(--muted)}
+
+/* certs */
+.certs{list-style:none;padding:0;display:flex;flex-direction:column;gap:7px;font-size:13px}
+.certs li{margin:0}
+.certs .x{font:400 11px/1 var(--mono);color:var(--muted)}
+
+footer{padding:14px 40px;border-top:1px solid var(--line);font:400 11.5px/1.5 var(--mono);color:var(--muted);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+
+@media (max-width:860px){
+  .grid{grid-template-columns:1fr}
+  aside{border-right:0;border-bottom:1px solid var(--line)}
+  main{padding:24px 22px 32px}
+  .metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .metric:nth-child(2){border-right:0}
+  .metric:nth-child(-n+2){border-bottom:1px solid var(--line)}
+}
+@media (max-width:560px){
+  body{padding-block:12px 40px}
+  .mast{grid-template-columns:1fr;padding:26px 20px 20px}
+  .contact{text-align:left}
+  .mast h1{font-size:28px}
+  aside{padding:22px 20px}
+  main{padding:22px 18px 28px}
+  .strengths{grid-template-columns:1fr}
+  .job{grid-template-columns:1fr;gap:6px}
+  .metric{padding:14px 16px}
+  .metric b{font-size:18px}
+  footer{padding:14px 20px}
+}
+@media print{
+  body{background:#fff;padding:0}
+  .bar{display:none}
+  .sheet{border:0}
+  .proj{break-inside:avoid}
+}
+@media (prefers-reduced-motion:no-preference){.seg button{transition:background .15s,color .15s}}
+</style>
+
+<div class="bar" role="toolbar" aria-label="Display options">
+  <div class="seg" aria-label="Language">
+    <button type="button" id="btn-ja" data-lang-btn="ja" aria-pressed="true">日本語</button>
+    <button type="button" id="btn-en" data-lang-btn="en" aria-pressed="false">English</button>
+  </div>
+  <div class="seg" aria-label="View">
+    <button type="button" id="btn-summary" data-view-btn="summary" aria-pressed="false"><span class="ja">概要版</span><span class="en">Summary</span></button>
+    <button type="button" id="btn-detail" data-view-btn="detail" aria-pressed="true"><span class="ja">詳細版</span><span class="en">Detailed</span></button>
+  </div>
+</div>
+
+<article class="sheet">
+
+<header class="mast">
+  <div>
+    <h1><span class="ja">庄 奇</span><span class="en">Qi Zhuang</span>
+      <small><span class="ja">しょう き ／ Qi Zhuang</span><span class="en">庄 奇 ／ Shō Ki</span></small></h1>
+    <p class="role"><span class="ja">データエンジニア ／ セールスエンジニア ／ デリバリーエンジニア（PM）</span><span class="en">Data Engineer · Sales Engineer · Delivery Engineer (PM)</span></p>
+  </div>
+  <div class="contact">
+    <span><span class="ja">東京都</span><span class="en">Tokyo, Japan</span></span>
+    <span>070-3825-****</span>
+    <span>*****.zhuangqi@*********</span>
+  </div>
+</header>
+
+<section class="metrics" aria-label="Highlights">
+  <div class="metric"><b>~12 <i><span class="ja">年</span><span class="en">yrs</span></i></b><span><span class="ja">データ統合・BI領域の経験</span><span class="en">in data integration and BI</span></span></div>
+  <div class="metric"><b>1M$<i>+</i></b><span><span class="ja">IBMでの担当案件 年間合計売上</span><span class="en">annual revenue across IBM engagements</span></span></div>
+  <div class="metric"><b>200→10k<i>+</i></b><span><span class="ja">Honda PoC：Snowflake反映TPS（約50倍）</span><span class="en">TPS into Snowflake, Honda PoC (~50×)</span></span></div>
+  <div class="metric"><b>400<i>+</i> → 48</b><span><span class="ja">FanRuan：商談社数 → 導入社数（自担当31社）</span><span class="en">FanRuan: companies pitched → deployed (31 led directly)</span></span></div>
+</section>
+
+<div class="grid">
+<aside>
+
+  <section>
+    <h2><span class="ja">基本情報</span><span class="en">Profile</span></h2>
+    <dl class="kv">
+      <div><dt><span class="ja">出身</span><span class="en">Born</span></dt><dd style="margin:0"><span class="ja">中国 江蘇省</span><span class="en">Jiangsu, China</span></dd></div>
+      <div><dt><span class="ja">来日</span><span class="en">In Japan since</span></dt><dd style="margin:0"><span class="ja">2016年7月（日本法人へ転籍）</span><span class="en">July 2016 (transferred to Japan entity)</span></dd></div>
+      <div><dt><span class="ja">職務領域</span><span class="en">Roles</span></dt><dd style="margin:0"><span class="ja">プリセールス、デリバリー／PM、ソフトウェア開発、テクニカルサポート</span><span class="en">Pre-sales, delivery / PM, software development, technical support</span></dd></div>
+    </dl>
+  </section>
+
+  <section>
+    <h2><span class="ja">言語</span><span class="en">Languages</span></h2>
+    <div class="lang-row"><span><span class="ja">中国語</span><span class="en">Chinese</span></span><span><span class="ja">ネイティブ</span><span class="en">Native</span></span></div>
+    <div class="lang-row"><span><span class="ja">日本語</span><span class="en">Japanese</span></span><span><span class="ja">ビジネス上級 / JLPT N1</span><span class="en">Business / JLPT N1</span></span></div>
+    <div class="lang-row"><span><span class="ja">英語</span><span class="en">English</span></span><span>CEFR B1+</span></div>
+  </section>
+
+  <section>
+    <h2><span class="ja">学歴</span><span class="en">Education</span></h2>
+    <p style="font-weight:700;font-size:13.5px"><span class="ja">大連理工大学</span><span class="en">Dalian University of Technology</span></p>
+    <p style="font-size:13px"><span class="ja">ソフトウェア工学 工学士</span><span class="en">B.Eng., Computer Software Engineering</span></p>
+    <p class="mono muted" style="font-size:12px">2010.09 – 2014.06</p>
+    <p class="muted detail-only" style="font-size:12.5px;margin-top:6px"><span class="ja">数学、データ構造とアルゴリズム、C/C++・Java、RDB設計・SQL、ソフトウェア工学を専攻。在学中にJLPT N1を取得。</span><span class="en">Mathematics, data structures and algorithms, C/C++ and Java, RDB design and SQL, software engineering. Passed JLPT N1 while studying.</span></p>
+  </section>
+
+  <section>
+    <h2><span class="ja">スキル</span><span class="en">Skills</span></h2>
+    <div class="skillgrp">
+      <span class="k"><span class="ja">得意な製品</span><span class="en">Core products</span></span>
+      <div class="tags">
+        <span class="tag strong">InfoSphere Data Replication (CDC)</span>
+        <span class="tag strong">InfoSphere Information Server / DataStage</span>
+        <span class="tag strong">InfoSphere MDM</span>
+        <span class="tag strong">IBM Db2</span>
+        <span class="tag strong">FineReport</span>
+        <span class="tag strong">FineBI</span>
+      </div>
+    </div>
+    <div class="skillgrp">
+      <span class="k"><span class="ja">ストリーミング</span><span class="en">Streaming</span></span>
+      <div class="tags"><span class="tag">Apache Kafka</span><span class="tag">Confluent</span><span class="tag">IBM Event Streams</span><span class="tag">StreamSets</span><span class="tag">watsonx.data Integration</span></div>
+    </div>
+    <div class="skillgrp">
+      <span class="k"><span class="ja">メインフレーム／レガシー</span><span class="en">Mainframe / legacy sources</span></span>
+      <div class="tags"><span class="tag">Db2 for z/OS</span><span class="tag">IMS</span><span class="tag">IBM i (AS/400)</span></div>
+    </div>
+    <div class="skillgrp">
+      <span class="k">ETL / DB / DWH</span>
+      <div class="tags"><span class="tag">Talend</span><span class="tag">Pentaho Kettle</span><span class="tag">Waha! Transformer</span><span class="tag">Oracle</span><span class="tag">PostgreSQL</span><span class="tag">Aurora PostgreSQL</span><span class="tag">MySQL</span><span class="tag">Snowflake</span><span class="tag">GreenPlum</span><span class="tag">ClickHouse</span><span class="tag">Hive</span><span class="tag">Cassandra</span></div>
+    </div>
+    <div class="skillgrp">
+      <span class="k"><span class="ja">データ管理</span><span class="en">Data management</span></span>
+      <div class="tags"><span class="tag">InfoSphere Optim</span><span class="tag">Global Name Management</span></div>
+    </div>
+    <div class="skillgrp">
+      <span class="k"><span class="ja">クラウド・インフラ</span><span class="en">Cloud &amp; infrastructure</span></span>
+      <div class="tags"><span class="tag">AWS (EC2, AMI, S3, Aurora)</span><span class="tag">Alibaba Cloud</span><span class="tag">RHEL</span><span class="tag">Docker</span><span class="tag">Ansible</span><span class="tag">Tomcat</span><span class="tag">WebSphere</span></div>
+    </div>
+    <div class="skillgrp">
+      <span class="k"><span class="ja">プログラミング</span><span class="en">Programming</span></span>
+      <div class="tags"><span class="tag">SQL / PL/SQL</span><span class="tag">Java</span><span class="tag">Python</span><span class="tag">Shell</span><span class="tag">JavaScript</span><span class="tag">VBA</span></div>
+    </div>
+    <div class="skillgrp">
+      <span class="k"><span class="ja">AI活用</span><span class="en">AI-assisted development</span></span>
+      <div class="tags"><span class="tag">IBM Bob</span></div>
+    </div>
+    <div class="skillgrp">
+      <span class="k"><span class="ja">プロジェクト管理</span><span class="en">Project tools</span></span>
+      <div class="tags"><span class="tag">Monday</span><span class="tag">Confluence</span><span class="tag">Excel WBS</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="ja">認定・資格</span><span class="en">Certifications</span></h2>
+    <ul class="certs">
+      <li><a href="https://www.credly.com/badges/144a88c8-94cd-4933-87d1-cbc953b1516b" target="_blank" rel="noopener">watsonx.data Practitioner Advanced</a></li>
+      <li><a href="https://www.credly.com/badges/12642f58-75a1-43bf-80dc-9b657b5d0d0c" target="_blank" rel="noopener">watsonx.data integration Real-time Streaming Technical Sales Intermediate</a></li>
+      <li><a href="https://www.credly.com/users/username.a6dbb94b/badges/credly" target="_blank" rel="noopener"><span class="ja">その他IBM認定（Credly一覧）</span><span class="en">Other IBM badges (Credly)</span></a></li>
+      <li><a href="https://www.credly.com/badges/64fb98fb-63d7-4170-943f-1bf475a72b65" target="_blank" rel="noopener">AWS Certified Solutions Architect – Professional</a> <span class="x"><span class="ja">期限切れ</span><span class="en">expired</span></span></li>
+      <li><a href="https://www.credly.com/badges/7b4efe48-d5a3-40d4-b2d8-48fab57f8f06" target="_blank" rel="noopener">AWS Certified Cloud Practitioner</a> <span class="x"><span class="ja">期限切れ</span><span class="en">expired</span></span></li>
+      <li>JLPT N1</li>
+      <li><a href="https://hermes.ordinate.com/scorereport/report?z=73349269" target="_blank" rel="noopener">Versant English Test — CEFR B1+</a></li>
+    </ul>
+  </section>
+
+  <section class="detail-only">
+    <h2><span class="ja">その他</span><span class="en">Personal</span></h2>
+    <dl class="kv">
+      <div><dt><span class="ja">趣味</span><span class="en">Interests</span></dt><dd style="margin:0"><span class="ja">バスケットボール、バイクツーリング</span><span class="en">Basketball, motorcycle touring</span></dd></div>
+      <div><dt><span class="ja">好きな本</span><span class="en">Favorite books</span></dt><dd style="margin:0">SQL Cookbook; The Data Warehouse Toolkit</dd></div>
+    </dl>
+  </section>
+
+</aside>
+
+<main>
+
+  <section>
+    <h2><span class="ja">概要</span><span class="en">Summary</span></h2>
+    <div class="lede ja">
+      <p>データ統合・BI領域で約12年。プリセールス（課題ヒアリング・提案・PoC・見積）からデリバリー（要件定義・設計・構築・PM）、導入後の技術支援までを一気通貫で担う、顧客折衝型のデータエンジニア。</p>
+      <p>IBMでは銀行・保険を中心に、CDC／MDM／ETLのPoCと導入をリード。年間5〜10件を並行担当し、担当案件の年間合計売上は1M$以上。顧客の実運用要件から提案方針を転換し、性能を約50倍に改善してクラウド移行の実現性を立証するなど、技術で商談を前に進めることを得意とする。</p>
+      <p>FanRuan日本法人では、BI・帳票製品の日本市場を技術面でゼロから立ち上げ、400社超への製品紹介から48社の導入（うち31社を直接担当）につなげた。Power BIとの競合コンペで複数勝利。</p>
+    </div>
+    <div class="lede en">
+      <p>Customer-facing data engineer with about 12 years in data integration and BI, owning the full cycle from pre-sales (discovery, solution proposals, PoCs, estimates) through delivery (requirements, design, build, project management) to post-deployment technical support.</p>
+      <p>At IBM, leads CDC, MDM and ETL PoCs and implementations, mainly for banks and insurers. Runs 5–10 engagements a year in parallel, together worth over US$1M annually. Moves deals forward through engineering: on one PoC, re-reading the customer's real operating requirement led to a new architecture that raised throughput about 50× and proved the cloud migration viable.</p>
+      <p>At FanRuan's Japan entity, built the technical side of the Japanese market from zero: product demos to 400+ companies, 48 deployments (31 led directly), and several competitive wins against Power BI.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="ja">強み</span><span class="en">Core strengths</span></h2>
+    <div class="strengths">
+      <div><b><span class="ja">プリセールスからデリバリーまで一気通貫</span><span class="en">Pre-sales through delivery</span></b>
+        <p><span class="ja">提案・PoC・見積で受注に貢献し、そのまま導入・運用まで責任を持って完遂。</span><span class="en">Wins the deal with proposals, PoCs and estimates, then carries it through implementation and operation.</span></p></div>
+      <div><b><span class="ja">「本当の要件」を捉えた提案設計</span><span class="en">Designing for the real requirement</span></b>
+        <p><span class="ja">運用実態から要件を再定義し、競合に勝てる構成を実証（Honda案件：TPS約200→1万超）。</span><span class="en">Redefines requirements from how the customer actually operates and proves a winning design (Honda: ~200 → 10,000+ TPS).</span></p></div>
+      <div><b><span class="ja">メインフレーム／レガシー連携</span><span class="en">Mainframe and legacy integration</span></b>
+        <p><span class="ja">Db2 for z/OS・IMS・IBM i から Kafka／Event Streams・Oracle・PostgreSQL・Snowflake へのリアルタイム／バッチ連携を多数実証。</span><span class="en">Proven real-time and batch pipelines from Db2 for z/OS, IMS and IBM i into Kafka / Event Streams, Oracle, PostgreSQL and Snowflake.</span></p></div>
+      <div><b><span class="ja">顧客の声を製品へ</span><span class="en">Customer voice into product</span></b>
+        <p><span class="ja">文字コード・独自文字など日本固有の課題をエスカレーションし、グローバル製品の機能改善を複数獲得。</span><span class="en">Escalated Japan-specific issues (code pages, non-standard characters) and secured several enhancements in the global product.</span></p></div>
+      <div><b><span class="ja">市場立ち上げ</span><span class="en">Market launch</span></b>
+        <p><span class="ja">海外製品の日本市場を技術面でゼロから構築（ローカライズ、ソリューション化、パートナー支援、技術マーケティング）。</span><span class="en">Built a foreign product's Japan market from zero: localization, packaged solutions, partner enablement, technical marketing.</span></p></div>
+      <div><b><span class="ja">3言語での調整</span><span class="en">Three working languages</span></b>
+        <p><span class="ja">中国語・日本語・英語で顧客・本社・製品チームと調整。</span><span class="en">Coordinates customers, headquarters and product teams in Chinese, Japanese and English.</span></p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="ja">職歴</span><span class="en">Experience</span></h2>
+
+    <div class="job">
+      <div class="when"><b>2022.06 – <span class="ja">現在</span><span class="en">Present</span></b><span class="ja">東京</span><span class="en">Tokyo</span></div>
+      <div>
+        <h3>IT Specialist — IBM Technology Expert Labs (Data &amp; AI)</h3>
+        <p class="org"><span class="ja">日本アイ・ビー・エム ／ 銀行・保険</span><span class="en">IBM Japan · Banking &amp; insurance</span></p>
+        <p class="note"><span class="ja">Data Fabric製品（ETL／CDC／MDM／Streaming）の技術専門家として、プリセールスとデリバリーに従事。年間5〜10件を並行担当し、担当案件の年間合計売上は1M$以上。デリバリーコストを管理しGP%を確保。</span><span class="en">Technical expert for IBM's Data Fabric portfolio (ETL, CDC, MDM, streaming) across pre-sales and delivery. Handles 5–10 engagements a year worth over US$1M combined, while controlling delivery cost to protect gross margin.</span></p>
+        <ul class="hl">
+          <li><strong><span class="ja">社内評価：</span><span class="en">Ratings: </span></strong><span class="ja">2023・2024年度の2年連続で最高評価「Exceptional」。入社3年目（2025年4月）でシニア職位へ昇進（Band 7→8）。</span><span class="en">Top rating "Exceptional" in both 2023 and 2024. Promoted to a senior band (B7 → B8) in April 2025, in the third year.</span></li>
+          <li><strong>Honda：</strong><span class="ja">夜間一括反映という実運用要件を捉え直し、CDC単体からCDC＋DataStage（S3経由COPY／MERGE）へ提案方針を転換。Snowflake反映を</span><span class="en">Reframed the requirement as a nightly batch apply and moved the proposal from CDC alone to CDC + DataStage (S3, COPY/MERGE). Raised Snowflake throughput from </span><span class="num">TPS 200 → 10,000+</span><span class="ja">に改善し、クラウド移行の実現性を立証。</span><span class="en">, proving the on-prem-to-cloud move.</span></li>
+          <li><strong>MUFG：</strong><span class="ja">マスリテール向けサービスのサービスインに成功。高負荷時のボトルネックを解消し、バッチを</span><span class="en">Launched the mass-retail service and removed a high-load bottleneck, cutting batch time from </span><span class="num">2h30m → 40m</span><span class="ja">（約73％短縮）。</span><span class="en"> (~73%).</span></li>
+          <li><strong><span class="ja">東京海上日動システムズ：</span><span class="en">Tokio Marine &amp; Nichido Systems: </span></strong><span class="ja">Ansible／AMIで構築・移行を自動化し、1環境あたりの工数を</span><span class="en">Automated build and migration with Ansible and AMIs, reducing effort per environment from </span><span class="num">200h → 80h</span><span class="ja">（60％削減）。</span><span class="en"> (−60%).</span></li>
+          <li><strong><span class="ja">Coop共済／JR東海：</span><span class="en">CO-OP Kyosai / JR Central: </span></strong><span class="ja">チーム初のKafka連携・Event Streams連携案件をそれぞれ完遂。日本市場向けの製品エンハンスメントを獲得。</span><span class="en">Delivered the team's first Kafka and first Event Streams integrations from mainframe; secured a Japan-specific product enhancement.</span></li>
+          <li><strong><span class="ja">トヨタシステムズ：</span><span class="en">Toyota Systems: </span></strong><span class="ja">文字コード混在問題を独自拡張モジュールで解決し、製品のエンコードオーバーライド機能改善を推進。</span><span class="en">Solved mixed-encoding replication failures with a custom extension module and pushed an encoding-override enhancement into the product.</span></li>
+          <li><strong><span class="ja">みずほ銀行：</span><span class="en">Mizuho Bank: </span></strong><span class="ja">IBM Bobを活用し、Pro*C・PL/SQL・JDBC・makefile・シェルをDb2向けに変換するPythonツールを開発。</span><span class="en">Built a Python tool with IBM Bob (AI coding assistant) that converts Pro*C, PL/SQL, JDBC, makefiles and shell scripts from Oracle to Db2.</span></li>
+          <li><span class="ja">品質改善チーム（QIT）のSMEとして、製品検証と製品開発チームへのフィードバックを継続。社内ナレッジを体系化。</span><span class="en">SME on the Quality Improvement Team: ongoing product validation, feedback to development, and internal knowledge sharing.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when"><b>2016.07 – 2022.05</b><span class="ja">東京</span><span class="en">Tokyo</span></div>
+      <div>
+        <h3>Tech Lead</h3>
+        <p class="org"><span class="ja">バリューテクノロジー株式会社（FanRuan日本法人）／ 製造・物流・小売・インターネット</span><span class="en">Value Technology Inc. (FanRuan Japan) · Manufacturing, logistics, retail, internet</span></p>
+        <p class="note"><span class="ja">FanRuanの日本展開に伴い、社内唯一の日本語対応技術者として転籍。技術部門のリードとして、FineReport／FineBIの日本市場をゼロから立ち上げ。ローカライズ、提案、導入、アフターサービス、スキルトランスファー、ナレッジ整備をリード。AWS基盤を伴う案件も多数。</span><span class="en">Transferred as the company's only Japanese-speaking engineer when FanRuan entered Japan. Led the technical function that launched FineReport and FineBI in the Japanese market from zero, covering localization, proposals, implementation, after-sales support, skills transfer and knowledge management. Many projects included AWS infrastructure.</span></p>
+        <ul class="hl">
+          <li><span class="ja">商談</span><span class="en">Demoed to </span><span class="num">400+</span><span class="ja">社 → 導入</span><span class="en"> companies → </span><span class="num">48</span><span class="ja">社（うち31社を直接担当）。主要顧客：NTTデータMHIシステムズ、NSK、損保ジャパン、三菱倉庫、トラスコ中山、ZOZOテクノロジーズ、プレナス、京セラ。</span><span class="en"> deployments (31 led directly). Clients included NTT DATA MHI Systems, NSK, Sompo Japan, Mitsubishi Logistics, TRUSCO Nakayama, ZOZO Technologies, Plenus and Kyocera.</span></li>
+          <li><span class="ja">ZOZOテクノロジーズ・トラスコ中山／三菱倉庫・NSKの3件で、Power BIとのコンペに勝利して受注。</span><span class="en">Beat Power BI in competitive evaluations at ZOZO Technologies, TRUSCO Nakayama / Mitsubishi Logistics, and NSK.</span></li>
+          <li><span class="ja">プレナス：クラウド基盤から分析ダッシュボードまでを3ヶ月で本番リリース。</span><span class="en">Plenus: shipped cloud infrastructure and analytics dashboards to production in three months.</span></li>
+          <li><span class="ja">製品ローカライズ（用語辞書、翻訳品質、ローカライズ機能の要件定義）を主導。</span><span class="en">Led product localization: terminology, translation QA, and requirements for localization features.</span></li>
+          <li><span class="ja">過去案件を製造・リテール・物流・不動産・インターネット向けソリューションとして体系化。Confluenceのナレッジ基盤、顧客QA基盤、代理店支援ポータルを構築。技術ブログ・展示会・セミナーで発信。</span><span class="en">Packaged past projects into industry solutions (manufacturing, retail, logistics, real estate, internet); built the Confluence knowledge base, customer Q&amp;A system and partner portal; ran blogs, trade shows and training seminars.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when"><b>2015.05 – 2016.06</b><span class="ja">中国</span><span class="en">China</span></div>
+      <div>
+        <h3>Delivery Engineer <span class="muted" style="font-weight:400;font-size:13px"><span class="ja">（一部PM兼任）</span><span class="en">(PM on major projects)</span></span></h3>
+        <p class="org"><span class="ja">FanRuan Software（中国本社）／ 製造・不動産</span><span class="en">FanRuan Software, HQ · Manufacturing, real estate</span></p>
+        <ul class="hl">
+          <li><span class="ja">帳票・BI製品によるデータ可視化サービスのデリバリーを担当。大規模案件ではPMとしてWBS・進捗・リスク・コスト管理とマルチベンダー調整を担当。</span><span class="en">Delivered reporting and BI solutions; as PM on larger projects, ran WBS, schedule, risk and cost, and coordinated multiple vendors.</span></li>
+          <li><span class="ja">緑城中国：グループ全体の大規模DWH・BI基盤をオンスケジュールで本番稼働（PM）。</span><span class="en">Greentown China: delivered a group-wide DWH and BI platform on schedule (PM).</span></li>
+          <li><span class="ja">上海航天汽車機電：SAP／MES連携の全社帳票・意思決定支援基盤を構築（PM）。</span><span class="en">Shanghai Aerospace Automobile Electromechanical: built a company-wide reporting platform integrated with SAP and MES (PM).</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when"><b>2014.07 – 2015.04</b><span class="ja">上海</span><span class="en">Shanghai</span></div>
+      <div>
+        <h3>Software Engineer</h3>
+        <p class="org">ABeam Consulting</p>
+        <ul class="hl">
+          <li><span class="ja">日本企業向け案件で詳細設計・開発・単体テストを担当（Java／PL/SQL）。日本向けオフショア開発の品質基準とドキュメント作法を習得。</span><span class="en">Detailed design, development and unit testing (Java, PL/SQL) for Japanese clients; learned Japanese offshore quality and documentation standards.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-only">
+    <h2><span class="ja">主要プロジェクト詳細</span><span class="en">Project details</span></h2>
+
+    <div class="pgroup">
+      <p class="gh"><span class="ja">InfoSphere Data Replication（CDC）</span><span class="en">InfoSphere Data Replication (CDC)</span> <span>IBM</span></p>
+      <div class="plist">
+
+        <article class="proj">
+          <header><h4><span class="ja">太陽生命</span><span class="en">Taiyo Life Insurance</span></h4><span class="meta">2026.07 – <span class="ja">現在</span><span class="en">now</span> · 4 <span class="ja">名</span><span class="en">ppl</span> · SME</span></header>
+          <p class="title"><span class="ja">提案技術支援：Db2 LUW → Aurora PostgreSQL データ連携PoC</span><span class="en">Pre-sales support: Db2 LUW → Aurora PostgreSQL replication PoC</span></p>
+          <div class="flow"><span class="n">Db2 LUW</span><span class="a">→ CDC →</span><span class="n">Aurora PostgreSQL</span></div>
+          <ul><li><span class="ja">基礎検討・要員計画・見積、PoC環境構築・機能確認</span><span class="en">Scoping, staffing plan and estimate; PoC build and functional validation</span></li></ul>
+          <p class="impact"><b><span class="ja">成果</span><span class="en">Impact</span></b><span class="ja">オンプレDb2からクラウドPostgreSQLへの移行PoCを推進中</span><span class="en">Driving the on-prem Db2 to cloud PostgreSQL migration PoC</span></p>
+        </article>
+
+        <article class="proj">
+          <header><h4><span class="ja">トヨタシステムズ（トヨタファイナンス）</span><span class="en">Toyota Systems (Toyota Finance)</span></h4><span class="meta">2026.03 – <span class="ja">現在</span><span class="en">now</span> · 4 <span class="ja">名</span><span class="en">ppl</span> · SME</span></header>
+          <p class="title"><span class="ja">データ連携基盤</span><span class="en">Data integration platform</span></p>
+          <div class="flow"><span class="n">Db2 for z/OS</span><span class="n">IMS</span><span class="a">→ CDC →</span><span class="n">Oracle</span><span class="n">Aurora PostgreSQL</span></div>
+          <ul>
+            <li><span class="ja">メインフレームからのCDC導入支援・PoC・QAサポート</span><span class="en">CDC implementation support, PoC and Q&amp;A from the mainframe</span></li>
+            <li><span class="ja">DB定義と異なる文字コードが混在する事象に対し、変換処理を行う拡張機能を独自開発。製品のエンコードオーバーライド機能改善を推進</span><span class="en">Built a custom extension to convert data stored in encodings that differ from the DB definition; pushed an encoding-override enhancement to the product team</span></li>
+          </ul>
+          <p class="impact"><b><span class="ja">成果</span><span class="en">Impact</span></b><span class="ja">文字コード混在環境のレプリケーション不具合を解決し、安定導入を実現</span><span class="en">Resolved mixed-encoding replication failures and enabled a stable rollout</span></p>
+          <p class="stack">InfoSphere Data Replication · Db2 for z/OS · IMS · Oracle · Aurora PostgreSQL · Java / C</p>
+        </article>
+
+        <article class="proj">
+          <header><h4><span class="ja">JR東海</span><span class="en">Central Japan Railway (JR Central)</span></h4><span class="meta">2026.01 – 2026.03 · 3 <span class="ja">名</span><span class="en">ppl</span> · Team Leader / SME</span></header>
+          <p class="title"><span class="ja">提案技術支援：メインフレーム → Event Streams データ連携PoC</span><span class="en">Pre-sales support: mainframe → Event Streams PoC</span></p>
+          <div class="flow"><span class="n">Db2 for z/OS</span><span class="n">IMS</span><span class="a">→ CDC →</span><span class="n">IBM Event Streams</span></div>
+          <ul>
+            <li><span class="ja">基礎検討・要員計画・見積、PoC環境構築・機能確認</span><span class="en">Scoping, staffing plan and estimate; PoC build and validation</span></li>
+            <li><span class="ja">チーム初のEvent Streams連携案件として製品開発チームと連携し、PoCを完遂</span><span class="en">The team's first Event Streams integration, completed with the product development team</span></li>
+          </ul>
+          <p class="impact"><b><span class="ja">成果</span><span class="en">Impact</span></b><span class="ja">Kafka基盤（Event Streams）への連携パイプラインの実現性を立証</span><span class="en">Proved a viable pipeline into a Kafka platform (Event Streams)</span></p>
+        </article>
+
+        <article class="proj">
+          <header><h4><span class="ja">アクセンチュア／ソニー損保</span><span class="en">Accenture / Sony Assurance</span></h4><span class="meta">2025.01 – 2025.06 · 3 <span class="ja">名</span><span class="en">ppl</span> · SME</span></header>
+          <p class="title"><span class="ja">提案技術支援：IBM i → PostgreSQL データ連携PoC</span><span class="en">Pre-sales support: IBM i → PostgreSQL PoC</span></p>
+          <div class="flow"><span class="n">IBM i (AS/400)</span><span class="a">→ CDC →</span><span class="n">Oracle</span><span class="n">Aurora PostgreSQL</span></div>
+          <ul>
+            <li><span class="ja">他社SIer主導案件でCDC専門家として導入支援・QAサポート</span><span class="en">CDC specialist inside a project led by another SI, handling implementation support and Q&amp;A</span></li>
+            <li><span class="ja">基礎検討・要員計画・見積、PoC検証</span><span class="en">Scoping, staffing, estimate and PoC validation</span></li>
+          </ul>
+          <p class="impact"><b><span class="ja">成果</span><span class="en">Impact</span></b><span class="ja">大規模更改におけるCDC導入の技術的実現性を担保</span><span class="en">Secured technical feasibility of CDC for a large system replacement</span></p>
+        </article>
+
+        <article class="proj">
+          <header><h4><span class="ja">日本コープ共済生活協同組合連合会</span><span class="en">CO-OP Kyosai (Japan CO-OP Insurance Consumers' Co-operative Federation)</span></h4><span class="meta">2024.03 – 2024.06 · 8 <span class="ja">名</span><span class="en">ppl</span> · SME</span></header>
+          <p class="title"><span class="ja">提案技術支援：メインフレーム → Kafka／Oracle データ連携PoC</span><span class="en">Pre-sales support: mainframe → Kafka / Oracle PoC</span></p>
+          <div class="flow"><span class="n">Db2 for z/OS</span><span class="a">→ CDC →</span><span class="n">Apache Kafka</span><span class="n">Oracle</span></div>
+          <ul>
+            <li><span class="ja">チーム初のKafka連携案件として、製品開発チームと技術検証</span><span class="en">The team's first Kafka integration, validated jointly with product development</span></li>
+            <li><span class="ja">コードページに存在しない独自文字への対応をフィードバックし、日本市場向けEnhancementを推進</span><span class="en">Fed back handling of characters missing from standard code pages, driving a Japan-market enhancement</span></li>
+          </ul>
+          <p class="impact"><b><span class="ja">成果</span><span class="en">Impact</span></b><span class="ja">メインフレームからKafkaへのストリーミング連携を実証し、製品エンハンスメントを獲得</span><span class="en">Proved mainframe-to-Kafka streaming and won a product enhancement</span></p>
+        </article>
+
+        <article class="proj">
+          <header><h4><span class="ja">本田技研工業</span><span class="en">Honda Motor Co.</span></h4><span class="meta">2024.01 – 2024.06 · 3 <span class="ja">名</span><span class="en">ppl</span> · Team Leader / SME</span></header>
+          <p class="title"><span class="ja">デジ戦 提案技術支援：クラウド移行・データ連携PoC</span><span class="en">Digital strategy division: cloud migration and data integration PoC</span></p>
+          <div class="flow"><span class="n">IBM i (AS/400)</span><span class="a">→ CDC →</span><span class="n">DataStage</span><span class="a">→</span><span class="n">S3</span><span class="a">→ COPY / MERGE →</span><span class="n">Snowflake</span></div>
+          <ul>
+            <li><span class="ja">基礎検討・要員計画・見積、IBM i → Oracle／Snowflake のフィージビリティ・機能・性能検証</span><span class="en">Scoping, staffing and estimate; feasibility, function and performance tests from IBM i to Oracle and Snowflake</span></li>
+            <li><span class="ja">当初方式（JDBCで1件ずつINSERT／UPDATE／DELETE）はSnowflakeに不向きでTPS約200。顧客の実運用が「夜間に前日分を一括反映」であることを捉え直し、CDC→DataStage→S3→COPY／MERGEの一括反映構成へ転換</span><span class="en">The initial design applied rows one by one over JDBC and reached only ~200 TPS. Recognizing that the customer actually applied the previous day's changes overnight, switched to CDC → DataStage → S3 → COPY/MERGE bulk loading</span></li>
+            <li><span class="ja">競合製品はIBM i側の変更キャプチャに課題。IBM CDCのキャプチャ能力とSnowflake向け一括反映の組み合わせで差別化</span><span class="en">Competitors struggled to capture changes from IBM i; combining IBM CDC capture with Snowflake bulk loading set the proposal apart</span></li>
+          </ul>
+          <p class="impact"><b><span class="ja">成果</span><span class="en">Impact</span></b><span class="ja">反映性能を</span><span class="en">Throughput rose from </span><span class="num">TPS 200 → 10,000+</span><span class="ja">（約50倍）に改善し、クラウド移行の実現性を立証</span><span class="en"> (~50×), proving the cloud migration viable</span></p>
+        </article>
+      </div>
+    </div>
+
+    <div class="pgroup">
+      <p class="gh">InfoSphere Master Data Management <span>IBM</span></p>
+      <div class="plist">
+        <article class="proj">
+          <header><h4><span class="ja">東京海上日動システムズ</span><span class="en">Tokio Marine &amp; Nichido Systems</span></h4><span class="meta">2025.08 – <span class="ja">現在</span><span class="en">now</span> · <span class="ja">最大6名</span><span class="en">up to 6</span> · Team Leader</span></header>
+          <p class="title"><span class="ja">顧客インデックス EOS対応バージョンアップ</span><span class="en">Customer index: end-of-support version upgrade</span></p>
+          <ul>
+            <li><span class="ja">提案支援：基礎検討・要員計画・見積</span><span class="en">Pre-sales: scoping, staffing plan, estimate</span></li>
+            <li><span class="ja">フィージビリティ検証：Fix机上確認、環境構築、アプリ・データ移行、AMIリストア検証、Ansible Playbookによる自動化（IBM Bob活用）</span><span class="en">Feasibility: fix review, environment build, app and data migration, AMI restore tests, Ansible automation built with IBM Bob</span></li>
+            <li><span class="ja">本対応：各環境構築、移行、機能・切り戻し検証、トラブル対応、課題・WBS管理</span><span class="en">Execution: environment builds, migration, functional and rollback tests, incident handling, issue and WBS management</span></li>
+          </ul>
+          <p class="impact"><b><span class="ja">成果</span><span class="en">Impact</span></b><span class="ja">1環境あたりの構築工数を</span><span class="en">Cut build effort per environment from </span><span class="num">200h → 80h</span><span class="ja">（60％削減）</span><span class="en"> (−60%)</span></p>
+          <p class="stack">InfoSphere MDM · IIS · AWS AMI · Ansible · RHEL · Java · SQL</p>
+        </article>
+
+        <article class="proj">
+          <header><h4><span class="ja">三菱UFJインフォメーションテクノロジー</span><span class="en">Mitsubishi UFJ Information Technology</span></h4><span class="meta">2022.06 – <span class="ja">現在</span><span class="en">now</span> · <span class="ja">最大6名</span><span class="en">up to 6</span> · Member → Team Leader</span></header>
+          <p class="title"><span class="ja">顧客別DB 保守・機能拡張・EOS対応</span><span class="en">Customer database: maintenance, enhancements, end-of-support upgrade</span></p>
+          <ul>
+            <li><span class="ja">保守：拡張機能の更改（Java／SQL）、UT・IT、リリース支援</span><span class="en">Maintenance: extension updates (Java, SQL), unit and integration testing, release support</span></li>
+            <li><span class="ja">マス層リテール：機能追加、性能調査・改善（nmon、db2advis、インデックス）、運用シェル・ジョブネット更改</span><span class="en">Mass retail: new features, performance tuning (nmon, db2advis, indexes), operations scripts and job-net updates</span></li>
+            <li><span class="ja">EOS対応の提案支援、契約管理、SSO発注、スキルトランスファー、WBS・課題管理（Monday／Excel）</span><span class="en">Upgrade proposal support, contract management, subcontractor orders, skills transfer, WBS and issue tracking (Monday, Excel)</span></li>
+          </ul>
+          <p class="impact"><b><span class="ja">成果</span><span class="en">Impact</span></b><span class="ja">サービスイン成功。バッチ処理を</span><span class="en">Service launched; batch time cut from </span><span class="num">2h30m → 40m</span><span class="ja">（約73％短縮、本番同等環境）</span><span class="en"> (~73%, production-equivalent environment)</span></p>
+          <p class="stack">InfoSphere MDM · Db2 · Java · SQL · Shell · nmon · db2advis</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="pgroup">
+      <p class="gh"><span class="ja">Information Server／Optim・移行ツール</span><span class="en">Information Server / Optim · migration tooling</span> <span>IBM</span></p>
+      <div class="plist">
+        <article class="proj">
+          <header><h4><span class="ja">みずほ銀行</span><span class="en">Mizuho Bank</span></h4><span class="meta">2026.03 – 2026.04 · 2 <span class="ja">名</span><span class="en">ppl</span> · Developer</span></header>
+          <p class="title"><span class="ja">M-Think Oracle → Db2 移行自動化ツール開発</span><span class="en">M-Think: Oracle → Db2 migration automation tool</span></p>
+          <div class="flow"><span class="n">Pro*C</span><span class="n">PL/SQL</span><span class="n">JDBC</span><span class="n">makefile</span><span class="n">Shell</span><span class="a">→ Python + IBM Bob →</span><span class="n">Db2</span></div>
+          <p class="impact"><b><span class="ja">成果</span><span class="en">Impact</span></b><span class="ja">異種DB移行に伴うソースコード変換作業を大幅に効率化</span><span class="en">Greatly reduced manual source conversion for a cross-database migration</span></p>
+        </article>
+        <article class="proj">
+          <header><h4><span class="ja">みずほ銀行</span><span class="en">Mizuho Bank</span></h4><span class="meta">2025.11 – 2025.12 · 5 <span class="ja">名</span><span class="en">ppl</span> · Developer</span></header>
+          <p class="title"><span class="ja">GMN（Global Name Management）更改：UTケース作成・実施・顧客報告</span><span class="en">Global Name Management upgrade: unit test design, execution and reporting</span></p>
+        </article>
+        <article class="proj">
+          <header><h4><span class="ja">東京海上日動システムズ</span><span class="en">Tokio Marine &amp; Nichido Systems</span></h4><span class="meta">2025.02 – 2025.04 · 4 <span class="ja">名</span><span class="en">ppl</span> · SME</span></header>
+          <p class="title"><span class="ja">InfoSphere Optim データマスキングPoC</span><span class="en">InfoSphere Optim data masking PoC</span></p>
+          <ul><li><span class="ja">環境構築、Data Privacy／Test Data Managementのマスキング機能検証、スキルトランスファー</span><span class="en">Environment build, validation of Data Privacy and Test Data Management masking, skills transfer</span></li></ul>
+          <p class="impact"><b><span class="ja">成果</span><span class="en">Impact</span></b><span class="ja">安全なテストデータ生成基盤の導入実現性を検証</span><span class="en">Validated a safe test-data generation platform for adoption</span></p>
+        </article>
+      </div>
+    </div>
+
+    <div class="pgroup">
+      <p class="gh">FineReport / FineBI <span>FanRuan</span></p>
+      <div class="plist">
+        <article class="proj">
+          <header><h4><span class="ja">ZOZOテクノロジーズ</span><span class="en">ZOZO Technologies</span></h4><span class="meta">2020.03 – 2022.05 · 2 <span class="ja">名</span><span class="en">ppl</span> · Pre-sales / Delivery</span></header>
+          <p class="title"><span class="ja">ユーザー行動テーマ分析基盤</span><span class="en">User behavior analytics platform</span></p>
+          <ul>
+            <li><span class="ja">プリセールス：製品紹介、BA、競合分析（対Power BI）、PoC、見積</span><span class="en">Pre-sales: demos, business analysis, competitive analysis vs Power BI, PoC, estimate</span></li>
+            <li><span class="ja">分析指標設計、ClickHouse連携、マスキング／クリーニング、RFM・デシル・セグメント・NPS・行動トレンド分析画面</span><span class="en">Metric design, ClickHouse integration, masking and cleansing, RFM, decile, segmentation, NPS and behavior-trend views</span></li>
+          </ul>
+          <p class="impact"><b><span class="ja">成果</span><span class="en">Impact</span></b><span class="ja">Power BIとのコンペに勝利。大規模アクセスログの高速セルフサービスBIを構築</span><span class="en">Won against Power BI; delivered fast self-service BI on large access logs</span></p>
+        </article>
+        <article class="proj">
+          <header><h4><span class="ja">GROUND（トラスコ中山・三菱倉庫）</span><span class="en">GROUND Inc. (TRUSCO Nakayama, Mitsubishi Logistics)</span></h4><span class="meta">2019.03 – 2022.05 · 2 <span class="ja">名</span><span class="en">ppl</span> · Pre-sales / Delivery</span></header>
+          <p class="title"><span class="ja">Intelligent EYE／エリア共有化システム</span><span class="en">Intelligent EYE / shared warehouse area system</span></p>
+          <ul><li><span class="ja">物流需要分析、AWS基盤構築（Linux＋Tomcat＋PostgreSQL）、DB設計、ダッシュボード・バッチ開発</span><span class="en">Logistics demand analysis, AWS build (Linux, Tomcat, PostgreSQL), DB design, dashboards and batch jobs</span></li></ul>
+          <p class="impact"><b><span class="ja">成果</span><span class="en">Impact</span></b><span class="ja">Power BIとのコンペに勝利。在庫配置最適化（Dynamic Allocation）と拠点間エリア共有をサービスイン</span><span class="en">Won against Power BI; launched dynamic stock allocation and cross-site area sharing</span></p>
+        </article>
+        <article class="proj">
+          <header><h4><span class="ja">日本精工（NSK）</span><span class="en">NSK Ltd.</span></h4><span class="meta">2017.10 – 2022.05 · 2 <span class="ja">名</span><span class="en">ppl</span> · Pre-sales / Delivery</span></header>
+          <p class="title"><span class="ja">加工精度・効率分析、人員・設備小日程管理</span><span class="en">Machining accuracy and efficiency analytics; short-term staff and equipment scheduling</span></p>
+          <div class="flow"><span class="n">PLC</span><span class="n">M2M</span><span class="n">MES</span><span class="a">→ Talend →</span><span class="n">DWH</span><span class="a">→</span><span class="n">FineReport / FineBI</span></div>
+          <p class="impact"><b><span class="ja">成果</span><span class="en">Impact</span></b><span class="ja">Power BIとのコンペに勝利。製造ラインの可視化を実現し、拠点展開で後続案件多数</span><span class="en">Won against Power BI; production-line visibility led to many follow-on projects across sites</span></p>
+        </article>
+        <article class="proj">
+          <header><h4><span class="ja">NTTデータMHIシステムズ／三菱重工業</span><span class="en">NTT DATA MHI Systems / Mitsubishi Heavy Industries</span></h4><span class="meta">2016.10 – 2022.05 · 1 <span class="ja">名</span><span class="en">person</span> · Delivery lead</span></header>
+          <p class="title"><span class="ja">稼働監視・設備故障予兆診断</span><span class="en">Equipment monitoring and failure prediction</span></p>
+          <ul><li><span class="ja">センサー稼働データの監視・トレンド分析画面、Talendによる ETL パイプライン</span><span class="en">Monitoring and trend views on sensor data; ETL pipelines in Talend</span></li></ul>
+          <p class="impact"><b><span class="ja">成果</span><span class="en">Impact</span></b><span class="ja">稼働率向上・ダウンタイム削減基盤を本番サービスイン</span><span class="en">Put an uptime and downtime-reduction platform into production</span></p>
+        </article>
+        <article class="proj">
+          <header><h4><span class="ja">プレナス（ほっともっと・やよい軒）</span><span class="en">Plenus (Hotto Motto, Yayoi-ken)</span></h4><span class="meta">2020.06 – 2020.08 · 1 <span class="ja">名</span><span class="en">person</span> · Pre-sales / Delivery</span></header>
+          <p class="title"><span class="ja">チェーンストア売上テーマ分析</span><span class="en">Chain store sales analytics</span></p>
+          <p class="impact"><b><span class="ja">成果</span><span class="en">Impact</span></b><span class="ja">AWS基盤構築から分析ダッシュボードまで3ヶ月で本番リリース</span><span class="en">From AWS build to production dashboards in three months</span></p>
+        </article>
+        <article class="proj">
+          <header><h4><span class="ja">緑城中国</span><span class="en">Greentown China</span></h4><span class="meta">2016.03 – 2016.10 · 4–6 <span class="ja">名</span><span class="en">ppl</span> · PM</span></header>
+          <p class="title"><span class="ja">グループBI意思決定支援システム</span><span class="en">Group BI decision-support system</span></p>
+          <ul><li><span class="ja">原価・資金・財務・CRM・人事を集約する全社DWH。MDM設計、GreenPlumモデリング、Kettle ETL、SSO統合、Dockerデプロイ。WBS・リスク・コスト管理とベンダー調整</span><span class="en">Company-wide DWH unifying cost, treasury, finance, CRM and HR. MDM design, GreenPlum modeling, Kettle ETL, SSO, Docker deployment; WBS, risk, cost and vendor management</span></li></ul>
+          <p class="impact"><b><span class="ja">成果</span><span class="en">Impact</span></b><span class="ja">オンスケジュールで本番稼働（日本転籍後もリモートでフォロー）</span><span class="en">Went live on schedule, supported remotely after the move to Japan</span></p>
+        </article>
+        <article class="proj">
+          <header><h4><span class="ja">上海航天汽車機電</span><span class="en">Shanghai Aerospace Automobile Electromechanical</span></h4><span class="meta">2015.10 – 2016.03 · 3 <span class="ja">名</span><span class="en">ppl</span> · PM</span></header>
+          <p class="title"><span class="ja">BI帳票総合プラットフォーム（SAP／MES連携、財務諸表）</span><span class="en">BI and reporting platform (SAP and MES integration, financial statements)</span></p>
+        </article>
+        <article class="proj">
+          <header><h4><span class="ja">伝化化学品</span><span class="en">Transfar Chemicals</span></h4><span class="meta">2015.06 – 2015.07 · 1 <span class="ja">名</span><span class="en">person</span> · Delivery</span></header>
+          <p class="title"><span class="ja">セールステーマ分析：販売実績のリアルタイム可視化</span><span class="en">Sales analytics with real-time visibility of sales results</span></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+</div>
+
+<footer>
+  <span><span class="ja">最終更新 2026年10月</span><span class="en">Updated October 2026</span></span>
+  <span>Qi Zhuang · 庄 奇</span>
+</footer>
+</article>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  function store(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+  function load(k){try{return localStorage.getItem(k)}catch(e){return null}}
+  function setLang(l){
+    root.setAttribute('data-lang',l); root.lang=l;
+    document.querySelectorAll('[data-lang-btn]').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.langBtn===l))});
+    store('resume-lang',l);
+  }
+  function setView(v){
+    root.setAttribute('data-view',v);
+    document.querySelectorAll('[data-view-btn]').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.viewBtn===v))});
+    store('resume-view',v);
+  }
+  document.querySelectorAll('[data-lang-btn]').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.langBtn)})});
+  document.querySelectorAll('[data-view-btn]').forEach(function(b){b.addEventListener('click',function(){setView(b.dataset.viewBtn)})});
+  var h=(location.hash||'').slice(1).toLowerCase();
+  setLang(h==='en'||h==='ja'?h:(load('resume-lang')||'ja'));
+  setView(h==='summary'?'summary':(load('resume-view')||'detail'));
+})();
+</script>
+
+</body></html>
