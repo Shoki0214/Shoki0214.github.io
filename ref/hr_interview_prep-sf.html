@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>人事面談 準備シート</title>
+<style>
+  :root { --ink:#1f2328; --sub:#57606a; --line:#d0d7de; --accent:#0b5cad; --bg:#ffffff; --quote:#f3f7fb; --warn:#9a3412; }
+  @page { size: A4; margin: 10mm; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "Hiragino Sans","Noto Sans JP","Yu Gothic UI","Meiryo",sans-serif;
+    font-size: 8.4pt; line-height: 1.45; }
+  .page { max-width: 190mm; margin: 0 auto; padding: 6mm 0; }
+  header { border-bottom: 2px solid var(--accent); padding-bottom: 3px; margin-bottom: 5px;
+    display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; }
+  h1 { font-size: 13pt; margin: 0; color: var(--accent); }
+  header .meta { color: var(--sub); font-size: 7.6pt; }
+  .axis { background: var(--accent); color: #fff; border-radius: 4px; padding: 4px 7px; margin-bottom: 6px; }
+  .axis b { color: #fff; }
+  .cols { column-count: 2; column-gap: 6mm; }
+  section { break-inside: avoid-column; margin: 0 0 5px; }
+  section.flow { break-inside: auto; }
+  h2 { font-size: 9.2pt; margin: 0 0 2px; padding: 1px 0 1px 5px; border-left: 3px solid var(--accent); color: var(--accent); }
+  h3 { font-size: 8.4pt; margin: 4px 0 1px; }
+  p { margin: 0 0 2px; }
+  .q { background: var(--quote); border-radius: 3px; padding: 3px 5px; margin: 1px 0 3px; }
+  .tip { color: var(--sub); font-size: 7.6pt; margin: 0 0 3px; }
+  .tip b { color: var(--warn); }
+  ul { margin: 0 0 3px; padding-left: 13px; }
+  li { margin: 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 7.8pt; margin-bottom: 3px; }
+  td { border: 1px solid var(--line); padding: 2px 4px; vertical-align: top; }
+  td:first-child { white-space: nowrap; font-weight: 600; width: 1%; }
+  .pb { break-before: page; }
+  @media screen and (max-width: 700px) { .cols { column-count: 1; } .page { padding: 12px 16px; } body { font-size: 10pt; } }
+  @media print { .page { padding: 0; } }
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <h1>Salesforce（Tableau）SE 人事面談 準備シート</h1>
+  <span class="meta">庄 奇（Qi Zhuang）／ Tableau Solution Engineer（日本地域プリセールス）／ 2026-10-14版</span>
+</header>
+
+<div class="axis">
+  <b>転職理由の軸</b>：IBMでデリバリーとPoCを経験した上で、改めてカスタマーフェイシングなプリセールスの最前線に戻り、提案から成約までを担いたい<br>
+  <b>志望動機の軸</b>：AIでBIが変わる中、業界リーダーTableauの変化の真ん中で、データ基盤＋BI＋AIの提案がしたい
+</div>
+
+<div class="cols">
+
+<section>
+  <h2>アピール材料（3本柱）</h2>
+  <ul>
+    <li><b>BI×データ基盤の両方を知るSE</b>：FanRuanでBI約7年（Power BIとのコンペ複数勝利）＋IBMでETL/CDC/MDM約4年半</li>
+    <li><b>プリセールス実績</b>：400社超にデモ、48社導入（31社を直接担当）。IBMで年間5〜10件並行、担当売上1M$以上、Honda PoCで性能約50倍</li>
+    <li><b>Tableau Desktop Foundations認定（10/13取得・履歴書未記載）</b>：入社1年目の期待事項を先取り</li>
+  </ul>
+  <p class="tip">人事が見る点：一貫性／カルチャーフィット（信頼・カスタマーサクセス・イノベーション・平等・サステイナビリティ）／職務適性／意欲と学習力／条件面</p>
+</section>
+
+<section>
+  <h2>1. 自己紹介（1分）</h2>
+  <div class="q">庄奇と申します。データ統合とBIの領域で約10年、プリセールスからデリバリーまでを一気通貫で担当してきました。前半の約7年は、中国のBIベンダーFanRuanで日本市場の立ち上げを担当しました。2016年に来日し、ゼロから代理店体制を作り、400社以上にデモを行い、48社の導入につなげました。Power BIとのコンペにも複数勝っています。2022年からは日本IBMで、銀行・保険を中心にデータ基盤のPoCと導入をリードし、社内最高評価を2年連続でいただき、シニア職位に昇進しました。BIの「見せる・使う」側と、データ基盤の「つなぐ・整える」側の両方を経験していることが強みです。また先日、Tableau Desktop Foundationsの認定を取得しました。今後は改めてプリセールスとして、提案から成約までをTableauで担いたいと考えています。</div>
+  <p class="tip">数字は「10年・400社・48社・2年連続最高評価」に絞る。<b>認定は聞かれなくても自分から言う</b>（履歴書未記載と補足し、更新版の送付を申し出る）</p>
+</section>
+
+<section>
+  <h2>2. 転職理由</h2>
+  <div class="q">IBMでは評価もいただき、環境には満足しています。ただ今の役割は、契約後のデリバリーや提案の一部としての技術検証が中心で、お客様と最前線で向き合い、競合と戦って成約まで持っていく部分には関わる機会が限られています。FanRuan時代はプリセールスとして400社以上にデモを行い、コンペを戦ってきました。大変でしたが本当にわくわくする仕事で、成約したときの達成感と、自分の努力が売上に直接つながる手応えは今でも覚えています。IBMで「提案したものを確実に動かす」力も身につけたので、この経験を持って改めてプリセールスの最前線に戻りたいと考えました。</div>
+  <p class="tip"><b>NG</b>：IBMへの不満、年収だけに聞こえる言い方、「デリバリーはつまらない」。「経験を積んだ上で戻る」という前向きな積み上げで話す</p>
+
+  <h3>深掘り「社内異動ではだめですか？」（聞かれたときだけ）</h3>
+  <div class="q">社内異動も考えました。ただ、長年担当してきたお客様の案件が複数あり、社内にいる限り異動しても継続して対応することになる見込みです。そうなると、新しいプリセールスの仕事にも後任への引き継ぎにも中途半端になってしまうと考えました。現職では責任を持って引き継いだうえで区切りをつけ、新しい環境でプリセールスに全力で取り組みたいと考えています。また、Salesforceではプリセールスが職種として確立されていて、ヒアリングから成約まで商談全体に関われることも、社外を選んだ理由です。</div>
+
+  <h3>深掘り「売上目標のプレッシャーは大丈夫？」</h3>
+  <div class="q">むしろやりがいです。FanRuan時代は日本市場をゼロから立ち上げる立場で、成果がそのまま市場の成長として見える環境でした。目標があるからこそ、どの案件にどう時間を使うかを考えて動けます。</div>
+</section>
+
+<section>
+  <h2>3. 志望動機（なぜSalesforce／Tableauか）</h2>
+  <div class="q">理由は2つあります。<br>
+  1つ目は、<b>AIの時代にBIがどう変わっていくか、その変化の真ん中で仕事がしたい</b>からです。BIは「人がダッシュボードを見る」ものから「AIがデータを理解してアクションまで起こす」ものへ変わりつつあります。BI業界をリードしてきたTableauが、Tableau NextやAgentforceでその変化を自ら起こしている。その中に身を置き、新しいデータ活用の形をお客様に届けたいと考えました。<br>
+  2つ目は、<b>私の経験が一番生きるのが「データ基盤＋BI＋AI」の提案だから</b>です。BI提案を数多く行う中で、導入の一番の壁は「データが整っていないこと」だと痛感してきました。NSK様でも、ダッシュボードの前に、PLCやMESに散らばったデータを集めて整えるところに一番時間がかかりました。その後IBMでデータをつなぐ・整える側を専門的に経験し、この壁の越え方を理解できるようになりました。Salesforceには、Data 360、Tableau、Agentforceが一つのプラットフォームでそろっており、データの準備から分析、AIによるアクションまでを一つのストーリーで提案できます。それが最高のデータ活用提案であり、それを語れるのが私の強みです。だからこそ、プリセールスとして提案から成約までを担いたいと考えています。</div>
+  <p class="tip">「巻き込みたい」ではなく「変化の真ん中で仕事がしたい」と言う</p>
+
+  <h3>なぜ他社（Microsoft、Snowflake、Databricks等）ではないか</h3>
+  <div class="q">基盤単体やBI単体の製品は他にもありますが、CRMという顧客接点のデータを持ち、そこにData 360、分析、AIエージェントが一体となっているのはSalesforceならではです。データを「つなぐ・見る・動かす」までを一社で提案できる点が、私の経験と最も合っています。</div>
+</section>
+
+<section class="flow">
+  <h2>4. 想定質問（要点）</h2>
+  <table>
+    <tr><td>一番の成果</td><td>FanRuan日本市場のゼロからの立ち上げ。代理店開拓からローカライズ、デモ、導入まで技術面を担当し、48社導入（31社直接）。新しい製品を広めるプリセールスに直結</td></tr>
+    <tr><td>Tableau実務経験</td><td>正直に「導入経験はまだない」。ただBIのプリセールス・デリバリー約7年で、ヒアリング、データモデル設計、ダッシュボード設計、コンペは同じ。認定取得済みで継続学習中。データ準備側の経験はむしろ強み</td></tr>
+    <tr><td>強み</td><td>顧客の「本当の要件」を捉えて提案を組み直せること（Honda）。BIとデータ基盤の両方を一人で語れること</td></tr>
+    <tr><td>弱み</td><td>英語（CEFR B1+）。本社や製品チームとのやり取りは英語で行っているが、英語でのカンファレンス登壇はこれから。継続学習中。別案：技術を深掘りしすぎる傾向があったが、今は結論から伝える</td></tr>
+    <tr><td>失敗経験</td><td>Honda PoCで当初の1件ずつ反映する方式は約200TPS止まり。製品の機能から考えたのが原因。運用実態（夜間の一括反映）を捉え直して構成を変え、約50倍に。学び：「お客様が何をしたいか」から考える</td></tr>
+    <tr><td>難しい顧客</td><td>トヨタシステムズで文字コード混在によるレプリケーション不具合。厳しい指摘の中、原因を切り分けて拡張モジュールを自作して解決し、製品改善も推進。逃げずに最後まで解決することが信頼になる</td></tr>
+    <tr><td>チームプレー</td><td>ナレッジを業界別ソリューションに整理してConfluenceで共有。IBMでは品質改善チームのSME。部下2名のマネジメント、外部パートナーのリード経験</td></tr>
+    <tr><td>営業との連携</td><td>FanRuanで営業とペア。営業が関係構築と商談管理、自分がヒアリング、デモ、PoC、見積。評価基準と競合を共有して見せ方を決め、Power BIに勝利</td></tr>
+    <tr><td>プレゼン経験</td><td>技術セミナー開催、展示会デモ、ブログやSNS発信。顧客デモは400社超</td></tr>
+    <tr><td>AIの取り組み</td><td>AIコーディングアシスタントで移行ツールや構築自動化を開発し、構築工数を200h→80hに。AIを使い込んだ実感を提案に生かせる</td></tr>
+    <tr><td>コアバリュー</td><td>「カスタマーサクセス」と「信頼」。売って終わりではなく、お客様が成果を出して成功（NSKの後続案件、トヨタシステムズの解決）</td></tr>
+    <tr><td>キャリアプラン</td><td>中長期はSales/Solution Engineerの道を極める。1年目はブートキャンプと認定（Data Analyst、Server Admin）で固め、AEと組んで成約で数字に貢献。2〜3年後はData 360やAgentforceと組み合わせた提案の社内エキスパート、後輩育成、製品へのフィードバック</td></tr>
+    <tr><td>転職回数</td><td>実質3社。FanRuan約7年、IBM約4年半と定着性は強み</td></tr>
+    <tr><td>なぜ日本で</td><td>2016年来日、約10年日本のお客様と仕事。品質へのこだわりや長い付き合いを大切にする文化が好きで、今後も日本が拠点</td></tr>
+    <tr><td>出張・英語</td><td>出張・柔軟勤務は問題なし（客先常駐、全国訪問、展示会の経験あり）。英語はメール、エスカレーション、会議で日常的に使用</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>5. 条件面</h2>
+  <table>
+    <tr><td>希望年収</td><td>現年収の内訳（基本給、賞与、その他）を正確に。希望は幅で伝え「総合的に判断したい」と添える。<b>数字は事前に決める</b></td></tr>
+    <tr><td>入社時期</td><td>引き継ぎを考えて現実的に（目安：内定後1.5〜3ヶ月）。「引き継ぎはしっかりやります」と添える</td></tr>
+    <tr><td>他社状況</td><td>正直に。「Salesforceが第一志望」と明言</td></tr>
+    <tr><td>他職種</td><td>Tableauが第一志望。ただしData 360領域にも貢献できると柔軟さを示す</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>6. 逆質問（3〜4個選ぶ）</h2>
+  <ul>
+    <li>SEチームの構成（業界別・エリア別など）と、入社後に担当するお客様のイメージ</li>
+    <li>ブートキャンプの期間と内容、入社前に準備しておくとよいこと</li>
+    <li>このポジションで活躍している方に共通する特徴や行動</li>
+    <li>SEの評価指標</li>
+    <li>Tableau担当SEとData 360・Agentforce担当SEの連携の仕方</li>
+    <li>認定取得や学習のサポート制度</li>
+    <li>今後の選考プロセスとスケジュール（最後に必ず）</li>
+  </ul>
+  <p class="tip">福利厚生だけに偏った質問、公式サイトでわかる質問は避ける</p>
+</section>
+
+<section>
+  <h2>7. 面談前チェックリスト</h2>
+  <ul>
+    <li>☐ 自己紹介1分版を声に出して3回練習（時間を計る）</li>
+    <li>☐ Tableauを学んで実感したことを自分の言葉で1つ用意</li>
+    <li>☐ 認定の証明URLを手元に用意、更新版履歴書を準備</li>
+    <li>☐ コアバリュー5つ、Tableau Next／Data 360／Agentforceを一言で言えるように</li>
+    <li>☐ 現年収の内訳、希望年収、入社可能時期を決める</li>
+    <li>☐ 在留資格の種類と期限を確認</li>
+    <li>☐ 顧客名を出す範囲を決める（案件の機密には触れない）</li>
+    <li>☐ オンラインならカメラ、マイク、背景、回線を確認</li>
+  </ul>
+</section>
+
+<section>
+  <h2>8. 話し方のコツ</h2>
+  <ul>
+    <li><b>結論から</b>：「理由は2つあります」</li>
+    <li><b>数字で裏付け</b>：50倍、48社、200h→80h、2年連続最高評価</li>
+    <li><b>IBMの悪口は言わない</b>：「満足しているが、次にやりたいことがある」</li>
+    <li><b>人事にも伝わる言葉で</b>：CDCは「データをリアルタイムにつなぐ仕組み」、MDMは「顧客データを一元管理する仕組み」</li>
+    <li><b>すべての回答を軸に着地</b>：プリセールスの最前線で、データ基盤＋BI＋AIの提案から成約まで</li>
+  </ul>
+</section>
+
+</div>
+</div>
+</body>
+</html>
