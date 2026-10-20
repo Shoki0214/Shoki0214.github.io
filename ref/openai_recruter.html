@@ -1,0 +1,430 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>OpenAI 面談想定問答</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=BIZ+UDPGothic:wght@400;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: one reading column (~46em). Sticky bar with JA/EN switch + practice mode, question index chips, then Q&A cards. Tokens follow the user's own self-intro sheet. */
+:root {
+  --bg: #eef1f4;
+  --paper: #ffffff;
+  --ink: #17212b;
+  --muted: #5b6672;
+  --line: #d6dce3;
+  --tint: #f3f6f9;
+  --accent: #1f5f8b;
+  --accent-soft: #e2edf5;
+  --accent-ink: #ffffff;
+  --warm: #b0611f;
+  --warm-soft: #fbefe3;
+  --f-display: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", sans-serif;
+  --f-body: "BIZ UDPGothic", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f151b; --paper: #172029; --ink: #e4eaf0; --muted: #9aa7b4; --line: #2c3946; --tint: #1c2731;
+    --accent: #6fb0dc; --accent-soft: #1f3445; --accent-ink: #0f151b; --warm: #e59a57; --warm-soft: #3a2a1c;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f151b; --paper: #172029; --ink: #e4eaf0; --muted: #9aa7b4; --line: #2c3946; --tint: #1c2731;
+  --accent: #6fb0dc; --accent-soft: #1f3445; --accent-ink: #0f151b; --warm: #e59a57; --warm-soft: #3a2a1c;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.8;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 48px;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.wrap { max-width: 46em; margin: 0 auto; display: grid; gap: 20px; }
+h1, h2, h3 { font-family: var(--f-display); margin: 0; text-wrap: balance; }
+
+/* sticky bar */
+.bar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px;
+  padding-block: 14px 12px; border-bottom: 1px solid var(--line);
+}
+.bar .who { font-family: var(--f-mono); font-size: 12px; color: var(--muted); letter-spacing: .06em; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.seg { display: inline-flex; border: 1px solid var(--accent); border-radius: 6px; overflow: hidden; }
+.seg button {
+  font: 700 13px var(--f-display); padding: 6px 14px; border: 0; background: var(--paper); color: var(--accent); cursor: pointer;
+}
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+.toggle {
+  font: 700 13px var(--f-display); padding: 6px 12px; border: 1px solid var(--line); border-radius: 6px;
+  background: var(--paper); color: var(--ink); cursor: pointer;
+}
+.toggle[aria-pressed="true"] { border-color: var(--warm); color: var(--warm); background: var(--warm-soft); }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* header */
+header { display: grid; gap: 6px; padding-top: 8px; }
+header h1 { font-size: clamp(22px, 4vw, 28px); font-weight: 900; letter-spacing: .03em; }
+header p { margin: 0; color: var(--muted); font-size: 14px; }
+
+/* notes */
+.notes { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 14px 18px; display: grid; gap: 8px; }
+.notes h2 { font-size: 13px; letter-spacing: .1em; color: var(--accent); }
+.notes p { margin: 0; }
+.notes ul { margin: 0; padding-left: 1.2em; display: grid; gap: 2px; }
+
+/* index */
+nav.idx { display: flex; flex-wrap: wrap; gap: 6px; }
+nav.idx a {
+  font: 500 12.5px var(--f-display); text-decoration: none; color: var(--ink);
+  border: 1px solid var(--line); background: var(--paper); border-radius: 999px; padding: 3px 11px;
+}
+nav.idx a.pri { border-color: var(--warm); color: var(--warm); background: var(--warm-soft); font-weight: 700; }
+nav.idx a:hover { border-color: var(--accent); }
+
+/* Q&A */
+.qa { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 18px 20px 20px; display: grid; gap: 10px; scroll-margin-top: 80px; min-width: 0; }
+.qhead { display: flex; gap: 12px; align-items: baseline; }
+.qno { font-family: var(--f-mono); font-size: 13px; color: var(--accent); flex: none; }
+.qa h3 { font-size: 17px; font-weight: 900; line-height: 1.5; }
+.tag { font: 700 11px var(--f-display); color: var(--warm); background: var(--warm-soft); border-radius: 3px; padding: 1px 7px; margin-left: 8px; white-space: nowrap; vertical-align: 2px; }
+.ans { display: grid; gap: 10px; }
+.ans p { margin: 0; }
+.ans ol { margin: 0; padding-left: 1.4em; display: grid; gap: 6px; }
+mark.ph { background: var(--warm-soft); color: var(--warm); font-weight: 700; padding: 0 4px; border-radius: 3px; }
+.tip { font-size: 13px; color: var(--muted); border-left: 3px solid var(--line); padding-left: 10px; }
+.tblwrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+th { background: var(--tint); font-family: var(--f-display); font-weight: 700; color: var(--muted); white-space: nowrap; }
+.reveal { justify-self: start; font: 700 13px var(--f-display); color: var(--accent); background: var(--accent-soft); border: 0; border-radius: 6px; padding: 6px 12px; cursor: pointer; }
+
+/* language + practice states */
+main[data-lang="ja"] [data-l="en"], main[data-lang="en"] [data-l="ja"] { display: none !important; }
+.reveal { display: none; }
+main.practice .qa:not(.open) .ans, main.practice .qa:not(.open) .tip { display: none; }
+main.practice .qa .reveal { display: inline-block; }
+
+@media (max-width: 520px) {
+  body { font-size: 14.5px; }
+  .qa { padding: 16px 14px 18px; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+
+<main id="app" data-lang="ja">
+  <div class="bar">
+    <span class="who">QI ZHUANG ／ OpenAI Applied AI Architect – Tokyo</span>
+    <div class="controls">
+      <div class="seg" role="group" aria-label="Language">
+        <button type="button" id="btn-ja" aria-pressed="true">日本語</button>
+        <button type="button" id="btn-en" aria-pressed="false">English</button>
+      </div>
+      <button type="button" class="toggle" id="btn-practice" aria-pressed="false"><span data-l="ja">練習モード</span><span data-l="en">Practice mode</span></button>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <header>
+      <h1><span data-l="ja">リクルーター面談 想定問答</span><span data-l="en">Recruiter Screen: Questions &amp; Answers</span></h1>
+      <p><span data-l="ja">OpenAI Applied AI Architect（東京）／ 2026年10月</span><span data-l="en">OpenAI Applied AI Architect (Tokyo) / October 2026</span></p>
+    </header>
+
+    <section class="notes">
+      <h2><span data-l="ja">使い方</span><span data-l="en">HOW TO USE</span></h2>
+      <p data-l="ja">Q5（生成AI経験）とQ7（経営層との経験）を最優先で練習する。英語面接に切り替わる可能性があるため、Q1・Q3・Q5・Q12は英語でも2分以内で話せるようにしておく。</p>
+      <p data-l="en">Practice Q5 (generative AI) and Q7 (executives) first. The screen may switch to English, so be ready to answer Q1, Q3, Q5 and Q12 in English within two minutes each.</p>
+      <ul data-l="ja">
+        <li><mark class="ph">【　】</mark>は自分の実例・数字に差し替える箇所</li>
+        <li>練習モードでは回答が隠れます。質問を見て話してから「回答を表示」で確認</li>
+        <li>数字は盛らず、経歴書と同じ表現にそろえる</li>
+      </ul>
+      <ul data-l="en">
+        <li><mark class="ph">【　】</mark> marks parts to replace with your own examples or numbers</li>
+        <li>Practice mode hides the answers. Say your answer, then press "Show answer" to check</li>
+        <li>Keep every number exactly as it appears in your CV</li>
+      </ul>
+    </section>
+
+    <nav class="idx" aria-label="Questions">
+      <a href="#q1">Q1</a><a href="#q2">Q2</a><a href="#q3">Q3</a><a href="#q4">Q4</a>
+      <a href="#q5" class="pri">Q5</a><a href="#q6">Q6</a><a href="#q7" class="pri">Q7</a><a href="#q8">Q8</a>
+      <a href="#q9">Q9</a><a href="#q10">Q10</a><a href="#q11">Q11</a><a href="#q12">Q12</a><a href="#q13">Q13</a>
+    </nav>
+
+    <!-- Q1 -->
+    <article class="qa" id="q1">
+      <div class="qhead"><span class="qno">Q1</span><h3><span data-l="ja">自己紹介をお願いします（2分）</span><span data-l="en">Tell me about yourself. (2 min)</span></h3></div>
+      <button type="button" class="reveal"><span data-l="ja">回答を表示</span><span data-l="en">Show answer</span></button>
+      <div class="ans" data-l="ja">
+        <p>庄奇と申します。データ統合とBIの領域で約10年、顧客の課題整理から提案、PoC、導入、導入後の支援までを一貫して担当してきました。</p>
+        <p>現在は日本IBMのExpert Labsで、銀行・保険を中心に、CDC、ETL、MDMといったデータ基盤製品のプリセールスとデリバリーを担当しています。年間5〜10件の案件を並行して担当し、担当案件の年間売上は1M$以上です。代表例はHonda様です。顧客の実際の運用を捉え直して提案方針を転換し、Snowflakeへの反映性能を約50倍に改善して、クラウド移行の実現性を立証しました。社内では2年連続で最高評価をいただいています。</p>
+        <p>その前はFanRuanで、BI・帳票製品の日本市場を技術面でゼロから立ち上げ、400社以上への製品紹介から48社の導入につなげました。</p>
+        <p>キャリアを通じて、データの価値を引き出すことが私の主軸です。データ基盤の「つなぐ・整える」と、BIの「見せる」の両方を経験してきました。今後はその先の「AIで価値を生む」ところまで責任を持ち、企業がAIを本番で使って成果を出すまで伴走したいと考えています。</p>
+      </div>
+      <div class="ans" data-l="en">
+        <p>My name is Qi Zhuang. I have about ten years of experience in data integration and BI. I have worked across the full cycle: understanding customer problems, proposing solutions, running PoCs, delivering, and supporting customers after go-live.</p>
+        <p>Today I work at IBM Technology Expert Labs in Japan, in the Data and AI team. I cover pre-sales and delivery for data platform products like CDC, ETL, and MDM, mainly for banks and insurance companies. I handle five to ten projects in parallel each year, with over one million dollars in annual revenue. One example is Honda. I re-examined how they actually ran their operations, changed our proposed architecture, and improved load performance into Snowflake by about 50 times. That proved their cloud migration was feasible. I received IBM's top performance rating two years in a row.</p>
+        <p>Before IBM, I was at FanRuan. I built the Japan market for their BI and reporting products from zero on the technical side. I presented to over 400 companies, and 48 of them adopted the product.</p>
+        <p>Throughout my career, my core focus has been unlocking the value of data. I have worked on both the data platform side, connecting and preparing data, and the BI side, showing it. Next, I want to take responsibility for the step beyond that: creating value with AI, and helping companies get real results from AI in production.</p>
+      </div>
+      <p class="tip" data-l="ja">数字は3つ（50倍、48社、2年連続最高評価）に絞り、「AIで価値を生む」で締める。</p>
+      <p class="tip" data-l="en">Keep to three numbers (50x, 48 companies, top rating twice) and end on "creating value with AI".</p>
+    </article>
+
+    <!-- Q2 -->
+    <article class="qa" id="q2">
+      <div class="qhead"><span class="qno">Q2</span><h3><span data-l="ja">なぜ転職を考えているのですか？</span><span data-l="en">Why are you looking for a new role?</span></h3></div>
+      <button type="button" class="reveal"><span data-l="ja">回答を表示</span><span data-l="en">Show answer</span></button>
+      <div class="ans" data-l="ja">
+        <p>私のキャリアは、ビッグデータやデータドリブン経営の流れとともに始まりました。それ以来、「データの価値を引き出すこと」が一貫して私の主軸です。データの価値を引き出せば企業の成長を後押しでき、そこで働く人々の人生もより豊かになる。そう信じて仕事をしてきました。</p>
+        <p>これまで、データ基盤で「つなぐ・整える」こと、帳票・BIで「見せる」ことを長年経験してきました。しかしAIの時代に入り、そこまでうまくできたとしても、まだ物足りないと感じています。</p>
+        <p>人間がデータを分析することには、どうしても限界があります。生成AIは、人間が見つけられないインサイトを生み出して補い、さらに行動まで導くことができます。これまで想像できなかったことが、AIの進化によって少しずつ現実になっています。</p>
+        <p>だからこそ私は、その先の「AIで価値を生む」ところまで責任を持ちたい。それが一番できる環境に移りたいと考えています。</p>
+      </div>
+      <div class="ans" data-l="en">
+        <p>My career started with the rise of big data and data-driven business. Since then, unlocking the value of data has been my core focus. I believe that when companies use their data well, they grow, and the people who work there can have richer lives.</p>
+        <p>For many years, I have worked on connecting and preparing data on data platforms, and showing it through reports and BI. But in the age of AI, even doing that well no longer feels like enough.</p>
+        <p>There is a limit to how much people can analyze data by themselves. Generative AI can find insights that people miss, fill those gaps, and even guide the next action. Things we could not imagine before are now becoming possible.</p>
+        <p>So I want to take responsibility for the next step: creating value with AI. I want to be in the place where I can do that best.</p>
+      </div>
+    </article>
+
+    <!-- Q3 -->
+    <article class="qa" id="q3">
+      <div class="qhead"><span class="qno">Q3</span><h3><span data-l="ja">なぜOpenAIなのですか？</span><span data-l="en">Why OpenAI?</span></h3></div>
+      <button type="button" class="reveal"><span data-l="ja">回答を表示</span><span data-l="en">Show answer</span></button>
+      <div class="ans" data-l="ja">
+        <p>OpenAIは世界最先端のモデルを持つ会社です。ここで働けば、本当に良いものを、より多くの企業に届けられると信じています。それが一番の理由です。</p>
+        <p>そのうえで、私が貢献できると考えている点が2つあります。</p>
+        <p>1つ目はデータです。日本企業のAI活用はPoCから本番化に移る段階にありますが、本番化でつまずく原因は、モデルよりもデータであることが多いと考えています。レガシーシステムとの連携、データ品質、ガバナンスです。私はそこを、金融機関の現場で解いてきました。</p>
+        <p>2つ目は日本市場です。IBMでは日本固有の課題を製品チームに届けてグローバル製品の改善を複数実現し、FanRuanでは日本市場をゼロから立ち上げました。この経験は、OpenAIが日本で体制を築いていく今の段階で活かせると考えています。</p>
+      </div>
+      <div class="ans" data-l="en">
+        <p>OpenAI has the most advanced models in the world. I believe that working here, I can bring something truly good to many more companies. That is my main reason.</p>
+        <p>On top of that, there are two areas where I can contribute.</p>
+        <p>The first is data. Japanese enterprises are moving from AI PoCs to production. In my view, the biggest blocker is usually not the model, but the data: legacy integration, data quality, and governance. That is exactly what I have been solving for financial institutions.</p>
+        <p>The second is the Japan market. At IBM, I brought Japan-specific issues to the product team and won several enhancements in the global product. At FanRuan, I helped build the Japan market from zero. I believe this experience fits the stage OpenAI is at in Japan now.</p>
+      </div>
+    </article>
+
+    <!-- Q4 -->
+    <article class="qa" id="q4">
+      <div class="qhead"><span class="qno">Q4</span><h3><span data-l="ja">このロールをどう理解していますか？</span><span data-l="en">How do you understand this role?</span></h3></div>
+      <button type="button" class="reveal"><span data-l="ja">回答を表示</span><span data-l="en">Show answer</span></button>
+      <div class="ans" data-l="ja">
+        <p>担当する顧客群の「技術面のCTO」のような役割だと理解しています。商談の戦略はアカウントディレクターが持ち、私は技術戦略を持ちます。ユースケースの特定と優先順位付けから、アーキテクチャ設計、PoV、本番化、定着、効果測定までの道筋を描きます。</p>
+        <p>実装は専門チームやパートナーが担いますが、技術面の成果には最後まで責任を持ちます。これは、IBMでSMEとしてPoCをリードし、パートナーを含むチームを率いて導入まで責任を持ってきた働き方と同じです。</p>
+      </div>
+      <div class="ans" data-l="en">
+        <p>I see it as being the "CTO" for a portfolio of customers. The Account Director owns the commercial strategy, and I own the technical strategy. That means finding and prioritizing use cases, designing the architecture, running proofs of value, and guiding customers to production, adoption, and measurable impact.</p>
+        <p>Specialist teams and partners handle implementation, but I stay accountable for the technical outcome. That is how I already work at IBM: I lead PoCs as the subject matter expert, and I lead teams that include partners all the way to delivery.</p>
+      </div>
+    </article>
+
+    <!-- Q5 -->
+    <article class="qa" id="q5">
+      <div class="qhead"><span class="qno">Q5</span><h3><span data-l="ja">生成AIの経験を教えてください</span><span data-l="en">What is your experience with generative AI?</span><span class="tag"><span data-l="ja">最優先</span><span data-l="en">Top priority</span></span></h3></div>
+      <button type="button" class="reveal"><span data-l="ja">回答を表示</span><span data-l="en">Show answer</span></button>
+      <div class="ans" data-l="ja">
+        <p>実務で一番大きいのは、社内の改善活動で取り組んだ、生成AIによる脆弱性調査の自動化です。</p>
+        <p>システム運用では、毎年大量に発行されるCVEという脆弱性情報について、自社システムが影響を受けるかを人手で調べています。しかし記述が標準化されていないため時間がかかり、判断も属人的になっていました。</p>
+        <p>そこで、CVEの情報とサーバーのソフトウェア一覧を生成AI（watsonx.ai）に読ませ、影響の有無を判断根拠付きで自動判定して、毎月レポートを配信する仕組みを作りました。最初は最新のLLMでも正解率がほぼ0%でした。私は精度向上を担当し、公式情報を取得して渡す仕組み（RAG）、段階的に考えさせるプロンプト設計、モデルの比較検証を重ねて、実案件で97%まで引き上げました。結果として、1件30分かかっていた調査が6分になり、年間約200時間の削減につながりました。この取り組みは日本IBMの全社大会でExcellence Awardを受賞しています。</p>
+        <p>顧客案件では、みずほ銀行様向けに、AIコーディングアシスタントを活用してOracle→Db2の移行ツールをPythonで開発しました。</p>
+        <p>顧客向けに生成AIを本番運用まで導いた経験はまだありませんが、AIの精度を左右するのはデータの質と連携の設計であり、そこは10年間の本職です。こうした「企業のデータとAIを組み合わせて業務課題を解く」仕事を、お客様向けに本格的にやりたいと考えています。現在は<mark class="ph">【OpenAI APIで○○を検証中】</mark>です。</p>
+      </div>
+      <div class="ans" data-l="en">
+        <p>My main hands-on experience is a project where I used generative AI to automate vulnerability impact assessment.</p>
+        <p>IT operations teams have to check whether new CVEs affect their systems. But CVE descriptions are not standardized, so the work is slow and depends on individual judgment.</p>
+        <p>I built a tool that feeds CVE records and our server software inventory into an LLM on watsonx.ai. It decides whether each system is affected, explains its reasoning, and sends a monthly report. At first, even top models got almost every answer wrong. I was responsible for accuracy. By retrieving the official CVE data, designing step-by-step prompts, and comparing models, I raised accuracy to 97% on real project data. It cut the time per CVE from 30 minutes to 6, saving about 200 hours a year. The project won an Excellence Award at IBM Japan's company-wide event.</p>
+        <p>For a customer, Mizuho Bank, I used an AI coding assistant to build a Python tool that converts Oracle code for Db2.</p>
+        <p>I have not yet taken a generative AI solution into production for a customer. But AI accuracy depends heavily on data quality and integration design, and that has been my core work for ten years. I want to apply this kind of data-plus-AI problem solving directly with customers. Right now, I am <mark class="ph">【building ○○ with the OpenAI API】</mark>.</p>
+      </div>
+      <p class="tip" data-l="ja">数字は「0%→97%」「30分→6分」「年200時間」の3つだけ覚える。評価件数（37件）などの細部は深掘りされたときだけ答える。最後は必ず「データ×AIで顧客の課題を解きたい」で職種につなげる。</p>
+      <p class="tip" data-l="en">Remember just three numbers: 0% to 97%, 30 to 6 minutes, 200 hours a year. Share details like the 37 test cases only if asked. Always end by linking to the role: solving customer problems with data plus AI.</p>
+    </article>
+
+    <!-- Q6 -->
+    <article class="qa" id="q6">
+      <div class="qhead"><span class="qno">Q6</span><h3><span data-l="ja">顧客の本当の課題を見抜いた経験は？</span><span data-l="en">Tell me about a time you found the customer's real problem.</span></h3></div>
+      <button type="button" class="reveal"><span data-l="ja">回答を表示</span><span data-l="en">Show answer</span></button>
+      <div class="ans" data-l="ja">
+        <p>Honda様のクラウド移行PoCです。当初は、IBM iからSnowflakeへの連携をCDCで実現するという要件でした。しかし、CDCが1件ずつ更新を発行する方式はSnowflakeに合わず、性能は約200TPSにとどまりました。</p>
+        <p>顧客の実際の運用を改めてヒアリングしたところ、本当に必要なのはリアルタイムではなく、「夜間に前日分の変更を一括で反映すること」だと分かりました。そこで、CDCで変更を取得し、DataStageでS3に書き出し、COPYとMERGEで一括反映する構成を提案・検証しました。結果は1万TPS超、約50倍です。</p>
+        <p>競合製品はSnowflakeへの反映方式を備えていましたが、IBM i側の変更取得に課題がありました。当社の強みと組み合わせる形で差別化しました。</p>
+        <p>AIのユースケースでも、顧客が最初に言う要件と本当の業務課題が違うことは多いはずです。そこを捉え直すことが、このロールのディスカバリーだと考えています。</p>
+      </div>
+      <div class="ans" data-l="en">
+        <p>In a cloud migration PoC for Honda, the request was to replicate data from IBM i to Snowflake using CDC. But CDC sent changes one row at a time, which does not suit Snowflake. We only reached about 200 TPS.</p>
+        <p>I went back and asked how they actually operated. They did not need real time. They needed to apply the previous day's changes in one batch at night. So I changed the design: CDC captures the changes, DataStage writes them to S3, and Snowflake applies them in bulk with COPY and MERGE. We reached over 10,000 TPS, about 50 times faster.</p>
+        <p>A competitor could load into Snowflake, but struggled to capture changes from IBM i. Combining both strengths was our differentiator.</p>
+        <p>I think AI use cases are similar. What a customer first asks for is often different from the real business problem. Finding that gap is what discovery means in this role.</p>
+      </div>
+    </article>
+
+    <!-- Q7 -->
+    <article class="qa" id="q7">
+      <div class="qhead"><span class="qno">Q7</span><h3><span data-l="ja">経営層・CxOとやり取りした経験は？</span><span data-l="en">Tell me about working with executives or CxOs.</span><span class="tag"><span data-l="ja">最優先</span><span data-l="en">Top priority</span></span></h3></div>
+      <button type="button" class="reveal"><span data-l="ja">回答を表示</span><span data-l="en">Show answer</span></button>
+      <div class="ans" data-l="ja">
+        <p><mark class="ph">【例：IBMで○○社の部長・役員向けに、移行方式の比較と投資判断の材料を説明した場面。誰に、何を、どう判断してもらったか】</mark></p>
+        <p>FanRuan時代は、日本で製品の実績がない状態から、顧客の経営層に「なぜBIに投資すべきか」を業務の言葉で説明してきました。Power BIとの競合コンペにも複数勝っています。技術を経営の判断材料に翻訳することは、ずっと続けてきたことです。</p>
+      </div>
+      <div class="ans" data-l="en">
+        <p><mark class="ph">【Example: at IBM, explaining migration options and investment decision points to a department head or executive at ○○. Who, what, and what they decided.】</mark></p>
+        <p>At FanRuan, our product had no track record in Japan. I explained to customer executives why they should invest in BI, using business language, not technical terms. We won several competitive deals against Power BI. Translating technology into business decisions is something I have always done.</p>
+      </div>
+      <p class="tip" data-l="ja">手薄な項目。「誰に・何を・どう判断してもらったか」が言える実例を1つ用意する。</p>
+      <p class="tip" data-l="en">This is the thinnest area. Prepare one concrete example: who, what you presented, and what they decided.</p>
+    </article>
+
+    <!-- Q8 -->
+    <article class="qa" id="q8">
+      <div class="qhead"><span class="qno">Q8</span><h3><span data-l="ja">導入・本番化で困難を乗り越えた経験は？</span><span data-l="en">Tell me about overcoming a hard problem in delivery or production.</span></h3></div>
+      <button type="button" class="reveal"><span data-l="ja">回答を表示</span><span data-l="en">Show answer</span></button>
+      <div class="ans" data-l="ja">
+        <p>三菱UFJ様の顧客別DB案件です。マスリテール向けのサービス展開で、高負荷時のバッチ処理に2時間半かかり、サービスインが危ぶまれていました。nmonやdb2advisでボトルネックを特定し、インデックス設計とSQLを見直して40分まで短縮しました。その結果、サービスインに成功しました。</p>
+        <p>トヨタファイナンス様の案件では、メインフレームのデータにDB定義と異なる文字コードが混在していました。変換処理を行う拡張モジュールを独自に開発して解決し、製品チームにも機能改善を働きかけました。</p>
+      </div>
+      <div class="ans" data-l="en">
+        <p>At MUFG, we were launching a service for mass retail customers. Under high load, a batch job took two and a half hours, and the go-live was at risk. I found the bottleneck with nmon and db2advis, redesigned the indexes and SQL, and cut it to 40 minutes. The service went live successfully.</p>
+        <p>At Toyota Finance, mainframe data contained character encodings that did not match the database definition. I built a custom extension module to convert them, and pushed the product team for a permanent fix.</p>
+      </div>
+    </article>
+
+    <!-- Q9 -->
+    <article class="qa" id="q9">
+      <div class="qhead"><span class="qno">Q9</span><h3><span data-l="ja">専門チームを巻き込み、役割分担を決めた経験は？</span><span data-l="en">How do you bring in specialists and define ownership?</span></h3></div>
+      <button type="button" class="reveal"><span data-l="ja">回答を表示</span><span data-l="en">Show answer</span></button>
+      <div class="ans" data-l="ja">
+        <p>JR東海様とCoop共済様の案件は、どちらもチーム初の連携方式でした。私が技術的な論点を整理し、製品開発チームを巻き込んで検証を進めました。</p>
+        <p>東京海上日動システムズ様の案件では、外部パートナーを含むチームのリーダーとして作業を切り分けました。自動化の方式は私が設計・実証し、各環境の構築はチームで展開しました。その結果、1環境あたりの構築工数を200時間から80時間に削減しました。</p>
+        <p>どこまでを自分が深く掘り、どこから専門家に任せるか。その線を最初に明確にすることを意識しています。</p>
+      </div>
+      <div class="ans" data-l="en">
+        <p>At JR Central and Coop Kyosai, the integration patterns were new for our team. I organized the technical issues and brought in the product development team to validate them together.</p>
+        <p>At Tokio Marine &amp; Nichido Systems, I led a team that included external partners. I designed and proved the automation approach, and the team rolled it out to each environment. We cut build effort per environment from 200 hours to 80 hours.</p>
+        <p>I always try to decide early what I will go deep on myself, and what I will hand to specialists.</p>
+      </div>
+    </article>
+
+    <!-- Q10 -->
+    <article class="qa" id="q10">
+      <div class="qhead"><span class="qno">Q10</span><h3><span data-l="ja">現場の声を製品に還元した経験は？</span><span data-l="en">How have you brought customer feedback back to the product?</span></h3></div>
+      <button type="button" class="reveal"><span data-l="ja">回答を表示</span><span data-l="en">Show answer</span></button>
+      <div class="ans" data-l="ja">
+        <p>Coop共済様の案件で、コードページに存在しない日本独自の文字への対応が課題になりました。再現条件と業務への影響を整理して製品開発チームに伝え、日本市場向けの機能改善を実現しました。</p>
+        <p>社内でも品質改善チームのSMEとして、継続的にフィードバックを行っています。FanRuan時代には、日本向けローカライズ機能の要件定義を主導しました。</p>
+      </div>
+      <div class="ans" data-l="en">
+        <p>At Coop Kyosai, we had a problem with Japan-specific characters that do not exist in the code page. I documented the reproduction steps and business impact for the product team, and we got an enhancement for the Japan market.</p>
+        <p>Inside IBM, I also give continuous feedback as an SME on the quality improvement team. At FanRuan, I led the requirements for Japanese localization features.</p>
+      </div>
+    </article>
+
+    <!-- Q11 -->
+    <article class="qa" id="q11">
+      <div class="qhead"><span class="qno">Q11</span><h3><span data-l="ja">金融機関でのAI導入の課題は何だと思いますか？</span><span data-l="en">What are the challenges of AI adoption in financial services?</span></h3></div>
+      <button type="button" class="reveal"><span data-l="ja">回答を表示</span><span data-l="en">Show answer</span></button>
+      <div class="ans" data-l="ja">
+        <p>3つあると考えています。</p>
+        <ol>
+          <li><b>データの所在。</b>重要なデータがメインフレームや基幹DBにあり、AIから安全に、鮮度の高い状態で使える形になっていません。</li>
+          <li><b>ガバナンスとセキュリティ。</b>個人情報の扱い、監査対応、社内規程との整合が必要になります。</li>
+          <li><b>効果の証明。</b>PoCで「便利そう」で終わり、定量的な効果を示せないまま本番化の判断ができないケースです。</li>
+        </ol>
+        <p>1つ目はCDCやMDMで私が解いてきた領域です。3つ目は、社内のAI活用で精度（0%→97%）と工数削減（年約200時間）を数字で示した経験が活きると考えています。</p>
+      </div>
+      <div class="ans" data-l="en">
+        <p>I see three.</p>
+        <ol>
+          <li><b>Where the data lives.</b> Critical data sits in mainframes and core databases. It is not ready for AI to use safely and with fresh data.</li>
+          <li><b>Governance and security:</b> personal data handling, audit requirements, and internal policies.</li>
+          <li><b>Proving value.</b> Many PoCs end with "this looks useful," but without numbers, nobody can decide to go to production.</li>
+        </ol>
+        <p>The first one is what I have solved with CDC and MDM. For the third, my internal AI project will help: I proved its value with numbers, raising accuracy from 0% to 97% and saving about 200 hours a year.</p>
+      </div>
+    </article>
+
+    <!-- Q12 -->
+    <article class="qa" id="q12">
+      <div class="qhead"><span class="qno">Q12</span><h3><span data-l="ja">あなたの弱みは？</span><span data-l="en">What is your weakness?</span></h3></div>
+      <button type="button" class="reveal"><span data-l="ja">回答を表示</span><span data-l="en">Show answer</span></button>
+      <div class="ans" data-l="ja">
+        <p>英語です。現在はCEFR B1+で、技術的な議論や読み書きは問題なくできますが、ネイティブ並みの流暢さはありません。現在<mark class="ph">【英会話／英語での技術発表など】</mark>で強化しています。</p>
+        <p>一方で、日本語と中国語はネイティブレベルで、日本の顧客、海外本社、製品チームの間を3言語で調整してきました。</p>
+      </div>
+      <div class="ans" data-l="en">
+        <p>My English. My level is CEFR B1+. I can handle technical discussions, reading, and writing, but I am not as fluent as a native speaker. I am improving it through <mark class="ph">【English conversation practice / technical presentations in English】</mark>.</p>
+        <p>On the other hand, my Japanese and Chinese are at native level. I have coordinated between Japanese customers, overseas headquarters, and product teams in three languages.</p>
+      </div>
+    </article>
+
+    <!-- Q13 -->
+    <article class="qa" id="q13">
+      <div class="qhead"><span class="qno">Q13</span><h3><span data-l="ja">事務的な質問</span><span data-l="en">Logistics</span></h3></div>
+      <button type="button" class="reveal"><span data-l="ja">回答を表示</span><span data-l="en">Show answer</span></button>
+      <div class="ans tblwrap" data-l="ja">
+        <table>
+          <thead><tr><th>質問</th><th>答え方・準備すること</th></tr></thead>
+          <tbody>
+            <tr><td>希望年収</td><td>現年収と希望額の幅（「総額で<mark class="ph">【○○〜○○】</mark>万円を希望」）。株式報酬についての考え方も整理しておく</td></tr>
+            <tr><td>入社可能時期</td><td>IBMの退職予告期間と引き継ぎ期間から逆算した時期<mark class="ph">【○月】</mark></td></tr>
+            <tr><td>他社の選考状況</td><td>「データ×AIの領域で数社と話しています」程度で十分</td></tr>
+            <tr><td>面接言語</td><td>英語面接への対応可否を正直に伝え、各選考ステップの言語を確認する</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ans tblwrap" data-l="en">
+        <table>
+          <thead><tr><th>Question</th><th>How to answer</th></tr></thead>
+          <tbody>
+            <tr><td>Salary expectations</td><td>"I am looking for a total compensation of around <mark class="ph">【○○ to ○○】</mark> million yen. I am also open to discussing equity."</td></tr>
+            <tr><td>Start date</td><td>"Considering my notice period and handover, I could start around <mark class="ph">【month】</mark>."</td></tr>
+            <tr><td>Other interviews</td><td>"I am talking with a few companies in the data and AI space."</td></tr>
+            <tr><td>Interview language</td><td>"I am comfortable in Japanese. In English I can discuss technical topics, but may speak a bit slowly. Could you tell me the language for each step?"</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+  </div>
+</main>
+
+<script>
+(function () {
+  var app = document.getElementById('app');
+  var bJa = document.getElementById('btn-ja');
+  var bEn = document.getElementById('btn-en');
+  var bPr = document.getElementById('btn-practice');
+
+  function setLang(l) {
+    app.setAttribute('data-lang', l);
+    document.documentElement.lang = l;
+    bJa.setAttribute('aria-pressed', l === 'ja');
+    bEn.setAttribute('aria-pressed', l === 'en');
+    try { localStorage.setItem('qa-lang', l); } catch (e) {}
+  }
+  bJa.addEventListener('click', function () { setLang('ja'); });
+  bEn.addEventListener('click', function () { setLang('en'); });
+
+  bPr.addEventListener('click', function () {
+    var on = !app.classList.contains('practice');
+    app.classList.toggle('practice', on);
+    bPr.setAttribute('aria-pressed', on);
+    document.querySelectorAll('.qa.open').forEach(function (q) { q.classList.remove('open'); });
+  });
+
+  document.querySelectorAll('.qa .reveal').forEach(function (btn) {
+    btn.addEventListener('click', function () { btn.closest('.qa').classList.add('open'); });
+  });
+
+  var start = 'ja';
+  if (location.hash === '#en') start = 'en';
+  else { try { start = localStorage.getItem('qa-lang') || 'ja'; } catch (e) {} }
+  setLang(start === 'en' ? 'en' : 'ja');
+})();
+</script>
+
+</body></html>
