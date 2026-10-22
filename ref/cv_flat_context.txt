@@ -257,6 +257,7 @@
 		...
 	・AWS Certified Solutions Architect – Professional（現在は有効期限切れ）　※認証を表示：https://www.credly.com/badges/64fb98fb-63d7-4170-943f-1bf475a72b65
 	・AWS Certified Solutions Architect – Professional（現在は有効期限切れ）　※認証を表示：https://www.credly.com/badges/64fb98fb-63d7-4170-943f-1bf475a72b65
+	・ServiceNow Certified System Administrator (CSA)　※認証を表示：https://www.credly.com/badges/1ded7cf2-fdd1-45f6-b620-23b1474422f4/public_url
 	・Salesforce Certified Tableau Desktop Foundations　※認証を表示：https://www.salesforce.com/trailblazer/kbqrps1p6xoufpe2c6
 	・日本語：JLPT N1
 	・英語：CEFR B1+（Versant English Test）　※認証を表示：https://hermes.ordinate.com/scorereport/report?z=73349269
