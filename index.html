@@ -10,7 +10,7 @@
 <style>
 :root{
   --ink:#1b2430; --ink2:#4a5566; --mute:#7a8597; --line:#d9dee6; --bg:#e9ecf1; --paper:#ffffff;
-  --navy:#1d3557; --navy2:#2c4a75; --teal:#0f766e; --tealbg:#e6f4f2; --amber:#a15c07; --amberbg:#fdf3e1;
+  --navy:#1d3557; --teal:#0f766e; --tealbg:#e6f4f2;
   --navybg:#e8eef7; --soft:#f5f7fa;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -73,9 +73,9 @@ html[lang=en] .contact li{grid-template-columns:19mm 1fr}
 .synergy b{color:var(--teal);font-size:10pt;line-height:1}
 .strs{display:grid;grid-template-columns:1.1fr 1.45fr 1.1fr;gap:3mm}
 .str{border:1px solid var(--line);border-radius:4px;padding:2mm 2.6mm;border-top:3px solid var(--navy)}
-.str-presales{border-top-color:var(--amber)} .str-delivery{border-top-color:var(--teal)}
+.str-presales{border-top-color:var(--navy)} .str-delivery{border-top-color:var(--teal)} .str-common{border-top-color:var(--mute)}
 .str h5{font-size:8.4pt;margin-bottom:1mm;color:var(--navy)}
-.str-presales h5{color:var(--amber)} .str-delivery h5{color:var(--teal)}
+.str-presales h5{color:var(--navy)} .str-delivery h5{color:var(--teal)} .str-common h5{color:var(--ink2)}
 .str li,.car-b li,.dots li{position:relative;padding-left:9px;font-size:7.5pt;line-height:1.5;margin-bottom:.6mm}
 .str li::before,.car-b li::before,.dots li::before{content:"";position:absolute;left:1px;top:.62em;width:3.5px;height:3.5px;border-radius:50%;background:var(--mute)}
 
@@ -95,12 +95,12 @@ html[lang=en] .car{grid-template-columns:20mm 1fr}
 .sk-key{font-size:6.6pt;color:var(--mute);margin-top:1mm}
 .blk{break-inside:avoid}
 .page > :not(.pf){zoom:var(--z,1)}
-.grp.cont{background:var(--navy2)}
+.grp.cont{background:var(--navy)}
 .certs{display:grid;grid-template-columns:1fr 1fr;column-gap:3mm}
 .certs li{white-space:nowrap;font-size:7pt;padding:.5mm 0 .5mm 10px;position:relative;line-height:1.4}
 .certs li::before{content:"✓";position:absolute;left:0;color:var(--teal);font-weight:700}
 .certs a:hover{text-decoration:underline}
-.award{font-size:7.6pt;background:var(--amberbg);border-left:3px solid var(--amber);padding:1.6mm 2.4mm;border-radius:0 3px 3px 0;line-height:1.5}
+.award{font-size:7.6pt;background:var(--navybg);border-left:3px solid var(--navy);padding:1.6mm 2.4mm;border-radius:0 3px 3px 0;line-height:1.5}
 
 /* project pages */
 .legend{display:flex;flex-wrap:wrap;gap:4px;align-items:center;font-size:7.2pt;color:var(--ink2);margin-bottom:3mm}
@@ -128,10 +128,10 @@ html[lang=en] .car{grid-template-columns:20mm 1fr}
 .pj-meta i{font-style:normal;color:var(--mute);margin-right:4px;font-size:6.8pt;text-transform:uppercase;letter-spacing:.04em}
 .tags{display:inline-flex;gap:3px;flex-wrap:wrap}
 .tag{font-size:6.6pt;font-weight:700;padding:0 6px;border-radius:999px;line-height:1.7;background:#eef0f3;color:var(--ink2)}
-.tag-presales{background:var(--amberbg);color:var(--amber)}
+.tag-presales{background:#fff;color:var(--navy);box-shadow:inset 0 0 0 1px var(--navy)}
 .tag-delivery{background:var(--tealbg);color:var(--teal)}
-.tag-pm,.tag-lead{background:var(--navybg);color:var(--navy)}
-.tag-dev{background:#f1ecfa;color:#5b3e96}
+.tag-pm{background:var(--navy);color:#fff}
+.tag-dev{background:#fff;color:var(--ink2);box-shadow:inset 0 0 0 1px var(--mute)}
 .pj-scope{margin-left:9.4mm}
 .pj-scope li{position:relative;padding-left:9px;font-size:7.7pt;line-height:1.5;margin-bottom:.5mm;color:var(--ink)}
 .pj-scope li::before{content:"";position:absolute;left:1px;top:.62em;width:3.5px;height:3.5px;border-radius:50%;background:var(--mute)}
@@ -141,8 +141,8 @@ html[lang=en] .car{grid-template-columns:20mm 1fr}
 .pj-out > span{font-weight:600;color:var(--ink)}
 .pj-tech{margin-left:9.4mm;display:flex;flex-wrap:wrap;gap:3px}
 .chip{font-size:6.6pt;border:1px solid var(--line);border-radius:2px;padding:0 5px;color:var(--ink2);line-height:1.7;background:#fff}
-.award-pj{border-color:var(--amber);box-shadow:inset 3px 0 0 var(--amber)}
-.award-pj .pj-num{color:var(--amber)}
+.award-pj{border-color:var(--navy);box-shadow:inset 3px 0 0 var(--navy)}
+.award-pj .pj-num{color:var(--navy)}
 .note{border:1px dashed var(--line);border-radius:4px;padding:2mm 3mm;font-size:7.7pt;color:var(--ink2);margin-top:2mm;break-inside:avoid}
 .note b{color:var(--navy)}
 .note .dots{margin-top:1mm}
@@ -211,8 +211,8 @@ html[lang=en] .car{grid-template-columns:20mm 1fr}
 .lb img{max-width:100%;max-height:100%;border-radius:4px;box-shadow:0 8px 40px rgba(0,0,0,.5)}
 @media screen and (max-width:820px){.pj-figs{margin-left:0;flex-direction:column}.pj-figs img{height:auto;width:100%}}
 @media print{.lb{display:none!important}.pj-figs figure{cursor:auto}}
-.thx{display:grid;grid-template-columns:1fr auto;gap:4mm;align-items:center;background:var(--amberbg);border-left:3px solid var(--amber);border-radius:0 4px 4px 0;padding:2mm 3mm;margin:2mm 0 0}
-.thx-h{font-size:8pt;font-weight:800;color:var(--amber);margin-bottom:.8mm;letter-spacing:.02em}
+.thx{display:grid;grid-template-columns:1fr auto;gap:4mm;align-items:center;background:var(--navybg);border-left:3px solid var(--navy);border-radius:0 4px 4px 0;padding:2mm 3mm;margin:2mm 0 0}
+.thx-h{font-size:8pt;font-weight:800;color:var(--navy);margin-bottom:.8mm;letter-spacing:.02em}
 .thx p{font-size:7.6pt;line-height:1.55;text-align:justify;color:var(--ink)}
 .thx p b{color:var(--navy)}
 .thx-note{font-size:6.8pt;color:var(--ink2);margin-top:.8mm}
@@ -237,7 +237,7 @@ html[lang=en] .car{grid-template-columns:20mm 1fr}
       <h1><span class="ja">庄 奇<small>しょう き ／ Qi Zhuang</small></span><span class="en">Qi Zhuang<small>庄 奇</small></span></h1>
       <div class="hero-title"><span class="ja">データエンジニア ｜ プリセールス &amp; デリバリー</span><span class="en">Data Engineer | Pre-sales &amp; Delivery</span></div>
       <div class="hero-roles">
-        <span><span class="ja">セールスエンジニア</span><span class="en">Sales Engineer</span></span><span><span class="ja">デリバリーPM</span><span class="en">Delivery PM</span></span><span><span class="ja">データエンジニア</span><span class="en">Data Engineer</span></span><span><span class="ja">BIエンジニア</span><span class="en">BI Engineer</span></span>
+        <span><span class="ja">帳票/BI</span><span class="en">Reporting / BI</span></span><span><span class="ja">データ基盤(ETL/CDC/MDM)</span><span class="en">Data Platform (ETL/CDC/MDM)</span></span>
       </div>
     </div>
     <ul class="contact">
@@ -262,7 +262,7 @@ html[lang=en] .car{grid-template-columns:20mm 1fr}
     <div class="col-l">
       <h3 class="sec"><span class="ja">職務経歴</span><span class="en">Experience</span></h3>
       <div class="car"><div class="car-d"><span class="ja">2022.06 – 現在</span><span class="en">Jun 2022 – Present</span></div><div class="car-b">
-<div class="car-c"><span class="ja">日本アイ・ビー・エム株式会社</span><span class="en">IBM Japan, Ltd.</span></div><div class="car-r"><span class="ja">ITスペシャリスト（Expert Labs, Data &amp; AI）</span><span class="en">IT Specialist, Expert Labs (Data &amp; AI)</span></div><ul><li><span class="ja">銀行・保険向けCDC・MDM・ETLのプリセールス／デリバリー（年間5〜10案件）</span><span class="en">Pre-sales &amp; delivery of CDC, MDM and ETL for banks and insurers</span></li><li><span class="ja">2年連続で最高評価(2023・2024)、2025年4月シニア(Band8)昇進、全社表彰「KAIZENnovation Excellence Award」受賞(2024)</span><span class="en">Top-rated FY2023–24; promoted to senior in Apr 2025; KAIZENnovation Excellence Award (2024)</span></li></ul></div></div><div class="car"><div class="car-d"><span class="ja">2016.07 – 2022.05</span><span class="en">Jul 2016 – May 2022</span></div><div class="car-b">
+<div class="car-c"><span class="ja">日本アイ・ビー・エム株式会社</span><span class="en">IBM Japan, Ltd.</span></div><div class="car-r"><span class="ja">ITスペシャリスト（Expert Labs, Data &amp; AI）</span><span class="en">IT Specialist, Expert Labs (Data &amp; AI)</span></div><ul><li><span class="ja">銀行・保険向けCDC・MDM・ETLのプリセールス／デリバリー（年間5〜8案件）</span><span class="en">Pre-sales &amp; delivery of CDC, MDM and ETL for banks and insurers</span></li><li><span class="ja">2年連続で最高評価(2023・2024)、2025年4月シニア(Band8)昇進</span><span class="en">Top-rated FY2023–24; promoted to senior in Apr 2025</span></li></ul></div></div><div class="car"><div class="car-d"><span class="ja">2016.07 – 2022.05</span><span class="en">Jul 2016 – May 2022</span></div><div class="car-b">
 <div class="car-c"><span class="ja">FanRuan Software／バリューテクノロジー</span><span class="en">FanRuan Software / Value Technology</span></div><div class="car-r"><span class="ja">日本市場担当／テクニカルマネージャー（技術責任者）</span><span class="en">Japan Market Lead / Technical Manager</span></div><ul><li><span class="ja">帳票・BI製品の日本市場をゼロから立ち上げ、400社超へのデモから48社の導入へ（31社を直接担当）</span><span class="en">Launched FineReport / FineBI in Japan from zero: 400+ demos, 48 customers (31 direct)</span></li></ul></div></div><div class="car"><div class="car-d"><span class="ja">2015.05 – 2016.06</span><span class="en">May 2015 – Jun 2016</span></div><div class="car-b">
 <div class="car-c"><span class="ja">FanRuan Software（中国本社）</span><span class="en">FanRuan Software (China HQ)</span></div><div class="car-r"><span class="ja">デリバリーエンジニア（大規模案件でPM兼任）</span><span class="en">Delivery Engineer (PM on major projects)</span></div><ul></ul></div></div><div class="car"><div class="car-d"><span class="ja">2014.07 – 2015.04</span><span class="en">Jul 2014 – Apr 2015</span></div><div class="car-b">
 <div class="car-c"><span class="ja">ABeam Consulting（中国・上海）</span><span class="en">ABeam Consulting (Shanghai, China)</span></div><div class="car-r"><span class="ja">ソフトウェアエンジニア</span><span class="en">Software Engineer</span></div><ul></ul></div></div>
@@ -289,7 +289,7 @@ html[lang=en] .car{grid-template-columns:20mm 1fr}
   </div>
   <div class="pf"><span><span class="ja">庄 奇 ｜ 職務経歴書</span><span class="en">Qi Zhuang | Resume</span></span><span class="pgno">1</span></div>
 </section>
-<section class="page"><div class="ph"><span class="ph-name"><span class="ja">庄 奇</span><span class="en">Qi Zhuang</span></span><span class="ph-sec"><span class="ja">担当プロジェクト詳細</span><span class="en">Project Details</span></span></div><div class="blk" data-b="legend"><div class="legend"><span class="ja">役割タグ：</span><span class="en">Role tags: </span><span class="tag tag-presales"><span class="ja">プリセールス</span><span class="en">Pre-sales</span></span><span class="tag tag-delivery"><span class="ja">デリバリー</span><span class="en">Delivery</span></span><span class="tag tag-pm">PM</span><span class="tag tag-lead"><span class="ja">チームリード</span><span class="en">Team Lead</span></span><span class="tag tag-sme">SME</span><span class="tag tag-dev"><span class="ja">開発</span><span class="en">Development</span></span><span class="muted"><span class="ja">　※各案件、期間の新しい順</span><span class="en">  · Newest first within each section</span></span></div></div>
+<section class="page"><div class="ph"><span class="ph-name"><span class="ja">庄 奇</span><span class="en">Qi Zhuang</span></span><span class="ph-sec"><span class="ja">担当プロジェクト詳細</span><span class="en">Project Details</span></span></div><div class="blk" data-b="legend"><div class="legend"><span class="ja">役割タグ：</span><span class="en">Role tags: </span><span class="tag tag-presales"><span class="ja">プリセールス</span><span class="en">Pre-sales</span></span><span class="tag tag-delivery"><span class="ja">デリバリー</span><span class="en">Delivery</span></span><span class="tag tag-pm">PM</span><span class="tag tag-sme">SME</span><span class="tag tag-dev"><span class="ja">開発</span><span class="en">Development</span></span><span class="muted"><span class="ja">　※各案件、期間の新しい順</span><span class="en">  · Newest first within each section</span></span></div></div>
 <div class="blk" data-b="ibm"><div class="co">
   <div class="co-h"><h2><span class="ja">日本アイ・ビー・エム株式会社</span><span class="en">IBM Japan, Ltd.</span></h2><span><span class="ja">2022.06 – 現在（4年5ヶ月）</span><span class="en">Jun 2022 – Present (4 yrs 5 mos)</span></span></div>
   <p><span class="ja">IBM Technology Expert Labs（Data &amp; AI）のITスペシャリストとして、Data Fabric製品のプリセールスとデリバリーに従事。主な業界：銀行・保険。デリバリーコストを管理し利益率（GP%）を確保。</span><span class="en">IT Specialist at IBM Technology Expert Labs (Data &amp; AI), delivering pre-sales and implementation of Data Fabric products for banks and insurers, while managing delivery cost to secure gross-profit targets.</span></p>
@@ -307,8 +307,8 @@ html[lang=en] .car{grid-template-columns:20mm 1fr}
   </header>
   <div class="pj-meta spot-meta">
     <span><i><span class="ja">体制</span><span class="en">Team</span></i><span class="ja">最大6名（IBM 3名、外部パートナー3名）</span><span class="en">Up to 6 (3 IBM, 3 partners)</span></span>
-    <span><i><span class="ja">役割</span><span class="en">Role</span></i><span class="ja">チームメンバー → チームリーダー</span><span class="en">Team Member → Team Lead</span></span>
-    <span class="tags"><span class="tag tag-delivery"><span class="ja">デリバリー</span><span class="en">Delivery</span></span><span class="tag tag-lead"><span class="ja">チームリード</span><span class="en">Team Lead</span></span><span class="tag tag-pm">PM</span></span>
+    <span><i><span class="ja">役割</span><span class="en">Role</span></i><span class="ja">チームメンバー → デリバリーPM</span><span class="en">Team Member → Delivery PM</span></span>
+    <span class="tags"><span class="tag tag-delivery"><span class="ja">デリバリー</span><span class="en">Delivery</span></span><span class="tag tag-pm">PM</span></span>
   </div>
   <div class="spot-kpis"><div class="sk"><div class="kv">3→7<small><span class="ja">業態</span><span class="en">lines</span></small></div><div class="kl"><span class="ja">グループ各社へ段階拡大</span><span class="en">phased group-wide rollout</span></div></div><div class="sk"><div class="kv"><span class="ja">4,500万</span><span class="en">45M</span><small><span class="ja">件</span><span class="en"></span></small></div><div class="kl"><span class="ja">マス層の個人情報を追加</span><span class="en">mass-retail individuals added</span></div></div><div class="sk"><div class="kv">−73<small>%</small></div><div class="kl"><span class="ja">バッチ処理時間（2h30m→40分）</span><span class="en">batch runtime (2h30m → 40 min)</span></div></div><div class="sk"><div class="kv"><span class="ja">4年+</span><span class="en">4 yrs+</span><small></small></div><div class="kl"><span class="ja">継続受注・アカウント維持</span><span class="en">renewals &amp; account retained</span></div></div></div>
   <div class="val">
@@ -376,7 +376,7 @@ html[lang=en] .car{grid-template-columns:20mm 1fr}
   <div class="pj-meta">
     <span><i><span class="ja">体制</span><span class="en">Team</span></i><span class="ja">4名</span><span class="en">4 members</span></span>
     <span><i><span class="ja">役割</span><span class="en">Role</span></i>SME</span>
-    <span class="tags"><span class="tag tag-presales"><span class="ja">プリセールス</span><span class="en">Pre-sales</span></span><span class="tag tag-delivery"><span class="ja">デリバリー</span><span class="en">Delivery</span></span><span class="tag tag-sme">SME</span><span class="tag tag-dev"><span class="ja">開発</span><span class="en">Development</span></span></span>
+    <span class="tags"><span class="tag tag-presales"><span class="ja">プリセールス</span><span class="en">Pre-sales</span></span><span class="tag tag-pm">PM</span><span class="tag tag-sme">SME</span></span>
   </div>
   <ul class="pj-scope"><li><span class="ja">Db2 for z/OS・IMSからOracle／Aurora PostgreSQLへのCDC導入支援、PoC実施、QAサポート</span><span class="en">CDC implementation support from Db2 for z/OS and IMS to Oracle / Aurora PostgreSQL; PoC execution and Q&amp;A support</span></li><li><span class="ja">DB定義と異なる文字コードが混在する事象に対し、変換処理を行う拡張モジュールを独自開発。製品へのエンコードオーバーライド機能の追加を推進</span><span class="en">Developed a custom exit module to convert data whose encoding differed from the DB definition; drove the addition of an encoding-override feature to the product</span></li></ul>
   <div class="pj-out"><b><span class="ja">成果</span><span class="en">Result</span></b><span><span class="ja">文字コード混在環境でのレプリケーション不具合を独自拡張で解決し、データ連携基盤の安定導入を実現</span><span class="en">Resolved replication failures in a mixed-encoding environment, enabling a stable rollout of the integration platform</span></span></div>
@@ -394,8 +394,8 @@ html[lang=en] .car{grid-template-columns:20mm 1fr}
   </header>
   <div class="pj-meta">
     <span><i><span class="ja">体制</span><span class="en">Team</span></i><span class="ja">3名</span><span class="en">3 members</span></span>
-    <span><i><span class="ja">役割</span><span class="en">Role</span></i><span class="ja">チームリーダー／SME</span><span class="en">Team Lead / SME</span></span>
-    <span class="tags"><span class="tag tag-presales"><span class="ja">プリセールス</span><span class="en">Pre-sales</span></span><span class="tag tag-lead"><span class="ja">チームリード</span><span class="en">Team Lead</span></span><span class="tag tag-sme">SME</span></span>
+    <span><i><span class="ja">役割</span><span class="en">Role</span></i><span class="ja">デリバリーPM／SME</span><span class="en">Delivery PM / SME</span></span>
+    <span class="tags"><span class="tag tag-presales"><span class="ja">プリセールス</span><span class="en">Pre-sales</span></span><span class="tag tag-pm">PM</span><span class="tag tag-sme">SME</span></span>
   </div>
   <ul class="pj-scope"><li><span class="ja">提案支援（基礎検討・要員計画・見積）、PoC環境構築・機能確認。チーム初のEvent Streams連携案件として、製品開発チームと連携しながら技術課題を解決</span><span class="en">Proposal support (feasibility, staffing, estimation); PoC build and validation. As the team's first Event Streams engagement, solved technical issues together with the product development team</span></li></ul>
   <div class="pj-out"><b><span class="ja">成果</span><span class="en">Result</span></b><span><span class="ja">Kafka基盤（Event Streams）へのデータ連携パイプラインの実現性を立証</span><span class="en">Proved the feasibility of a mainframe-to-Kafka (Event Streams) data pipeline</span></span></div>
@@ -451,8 +451,8 @@ html[lang=en] .car{grid-template-columns:20mm 1fr}
   </header>
   <div class="pj-meta">
     <span><i><span class="ja">体制</span><span class="en">Team</span></i><span class="ja">3名（IBM社員2名、外部パートナー1名）</span><span class="en">3 members (2 IBM, 1 partner)</span></span>
-    <span><i><span class="ja">役割</span><span class="en">Role</span></i><span class="ja">チームリーダー／SME</span><span class="en">Team Lead / SME</span></span>
-    <span class="tags"><span class="tag tag-presales"><span class="ja">プリセールス</span><span class="en">Pre-sales</span></span><span class="tag tag-lead"><span class="ja">チームリード</span><span class="en">Team Lead</span></span><span class="tag tag-sme">SME</span></span>
+    <span><i><span class="ja">役割</span><span class="en">Role</span></i><span class="ja">デリバリーPM／SME</span><span class="en">Delivery PM / SME</span></span>
+    <span class="tags"><span class="tag tag-presales"><span class="ja">プリセールス</span><span class="en">Pre-sales</span></span><span class="tag tag-pm">PM</span><span class="tag tag-sme">SME</span></span>
   </div>
   <ul class="pj-scope"><li><b class="lab"><span class="ja">提案支援</span><span class="en">Proposal</span></b><span class="ja">基礎検討、要員計画、見積作成</span><span class="en">Feasibility study, staffing plan and estimation</span></li><li><b class="lab">PoC</b><span class="ja">IBM i（AS/400）からOracle／Snowflakeへの連携の実現性検証、環境構築、現行同等の機能・性能要件の検証</span><span class="en">Validated replication from IBM i (AS/400) to Oracle / Snowflake; built environments; verified functional and performance parity with the current system</span></li><li><b class="lab"><span class="ja">方針転換</span><span class="en">Pivot</span></b><span class="ja">当初案はCDCがJDBC経由で1件ずつDMLを発行する方式で、TPSは約200にとどまった。顧客の実運用が「夜間に前日分の変更を一括反映する」バッチ要件であると捉え直し、CDC → DataStage → S3 → COPY／MERGEでSnowflakeへ一括反映する構成を設計・検証</span><span class="en">The initial design applied row-by-row DML via JDBC, reaching only ~200 TPS. Reframing the real requirement as a nightly batch apply of the previous day's changes, designed and validated a CDC → DataStage → S3 → COPY/MERGE bulk-load architecture into Snowflake</span></li><li><b class="lab"><span class="ja">差別化</span><span class="en">Differentiation</span></b><span class="ja">競合製品はSnowflake反映に強い一方、IBM i側の変更キャプチャに課題。InfoSphere Data Replicationのキャプチャ能力と一括反映を組み合わせて差別化</span><span class="en">Competitors were strong at Snowflake loading but weak at IBM i change capture; combined InfoSphere Data Replication's capture with bulk loading to differentiate</span></li></ul>
   <div class="pj-out"><b><span class="ja">成果</span><span class="en">Result</span></b><span><span class="ja">Snowflakeへの反映性能をTPS約200から1万超（約50倍）に改善し、オンプレミスからクラウドへの移行実現性を立証</span><span class="en">Improved Snowflake apply throughput from ~200 to 10,000+ TPS (~50×), proving the feasibility of the on-premises-to-cloud migration</span></span></div>
@@ -471,8 +471,8 @@ html[lang=en] .car{grid-template-columns:20mm 1fr}
   </header>
   <div class="pj-meta">
     <span><i><span class="ja">体制</span><span class="en">Team</span></i><span class="ja">MWチーム 最大6名（IBM 3名、外部パートナー3名）</span><span class="en">Middleware team, up to 6 (3 IBM, 3 partners)</span></span>
-    <span><i><span class="ja">役割</span><span class="en">Role</span></i><span class="ja">チームリーダー</span><span class="en">Team Lead</span></span>
-    <span class="tags"><span class="tag tag-presales"><span class="ja">プリセールス</span><span class="en">Pre-sales</span></span><span class="tag tag-delivery"><span class="ja">デリバリー</span><span class="en">Delivery</span></span><span class="tag tag-lead"><span class="ja">チームリード</span><span class="en">Team Lead</span></span><span class="tag tag-pm">PM</span></span>
+    <span><i><span class="ja">役割</span><span class="en">Role</span></i><span class="ja">デリバリーPM</span><span class="en">Delivery PM</span></span>
+    <span class="tags"><span class="tag tag-delivery"><span class="ja">デリバリー</span><span class="en">Delivery</span></span><span class="tag tag-pm">PM</span></span>
   </div>
   <ul class="pj-scope"><li><b class="lab"><span class="ja">提案支援</span><span class="en">Proposal</span></b><span class="ja">基礎検討、要員計画、見積策定</span><span class="en">Feasibility study, staffing plan and estimation</span></li><li><b class="lab"><span class="ja">実現性検証</span><span class="en">Validation</span></b><span class="ja">Fixの机上確認、環境構築、アプリ・データ移行検証、AMIによるリストア＋設定変更、Ansible Playbookによる構築・移行の自動化検証（IBM Bob活用）</span><span class="en">Fix review, environment build, application/data migration tests, AMI-based restore and reconfiguration, Ansible-automated build &amp; migration (built with IBM Bob)</span></li><li><b class="lab"><span class="ja">本対応</span><span class="en">Execution</span></b><span class="ja">各環境の構築、アプリ・データ移行、機能・リストア・切り戻し検証、トラブル対応</span><span class="en">Built each environment, migrated apps and data, ran functional, restore and rollback tests, handled issues</span></li><li><b class="lab"><span class="ja">計画・統制</span><span class="en">Control</span></b><span class="ja">WBS作成、QCD・課題／リスク／変更管理、受入〜本番移行・運用引継ぎ</span><span class="en">WBS, QCD and issue/risk/change control through acceptance, go-live and handover</span></li><li><b class="lab"><span class="ja">非機能・審査</span><span class="en">NFR &amp; review</span></b><span class="ja">可用性・監視・DR・権限などの非機能要件を顧客と合意。セキュリティ審査・第三者検証への対応、SOW・検収条件の整理</span><span class="en">Agreed NFRs (availability, monitoring, DR, access control) with the client; supported security reviews and third-party assessment; defined SOW and acceptance criteria</span></li></ul>
   <div class="pj-out"><b><span class="ja">成果</span><span class="en">Result</span></b><span><span class="ja">Ansible／AMIによる構築・移行の自動化を提案・実証し、1環境あたりの構築工数を200時間から80時間に削減（60％削減）</span><span class="en">Proposed and proved Ansible/AMI automation, cutting build effort per environment from 200 to 80 hours (−60%)</span></span></div>
@@ -635,7 +635,7 @@ html[lang=en] .car{grid-template-columns:20mm 1fr}
   <div class="pj-meta">
     <span><i><span class="ja">体制</span><span class="en">Team</span></i><span class="ja">1名</span><span class="en">1 member</span></span>
     <span><i><span class="ja">役割</span><span class="en">Role</span></i><span class="ja">デリバリー（リード）</span><span class="en">Delivery Lead</span></span>
-    <span class="tags"><span class="tag tag-delivery"><span class="ja">デリバリー</span><span class="en">Delivery</span></span><span class="tag tag-lead"><span class="ja">チームリード</span><span class="en">Team Lead</span></span></span>
+    <span class="tags"><span class="tag tag-delivery"><span class="ja">デリバリー</span><span class="en">Delivery</span></span><span class="tag tag-pm">PM</span></span>
   </div>
   <ul class="pj-scope"><li><span class="ja">設備・センサーの稼働データ監視画面とトレンド分析画面の開発、TalendによるETLパイプライン構築</span><span class="en">Built monitoring and trend dashboards for equipment/sensor data and Talend ETL pipelines</span></li></ul>
   <div class="pj-out"><b><span class="ja">成果</span><span class="en">Result</span></b><span><span class="ja">日本市場の初期成約顧客。設備稼働率の向上と故障予兆検知によるダウンタイム削減を支える基盤をサービスイン</span><span class="en">One of the first Japan customers. Launched a platform improving uptime and reducing downtime through failure prediction</span></span></div>
